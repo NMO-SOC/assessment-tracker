@@ -166,6 +166,13 @@
   .acard .meta{font-size:12.5px;color:var(--muted);margin-bottom:9px}
   .acard .codes{display:flex;flex-wrap:wrap;gap:5px}
   .acard .note{font-size:12.5px;color:var(--muted);margin-top:9px;padding-top:9px;border-top:1px solid var(--line-soft)}
+  .acard .crit{margin-top:10px;padding-top:9px;border-top:1px solid var(--line-soft);display:grid;gap:5px}
+  .acard .crit-row{display:flex;gap:8px;align-items:baseline;font-size:13px;line-height:1.45}
+  .acard .crit-row .code{flex:none}
+  .acard .crit-row>span:last-child{color:var(--ink-soft);white-space:pre-line}
+  .acard .crit-row em{color:var(--muted);font-style:normal}
+  .acard .times{font-size:11px;background:var(--done-soft);color:var(--done);border:1px solid var(--done-line);
+    padding:0 6px;border-radius:99px;white-space:nowrap}
 
   /* ---------- drawer ---------- */
   .veil{position:fixed;inset:0;background:var(--veil);opacity:0;pointer-events:none;
@@ -511,9 +518,14 @@
     const scope = ITEMS.filter(it => visibleLevels().includes(it.level) && (!ui.strand || it.strand===ui.strand));
     const rows = [];
     scope.forEach(it => inScopeRecs(it.code).forEach(r => rows.push(r)));
-    const tasks = new Set(rows.map(r=>r.assessment));
+    const tasks = new Set(rows.map(r=>normName(r.assessment)));
     const withNotes = rows.filter(r => r.notes).length;
-    const revisited = scope.filter(it => inScopeRecs(it.code).length > 1).length;
+    /* Revisited means the same assessment task assessed a content description
+       more than once — not two different tasks that happen to touch it.        */
+    const revisited = scope.filter(it => {
+      const names = inScopeRecs(it.code).map(r=>normName(r.assessment));
+      return names.length !== new Set(names).size;
+    }).length;
     const filterLabel = [ui.level?"Level "+ui.level:"", ui.strand, ui.cls].filter(Boolean).join(" · ");
     const tile = (n,l) => '<div class="tile"><b>'+n+'</b><span>'+l+'</span></div>';
     let h = '<div class="summary"><div class="tiles">';
@@ -521,7 +533,7 @@
     h += tile(tasks.size, "assessment task"+(tasks.size===1?"":"s"));
     h += tile(rows.length, "record"+(rows.length===1?"":"s"));
     h += tile(withNotes, "with evidence notes");
-    h += tile(revisited, "revisited more than once");
+    h += tile(revisited, "revisited by the same task");
     h += '</div><div class="ethos">'+
       '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">'+
       '<circle cx="12" cy="12" r="9"/><path d="M12 16v-5M12 8h.01"/></svg>'+
@@ -587,7 +599,11 @@
     return h + '</button>';
   }
 
-  /* ---- by assessment ---- */
+  /* ---- by assessment ----
+     One card per assessment task. Grouped on the name alone, ignoring case and
+     spacing, so a differing date or a stray space doesn't split a task in two. */
+  const normName = s => String(s||"").toLowerCase().replace(/\s+/g,"").replace(/[–—]/g,"-");
+
   function renderAssessments(){
     const by = {};
     ITEMS.forEach(it => {
@@ -599,24 +615,52 @@
           const hay = (r.assessment+" "+(r.cls||"")+" "+(r.notes||"")+" "+it.code+" "+it.description).toLowerCase();
           if (!hay.includes(ui.q.toLowerCase())) return;
         }
-        const k = r.assessment+"||"+(r.cls||"")+"||"+(r.date||"");
-        (by[k] = by[k] || {assessment:r.assessment, cls:r.cls, date:r.date, notes:[], items:[]});
-        by[k].items.push(it);
-        if (r.notes) by[k].notes.push(it.code+" — "+r.notes);
+        const k = normName(r.assessment);
+        const g = by[k] || (by[k] = {names:{}, rows:[], seen:{}, dates:[], classes:new Set(), levels:new Set()});
+        g.names[r.assessment] = (g.names[r.assessment]||0)+1;
+        /* One row per content description: a task that assessed the same
+           description twice shows once, marked, not as a duplicate row.      */
+        let row = g.seen[it.code];
+        if (!row){ row = g.seen[it.code] = {it:it, notes:[], n:0}; g.rows.push(row); }
+        row.n++;
+        if (r.notes) row.notes.push(r.notes);
+        if (r.date) g.dates.push(r.date);
+        if (r.cls) g.classes.add(r.cls);
+        g.levels.add(it.level);
       });
     });
-    const groups = Object.values(by).sort((a,b)=>(b.date||"").localeCompare(a.date||""));
+    const groups = Object.values(by);
+    groups.forEach(g => {
+      g.dates.sort();
+      g.title = Object.keys(g.names).sort((a,b)=>g.names[b]-g.names[a])[0];
+      g.last = g.dates[g.dates.length-1] || "";
+      g.rows.sort((a,b)=>
+        (LEVELS.indexOf(a.it.level)-LEVELS.indexOf(b.it.level)) || a.it.code.localeCompare(b.it.code));
+    });
+    groups.sort((a,b) => (b.last||"").localeCompare(a.last||"") || a.title.localeCompare(b.title));
     if (!groups.length) return '<div class="empty-state">No assessment records yet. Open a content description in the Curriculum view to add one.</div>';
+
     return '<div class="alist">'+groups.map(g => {
-      const lvls = [...new Set(g.items.map(i=>"Lv "+i.level))].join(", ");
-      return '<div class="acard"><h4>'+esc(g.assessment)+'</h4><div class="meta">'+
-        [fmtDate(g.date), g.cls||"no class", lvls,
-         g.items.length+" content description"+(g.items.length===1?"":"s")].filter(Boolean).map(esc).join(" · ")+
-        '</div><div class="codes">'+
-        g.items.sort((a,b)=>a.code.localeCompare(b.code))
-          .map(i=>'<span class="code" title="'+esc(i.description)+'">'+i.code+'</span>').join("")+
-        '</div>'+(g.notes.length?'<div class="note">'+esc(g.notes.join(" · "))+'</div>':'')+'</div>';
+      const n = g.rows.length;
+      const meta = [
+        dateSpan(g.dates),
+        [...g.classes].sort().join(", ") || "no class",
+        [...g.levels].sort((a,b)=>LEVELS.indexOf(a)-LEVELS.indexOf(b)).map(l=>"Lv "+l).join(", "),
+        n+" content description"+(n===1?"":"s")
+      ].filter(Boolean);
+      return '<div class="acard"><h4>'+esc(g.title)+'</h4>'+
+        '<div class="meta">'+meta.map(esc).join(" · ")+'</div>'+
+        '<div class="crit">'+g.rows.map(x =>
+          '<div class="crit-row"><span class="code" title="'+esc(x.it.description)+'">'+x.it.code+'</span>'+
+          '<span>'+(x.notes.length ? esc(x.notes.join(" · ")) : '<em>'+esc(x.it.description)+'</em>')+
+          (x.n>1 ? ' <span class="times">assessed '+x.n+'×</span>' : '')+'</span></div>'
+        ).join("")+'</div></div>';
     }).join("")+'</div>';
+  }
+  function dateSpan(dates){
+    if (!dates.length) return "";
+    const a = dates[0], b = dates[dates.length-1];
+    return a === b ? fmtDate(a) : fmtDate(a)+" – "+fmtDate(b);
   }
   function fmtDate(d){
     if (!d) return "";

@@ -249,6 +249,7 @@
         <div class="menu" id="dataMenu" role="menu">
           <button id="connectBtn">Enable saving on this device…</button>
           <button id="syncNowBtn">Sync now</button>
+          <button id="tidyBtn">Tidy assessment names and dates…</button>
           <button id="repoBtn">Discard local, reload shared copy</button>
           <hr>
           <button id="exportBtn">Export coverage.json</button>
@@ -657,6 +658,93 @@
         ).join("")+'</div></div>';
     }).join("")+'</div>';
   }
+  /* ---- tidying ----
+     One assessment task should carry one name and one date. Where its records
+     disagree, whichever value the most records use wins; ties go to the
+     earliest date, or the longer spelling for a name.                        */
+  function majority(values, tiebreak){
+    const counts = {};
+    values.forEach(v => { if (v) counts[v] = (counts[v]||0)+1; });
+    const keys = Object.keys(counts);
+    if (!keys.length) return null;
+    keys.sort((a,b) => (counts[b]-counts[a]) || tiebreak(a,b));
+    return keys[0];
+  }
+  function tidyPlan(){
+    const groups = {};
+    Object.keys(coverage).forEach(code => coverage[code].forEach(r => {
+      const k = normName(r.assessment);
+      (groups[k] = groups[k] || []).push({code:code, r:r});
+    }));
+    const plan = [];
+    Object.keys(groups).forEach(k => {
+      const rows = groups[k];
+      const label = majority(rows.map(x=>x.r.assessment), (a,b)=>b.length-a.length) || rows[0].r.assessment;
+      const date = majority(rows.map(x=>x.r.date), (a,b)=>a.localeCompare(b));
+      rows.forEach(x => {
+        const changes = {};
+        if (x.r.assessment !== label) changes.assessment = label;
+        if (date && (x.r.date||"") !== date) changes.date = date;
+        if (Object.keys(changes).length)
+          plan.push({code:x.code, id:x.r.id, task:label, was:{assessment:x.r.assessment, date:x.r.date||""}, changes:changes});
+      });
+    });
+    return plan;
+  }
+  function tidyDates(){
+    const plan = tidyPlan();
+    if (!plan.length){ toast("Every assessment already has one consistent name and date."); return; }
+    const byTask = {};
+    plan.forEach(p => (byTask[p.task] = byTask[p.task] || []).push(p));
+    const lines = Object.keys(byTask).sort().map(task => {
+      const ps = byTask[task];
+      return "• "+task+"\n    "+ps.map(p => {
+        const bits = [];
+        if (p.changes.assessment) bits.push('name "'+p.was.assessment+'"');
+        if (p.changes.date) bits.push("date "+(p.was.date ? fmtDate(p.was.date) : "none")+" → "+fmtDate(p.changes.date));
+        return p.code+": "+bits.join(", ");
+      }).join("\n    ");
+    });
+    const nT = Object.keys(byTask).length;
+    const msg = plan.length+" record"+(plan.length===1?"":"s")+" across "+nT+" assessment"+(nT===1?"":"s")+
+      " will be aligned to the name and date most of that assessment's records already use:\n\n"+
+      lines.join("\n\n")+"\n\nApply these changes?";
+    if (!confirm(msg)) return;
+    const index = {};
+    Object.keys(coverage).forEach(code => coverage[code].forEach(r => index[r.id] = r));
+    let n = 0;
+    plan.forEach(p => {
+      const r = index[p.id]; if (!r) return;
+      if (p.changes.assessment) r.assessment = p.changes.assessment;
+      if (p.changes.date) r.date = p.changes.date;
+      n++;
+    });
+    save(); render(); queuePush();
+    toast("Tidied "+n+" record"+(n===1?"":"s")+".");
+  }
+
+  /* Typing a name that already exists pulls that task's date and class across,
+     which is what caused the mismatched dates in the first place.            */
+  function autofillFromName(form){
+    const nameEl = form.querySelector('[name=assessment]');
+    const dateEl = form.querySelector('[name=date]');
+    const clsEl  = form.querySelector('[name=cls]');
+    const k = normName(nameEl.value);
+    if (!k) return;
+    const dates = {}, classes = {};
+    Object.keys(coverage).forEach(code => coverage[code].forEach(r => {
+      if (normName(r.assessment) !== k) return;
+      if (r.date) dates[r.date] = (dates[r.date]||0)+1;
+      if (r.cls) classes[r.cls] = (classes[r.cls]||0)+1;
+    }));
+    const top = o => Object.keys(o).sort((a,b)=>(o[b]-o[a])||a.localeCompare(b))[0];
+    const d = top(dates), c = top(classes);
+    let filled = false;
+    if (d && dateEl && dateEl.dataset.touched !== "1" && dateEl.value !== d){ dateEl.value = d; filled = true; }
+    if (c && clsEl && clsEl.dataset.touched !== "1" && clsEl.value !== c){ clsEl.value = c; filled = true; }
+    if (filled) toast("Matched an existing assessment — date and class filled in.");
+  }
+
   function dateSpan(dates){
     if (!dates.length) return "";
     const a = dates[0], b = dates[dates.length-1];
@@ -701,7 +789,18 @@
     const d = $("drawer");
     d.innerHTML = h; d.classList.add("on"); d.setAttribute("aria-hidden","false");
     $("veil").classList.add("on");
-    setTimeout(()=>{ const el = $("f-a"); if (el) el.focus(); }, 220);
+    const add = $("addForm");
+    if (add){
+      const nameEl = add.querySelector('[name=assessment]');
+      ["date","cls"].forEach(n => {
+        const el = add.querySelector('[name='+n+']');
+        if (el) el.addEventListener("input", () => { el.dataset.touched = "1"; });
+      });
+      let at; const go = () => { clearTimeout(at); at = setTimeout(()=>autofillFromName(add), 250); };
+      nameEl.addEventListener("input", go);
+      nameEl.addEventListener("change", () => autofillFromName(add));
+    }
+    setTimeout(()=>{ const el = $("addForm-a"); if (el) el.focus(); }, 220);
   }
   /* One field set, used for both adding and editing — same shape either way. */
   function recordFields(v, formId, submitLabel, extra){
@@ -878,6 +977,7 @@
         }catch(err){ toast("Couldn't import that file: "+err.message); } };
       fr.readAsText(f); e.target.value = "";
     };
+    $("tidyBtn").onclick = () => { $("dataMenu").classList.remove("open"); tidyDates(); };
     $("repoBtn").onclick = () => { $("dataMenu").classList.remove("open");
       if (!confirm("Discard the records in this browser and load the repo copy instead?")) return;
       pull({replace:true}).then(ok => toast(ok===false ? "Couldn't read the shared copy." : "Loaded the shared copy."));

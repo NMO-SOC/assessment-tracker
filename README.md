@@ -85,6 +85,10 @@ Click any content description to open the side panel, then enter:
 
 The same content description can carry multiple records (different classes, different tasks). Filter by class to see coverage for one group only.
 
+Typing an assessment name that already exists fills in that task's date and class automatically, so records for one task stay consistent. Anything you type over by hand is left alone.
+
+**Data → Tidy assessment names and dates** repairs records that already disagree: for each assessment task, whichever name and date most of its records use becomes the value for all of them. Ties go to the earliest date, or the longer spelling. It shows exactly what it will change and does nothing unless you confirm.
+
 Each record has **Edit** and **Remove**. Editing opens the same fields in place and keeps the record's id, so an edit updates that record everywhere rather than creating a second one. Cancel discards the change.
 
 ## Dark mode

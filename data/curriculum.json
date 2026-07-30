@@ -1,0 +1,684 @@
+{
+ "subject": "English",
+ "levels": [
+  "7",
+  "8",
+  "9",
+  "10"
+ ],
+ "source": "Victorian Curriculum F-10 Version 2.0 - English Levels 7-10 content descriptions (VCAA, 13-12-2023)",
+ "items": [
+  {
+   "code": "VC2E7LA01",
+   "level": "7",
+   "strand": "Language",
+   "substrand": "Language for interacting with others",
+   "description": "understand how language expresses and creates personal and social identities"
+  },
+  {
+   "code": "VC2E8LA01",
+   "level": "8",
+   "strand": "Language",
+   "substrand": "Language for interacting with others",
+   "description": "understand how language shapes relationships and roles"
+  },
+  {
+   "code": "VC2E9LA01",
+   "level": "9",
+   "strand": "Language",
+   "substrand": "Language for interacting with others",
+   "description": "understand how language strengthens relationships and roles"
+  },
+  {
+   "code": "VC2E10LA01",
+   "level": "10",
+   "strand": "Language",
+   "substrand": "Language for interacting with others",
+   "description": "understand how language can have inclusive and exclusive social effects, and how it can empower or disempower people"
+  },
+  {
+   "code": "VC2E7LA02",
+   "level": "7",
+   "strand": "Language",
+   "substrand": "Language for interacting with others",
+   "description": "understand the language of evaluation and substantiation"
+  },
+  {
+   "code": "VC2E8LA02",
+   "level": "8",
+   "strand": "Language",
+   "substrand": "Language for interacting with others",
+   "description": "understand how language features such as simile and metaphor can add layers of meaning to the language of evaluation and substantiation"
+  },
+  {
+   "code": "VC2E9LA02",
+   "level": "9",
+   "strand": "Language",
+   "substrand": "Language for interacting with others",
+   "description": "understand how the language of evaluation and substantiation expresses individual views and values through language features such as allusion, evocative vocabulary and metaphor"
+  },
+  {
+   "code": "VC2E10LA02",
+   "level": "10",
+   "strand": "Language",
+   "substrand": "Language for interacting with others",
+   "description": "understand that language used to evaluate and substantiate, implicitly or explicitly, reveals views and values"
+  },
+  {
+   "code": "VC2E7LA03",
+   "level": "7",
+   "strand": "Language",
+   "substrand": "Text structure and organisation",
+   "description": "identify and describe how texts are structured differently depending on their purpose, and how language features vary in texts"
+  },
+  {
+   "code": "VC2E8LA03",
+   "level": "8",
+   "strand": "Language",
+   "substrand": "Text structure and organisation",
+   "description": "explain how texts are structured depending on their purpose and how language features vary, recognising that some texts are hybrids"
+  },
+  {
+   "code": "VC2E9LA03",
+   "level": "9",
+   "strand": "Language",
+   "substrand": "Text structure and organisation",
+   "description": "explore the ways that text structures and language features can be adapted and altered according to purpose"
+  },
+  {
+   "code": "VC2E10LA03",
+   "level": "10",
+   "strand": "Language",
+   "substrand": "Text structure and organisation",
+   "description": "analyse text structures and language features and evaluate their effectiveness in achieving their purpose"
+  },
+  {
+   "code": "VC2E7LA04",
+   "level": "7",
+   "strand": "Language",
+   "substrand": "Text structure and organisation",
+   "description": "understand that the cohesion of texts relies on devices that signal, structure and sequence, such as overviews, examples, and beginnings and endings"
+  },
+  {
+   "code": "VC2E8LA04",
+   "level": "8",
+   "strand": "Language",
+   "substrand": "Text structure and organisation",
+   "description": "understand how cohesion in texts is improved by strengthening internal structures and sequence, with evidence, quotations and substantiation of claims"
+  },
+  {
+   "code": "VC2E9LA04",
+   "level": "9",
+   "strand": "Language",
+   "substrand": "Text structure and organisation",
+   "description": "understand how a range of cohesive devices, including nominalisation, condense information in texts and link, expand and sequence ideas"
+  },
+  {
+   "code": "VC2E10LA04",
+   "level": "10",
+   "strand": "Language",
+   "substrand": "Text structure and organisation",
+   "description": "understand how text structures are selected and can be varied to create sequence and cohesion"
+  },
+  {
+   "code": "VC2E7LA05",
+   "level": "7",
+   "strand": "Language",
+   "substrand": "Language for expressing and developing ideas",
+   "description": "understand how complex and compound-complex sentences can be used to elaborate, extend and explain ideas"
+  },
+  {
+   "code": "VC2E8LA05",
+   "level": "8",
+   "strand": "Language",
+   "substrand": "Language for expressing and developing ideas",
+   "description": "examine a variety of clause structures, including embedded clauses, that add information and expand ideas in sentences"
+  },
+  {
+   "code": "VC2E9LA05",
+   "level": "9",
+   "strand": "Language",
+   "substrand": "Language for expressing and developing ideas",
+   "description": "explore how authors vary sentence structures for effect, such as using a sentence fragment, or intentionally using a dependent clause on its own"
+  },
+  {
+   "code": "VC2E10LA05",
+   "level": "10",
+   "strand": "Language",
+   "substrand": "Language for expressing and developing ideas",
+   "description": "analyse and evaluate the effectiveness of particular sentence structures to express and craft ideas"
+  },
+  {
+   "code": "VC2E7LA06",
+   "level": "7",
+   "strand": "Language",
+   "substrand": "Language for expressing and developing ideas",
+   "description": "understand how consistency of tense through verbs and verb groups achieves clarity"
+  },
+  {
+   "code": "VC2E8LA06",
+   "level": "8",
+   "strand": "Language",
+   "substrand": "Language for expressing and developing ideas",
+   "description": "understand the effect of nominalisation in texts"
+  },
+  {
+   "code": "VC2E9LA06",
+   "level": "9",
+   "strand": "Language",
+   "substrand": "Language for expressing and developing ideas",
+   "description": "understand how abstract nouns can be used to summarise ideas in text"
+  },
+  {
+   "code": "VC2E10LA06",
+   "level": "10",
+   "strand": "Language",
+   "substrand": "Language for expressing and developing ideas",
+   "description": "analyse how syntax contributes to meaning and style"
+  },
+  {
+   "code": "VC2E7LA07",
+   "level": "7",
+   "strand": "Language",
+   "substrand": "Language for expressing and developing ideas",
+   "description": "explore how still images, moving images and sound can be used to create a perspective"
+  },
+  {
+   "code": "VC2E8LA07",
+   "level": "8",
+   "strand": "Language",
+   "substrand": "Language for expressing and developing ideas",
+   "description": "explore how still images, moving images and sound use intertextual references to enhance and layer meaning"
+  },
+  {
+   "code": "VC2E9LA07",
+   "level": "9",
+   "strand": "Language",
+   "substrand": "Language for expressing and developing ideas",
+   "description": "analyse how symbols in still and moving images and the use of sound augment meaning"
+  },
+  {
+   "code": "VC2E10LA07",
+   "level": "10",
+   "strand": "Language",
+   "substrand": "Language for expressing and developing ideas",
+   "description": "evaluate the features of still and moving images, and the use of sound, and the effects of those choices on representations"
+  },
+  {
+   "code": "VC2E7LA08",
+   "level": "7",
+   "strand": "Language",
+   "substrand": "Language for expressing and developing ideas",
+   "description": "explore the role of vocabulary in building specialist and technical knowledge, including terms that have both everyday and technical meanings"
+  },
+  {
+   "code": "VC2E8LA08",
+   "level": "8",
+   "strand": "Language",
+   "substrand": "Language for expressing and developing ideas",
+   "description": "examine the role and use of academic vocabulary"
+  },
+  {
+   "code": "VC2E9LA08",
+   "level": "9",
+   "strand": "Language",
+   "substrand": "Language for expressing and developing ideas",
+   "description": "analyse how vocabulary choices contribute to style, mood and tone"
+  },
+  {
+   "code": "VC2E10LA08",
+   "level": "10",
+   "strand": "Language",
+   "substrand": "Language for expressing and developing ideas",
+   "description": "understand and use, with precision, an expanded vocabulary"
+  },
+  {
+   "code": "VC2E7LA09",
+   "level": "7",
+   "strand": "Language",
+   "substrand": "Language for expressing and developing ideas",
+   "description": "understand the use of punctuation including colons and brackets to support meaning"
+  },
+  {
+   "code": "VC2E8LA09",
+   "level": "8",
+   "strand": "Language",
+   "substrand": "Language for expressing and developing ideas",
+   "description": "understand and use punctuation conventions, including semicolons and dashes, to extend ideas and support meaning"
+  },
+  {
+   "code": "VC2E9LA09",
+   "level": "9",
+   "strand": "Language",
+   "substrand": "Language for expressing and developing ideas",
+   "description": "understand and use punctuation conventions to condense information and for referencing and citing others for formal and informal purposes"
+  },
+  {
+   "code": "VC2E10LA09",
+   "level": "10",
+   "strand": "Language",
+   "substrand": "Language for expressing and developing ideas",
+   "description": "use and experiment with punctuation for meaning and effect"
+  },
+  {
+   "code": "VC2E7LE01",
+   "level": "7",
+   "strand": "Literature",
+   "substrand": "Literature and contexts",
+   "description": "identify and explore ideas, points of view, characters, events and/or issues in literary texts, drawn from different historical, cultural and/or social contexts by Aboriginal and Torres Strait Islander authors and a wide range of Australian and world authors"
+  },
+  {
+   "code": "VC2E8LE01",
+   "level": "8",
+   "strand": "Literature",
+   "substrand": "Literature and contexts",
+   "description": "explain the ways that ideas, issues and points of view in literary texts drawn from diverse historical, cultural and social contexts by Aboriginal and Torres Strait Islander authors, and a wide range of Australian and world authors, may represent the values of individuals and groups"
+  },
+  {
+   "code": "VC2E9LE01",
+   "level": "9",
+   "strand": "Literature",
+   "substrand": "Literature and contexts",
+   "description": "analyse the representations of people and places in literary texts, drawn from diverse historical, cultural and social contexts, by Aboriginal and Torres Strait Islander authors and a wide range of Australian and world authors"
+  },
+  {
+   "code": "VC2E10LE01",
+   "level": "10",
+   "strand": "Literature",
+   "substrand": "Literature and contexts",
+   "description": "analyse representations of individuals, groups and places and evaluate how they reflect their context in literary texts by Aboriginal and Torres Strait Islander authors and a wide range of Australian and world authors"
+  },
+  {
+   "code": "VC2E7LE02",
+   "level": "7",
+   "strand": "Literature",
+   "substrand": "Engaging with and responding to literature",
+   "description": "develop an opinion about characters, settings and events in literary texts, identifying areas of agreement and difference with others’ opinions and justifying a response"
+  },
+  {
+   "code": "VC2E8LE02",
+   "level": "8",
+   "strand": "Literature",
+   "substrand": "Engaging with and responding to literature",
+   "description": "explore opinions about the language features, literary devices and text structures that contribute to the styles of literary texts"
+  },
+  {
+   "code": "VC2E9LE02",
+   "level": "9",
+   "strand": "Literature",
+   "substrand": "Engaging with and responding to literature",
+   "description": "explore and develop responses, including personal responses, to literary texts, comparing initial and subsequent impressions"
+  },
+  {
+   "code": "VC2E10LE02",
+   "level": "10",
+   "strand": "Literature",
+   "substrand": "Engaging with and responding to literature",
+   "description": "synthesise their own interpretation of a literary text, and explore the interpretations of others"
+  },
+  {
+   "code": "VC2E7LE03",
+   "level": "7",
+   "strand": "Literature",
+   "substrand": "Engaging with and responding to literature",
+   "description": "explore the ways that literary devices and language features, such as dialogue, and still and moving images are used to create character, and to influence emotions and opinions in a range of literary texts"
+  },
+  {
+   "code": "VC2E8LE03",
+   "level": "8",
+   "strand": "Literature",
+   "substrand": "Engaging with and responding to literature",
+   "description": "explain how language and still and moving images in a range of literary texts influence an audience’s response to and formation of social and/or ethical positions"
+  },
+  {
+   "code": "VC2E9LE03",
+   "level": "9",
+   "strand": "Literature",
+   "substrand": "Engaging with and responding to literature",
+   "description": "analyse how literary devices and language features, and still and moving images, shape an audience’s preference about the social, moral or ethical positions presented in literary texts"
+  },
+  {
+   "code": "VC2E10LE03",
+   "level": "10",
+   "strand": "Literature",
+   "substrand": "Engaging with and responding to literature",
+   "description": "analyse the ways that social, moral or ethical positions are represented in a range of literary texts"
+  },
+  {
+   "code": "VC2E7LE04",
+   "level": "7",
+   "strand": "Literature",
+   "substrand": "Examining literature",
+   "description": "identify and explain the ways that characters, settings and events combine to create meaning in literary texts"
+  },
+  {
+   "code": "VC2E8LE04",
+   "level": "8",
+   "strand": "Literature",
+   "substrand": "Examining literature",
+   "description": "identify intertextual references in literary texts and explain how the references enable new understandings"
+  },
+  {
+   "code": "VC2E9LE04",
+   "level": "9",
+   "strand": "Literature",
+   "substrand": "Examining literature",
+   "description": "analyse the effect of text structures, language features and literary devices such as extended metaphor, metonymy, allegory, symbolism and intertextual references"
+  },
+  {
+   "code": "VC2E10LE04",
+   "level": "10",
+   "strand": "Literature",
+   "substrand": "Examining literature",
+   "description": "analyse how text structure, language features, literary devices and intertextual connections shape interpretations of literary texts"
+  },
+  {
+   "code": "VC2E7LE05",
+   "level": "7",
+   "strand": "Literature",
+   "substrand": "Examining literature",
+   "description": "identify and explain how literary devices create layers of meaning and aesthetic qualities in literary texts, including poetry"
+  },
+  {
+   "code": "VC2E8LE05",
+   "level": "8",
+   "strand": "Literature",
+   "substrand": "Examining literature",
+   "description": "explore how language features such as sentence patterns create tone and voice, and how literary devices such as imagery create meaning and aesthetic qualities in literary texts"
+  },
+  {
+   "code": "VC2E9LE05",
+   "level": "9",
+   "strand": "Literature",
+   "substrand": "Examining literature",
+   "description": "analyse the ways that text structures, language features and literary devices in literary texts create aesthetic qualities"
+  },
+  {
+   "code": "VC2E10LE05",
+   "level": "10",
+   "strand": "Literature",
+   "substrand": "Examining literature",
+   "description": "compare and evaluate how ‘voice’ as a literary device is used in a range of texts to evoke emotional responses and to create aesthetic qualities"
+  },
+  {
+   "code": "VC2E7LE06",
+   "level": "7",
+   "strand": "Literature",
+   "substrand": "Creating literature",
+   "description": "create texts that experiment with literary language features and devices encountered in texts"
+  },
+  {
+   "code": "VC2E8LE06",
+   "level": "8",
+   "strand": "Literature",
+   "substrand": "Creating literature",
+   "description": "create texts that experiment with literary language features and literary devices for particular purposes and effects"
+  },
+  {
+   "code": "VC2E9LE06",
+   "level": "9",
+   "strand": "Literature",
+   "substrand": "Creating literature",
+   "description": "create texts, which may be hybrid, that experiment with literary text structures, language features and devices, and voice, for purposes and audiences"
+  },
+  {
+   "code": "VC2E10LE06",
+   "level": "10",
+   "strand": "Literature",
+   "substrand": "Creating literature",
+   "description": "create texts with a sustained voice, selecting and adapting literary text structures and devices, and language, auditory and visual features for purposes and audiences"
+  },
+  {
+   "code": "VC2E7LY01",
+   "level": "7",
+   "strand": "Literacy",
+   "substrand": "Interacting with others",
+   "description": "use interaction skills when discussing ideas and information, including evaluations of the features of texts"
+  },
+  {
+   "code": "VC2E8LY01",
+   "level": "8",
+   "strand": "Literacy",
+   "substrand": "Interacting with others",
+   "description": "use interaction skills for identified purposes and contexts, including when supporting or challenging the stated or implied meanings of texts in discussion"
+  },
+  {
+   "code": "VC2E9LY01",
+   "level": "9",
+   "strand": "Literacy",
+   "substrand": "Interacting with others",
+   "description": "use interaction skills to discuss opinions regarding texts that have different purposes and audiences, analysing how language features position an audience to respond in particular ways"
+  },
+  {
+   "code": "VC2E10LY01",
+   "level": "10",
+   "strand": "Literacy",
+   "substrand": "Interacting with others",
+   "description": "use interaction skills to discuss an opinion about texts and analyse the purposes and effects of text structures and language features"
+  },
+  {
+   "code": "VC2E7LY02",
+   "level": "7",
+   "strand": "Literacy",
+   "substrand": "Interacting with others",
+   "description": "deliver structured spoken texts for a specific purpose and audience, employing formal language and using appropriate features of voice and multimodal or digital elements"
+  },
+  {
+   "code": "VC2E8LY02",
+   "level": "8",
+   "strand": "Literacy",
+   "substrand": "Interacting with others",
+   "description": "deliver structured spoken texts for particular purposes and audiences to suit formal and informal contexts, using features of voice and multimodal or digital elements"
+  },
+  {
+   "code": "VC2E9LY02",
+   "level": "9",
+   "strand": "Literacy",
+   "substrand": "Interacting with others",
+   "description": "deliver structured spoken texts for particular purposes, demonstrating different levels of formality in consideration of audience, using features of voice and multimodal or digital elements"
+  },
+  {
+   "code": "VC2E10LY02",
+   "level": "10",
+   "strand": "Literacy",
+   "substrand": "Interacting with others",
+   "description": "deliver structured spoken texts for particular purposes, experimenting with formality in deliberate consideration of an audience, using features of voice and multimodal or digital elements"
+  },
+  {
+   "code": "VC2E7LY03",
+   "level": "7",
+   "strand": "Literacy",
+   "substrand": "Word knowledge",
+   "description": "understand how to use spelling rules, base words, suffixes, prefixes, spelling patterns and word origins (etymology), including Greek and Latin roots, to learn new words and how to spell them"
+  },
+  {
+   "code": "VC2E8LY03",
+   "level": "8",
+   "strand": "Literacy",
+   "substrand": "Word knowledge",
+   "description": "explore and use learnt knowledge to spell technical and academic words consistently and accurately"
+  },
+  {
+   "code": "VC2E9LY03",
+   "level": "9",
+   "strand": "Literacy",
+   "substrand": "Word knowledge",
+   "description": "use learnt knowledge to spell accurately and consistently, and understand that non-standard spelling is used in texts for particular effects, such as characterisation and humour, and to represent accents and distinctive speech"
+  },
+  {
+   "code": "VC2E10LY03",
+   "level": "10",
+   "strand": "Literacy",
+   "substrand": "Word knowledge",
+   "description": "use learnt knowledge of the spelling system to spell words accurately and to manipulate standard and non-standard spelling for particular effects"
+  },
+  {
+   "code": "VC2E7LY04",
+   "level": "7",
+   "strand": "Literacy",
+   "substrand": "Texts in context",
+   "description": "explain the effect of current technology on reading, creating and responding to texts, including media texts"
+  },
+  {
+   "code": "VC2E8LY04",
+   "level": "8",
+   "strand": "Literacy",
+   "substrand": "Texts in context",
+   "description": "describe how representations of people, places and events reflect the context of the text"
+  },
+  {
+   "code": "VC2E9LY04",
+   "level": "9",
+   "strand": "Literacy",
+   "substrand": "Texts in context",
+   "description": "analyse how representations of people, places, events and concepts reflect contexts"
+  },
+  {
+   "code": "VC2E10LY04",
+   "level": "10",
+   "strand": "Literacy",
+   "substrand": "Texts in context",
+   "description": "analyse and evaluate how people, places, events and concepts are represented in texts and reflect contexts"
+  },
+  {
+   "code": "VC2E7LY05",
+   "level": "7",
+   "strand": "Literacy",
+   "substrand": "Analysing, interpreting and evaluating",
+   "description": "analyse the ways in which language features shape meaning and vary according to audience and purpose"
+  },
+  {
+   "code": "VC2E8LY05",
+   "level": "8",
+   "strand": "Literacy",
+   "substrand": "Analysing, interpreting and evaluating",
+   "description": "analyse and evaluate the ways that language features represent perspectives on an issue, event, situation, individual or group, and the ways that quotations and sources are used and repurposed in a text"
+  },
+  {
+   "code": "VC2E9LY05",
+   "level": "9",
+   "strand": "Literacy",
+   "substrand": "Analysing, interpreting and evaluating",
+   "description": "analyse and evaluate how language features are used to explicitly represent values, beliefs and attitudes"
+  },
+  {
+   "code": "VC2E10LY05",
+   "level": "10",
+   "strand": "Literacy",
+   "substrand": "Analysing, interpreting and evaluating",
+   "description": "analyse and evaluate how language features are used to implicitly and explicitly represent values, beliefs and attitudes"
+  },
+  {
+   "code": "VC2E7LY06",
+   "level": "7",
+   "strand": "Literacy",
+   "substrand": "Analysing, interpreting and evaluating",
+   "description": "explain the structure of ideas such as the use of taxonomies, cause and effect, extended metaphors and chronology"
+  },
+  {
+   "code": "VC2E8LY06",
+   "level": "8",
+   "strand": "Literacy",
+   "substrand": "Analysing, interpreting and evaluating",
+   "description": "analyse how authors organise ideas to develop and shape meaning"
+  },
+  {
+   "code": "VC2E9LY06",
+   "level": "9",
+   "strand": "Literacy",
+   "substrand": "Analysing, interpreting and evaluating",
+   "description": "analyse the organisation of ideas in paragraphs and extended texts, and evaluate its impact on meaning"
+  },
+  {
+   "code": "VC2E10LY06",
+   "level": "10",
+   "strand": "Literacy",
+   "substrand": "Analysing, interpreting and evaluating",
+   "description": "analyse and evaluate how authors organise ideas in texts to achieve a purpose"
+  },
+  {
+   "code": "VC2E7LY07",
+   "level": "7",
+   "strand": "Literacy",
+   "substrand": "Analysing, interpreting and evaluating",
+   "description": "use comprehension strategies such as visualising, predicting, connecting, summarising, monitoring, questioning and inferring to analyse and summarise information and ideas"
+  },
+  {
+   "code": "VC2E8LY07",
+   "level": "8",
+   "strand": "Literacy",
+   "substrand": "Analysing, interpreting and evaluating",
+   "description": "use comprehension strategies such as visualising, predicting, connecting, summarising, monitoring, questioning and inferring to interpret and evaluate ideas in texts"
+  },
+  {
+   "code": "VC2E9LY07",
+   "level": "9",
+   "strand": "Literacy",
+   "substrand": "Analysing, interpreting and evaluating",
+   "description": "use comprehension strategies such as visualising, predicting, connecting, summarising, monitoring, questioning and inferring to compare and contrast ideas and opinions in and between texts"
+  },
+  {
+   "code": "VC2E10LY07",
+   "level": "10",
+   "strand": "Literacy",
+   "substrand": "Analysing, interpreting and evaluating",
+   "description": "integrate comprehension strategies such as visualising, predicting, connecting, summarising, monitoring, questioning and inferring to analyse and interpret complex and abstract ideas"
+  },
+  {
+   "code": "VC2E7LY08",
+   "level": "7",
+   "strand": "Literacy",
+   "substrand": "Creating texts",
+   "description": "create different types of texts, written and spoken, selecting aspects of subject matter and particular language and print, multimodal and/or digital elements to convey information and ideas to a specific audience"
+  },
+  {
+   "code": "VC2E8LY08",
+   "level": "8",
+   "strand": "Literacy",
+   "substrand": "Creating texts",
+   "description": "create different types of texts, written and spoken, that raise issues, report events and advance opinions, using deliberate language and textual choices, and print, multimodal and/or digital elements as appropriate"
+  },
+  {
+   "code": "VC2E9LY08",
+   "level": "9",
+   "strand": "Literacy",
+   "substrand": "Creating texts",
+   "description": "create different types of texts, written and spoken, that present a point of view and advance, illustrate or expand ideas, including texts that integrate print, multimodal and/or digital elements in deliberate consideration of an audience"
+  },
+  {
+   "code": "VC2E10LY08",
+   "level": "10",
+   "strand": "Literacy",
+   "substrand": "Creating texts",
+   "description": "create different types of texts, written and spoken, that reflect on challenging and complex issues, including texts that combine specific print, multimodal and/or digital elements, for a range of purposes and in deliberate consideration of an audience"
+  },
+  {
+   "code": "VC2E7LY09",
+   "level": "7",
+   "strand": "Literacy",
+   "substrand": "Creating texts",
+   "description": "review and edit their own texts and the texts of others by removing repetition, refining ideas, reordering sentences and adding or substituting words for impact and coherence, and reflect on these processes"
+  },
+  {
+   "code": "VC2E8LY09",
+   "level": "8",
+   "strand": "Literacy",
+   "substrand": "Creating texts",
+   "description": "review and edit to refine and clarify ideas to improve the effectiveness and coherence of their own texts and the texts of others, and reflect on these processes"
+  },
+  {
+   "code": "VC2E9LY09",
+   "level": "9",
+   "strand": "Literacy",
+   "substrand": "Creating texts",
+   "description": "review and edit their own texts and the texts of others to improve clarity, coherence and control over content, organisation, paragraphing, sentence structure, vocabulary and multimodal elements, and reflect on these processes"
+  },
+  {
+   "code": "VC2E10LY09",
+   "level": "10",
+   "strand": "Literacy",
+   "substrand": "Creating texts",
+   "description": "review, edit and refine their own texts and the texts of others for control and coherence of content, organisation, sentence structure, vocabulary, and/or visual features to achieve particular purposes and effects, and reflect on these processes"
+  }
+ ]
+}

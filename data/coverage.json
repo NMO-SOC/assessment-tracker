@@ -1,6 +1,6 @@
 {
  "version": 1,
- "updated": "2026-07-30T04:04:07.686Z",
+ "updated": "2026-07-30T04:04:28.006Z",
  "coverage": {
   "VC2E7LY01": [
    {
@@ -266,6 +266,13 @@
     "date": "2026-05-28",
     "cls": "9",
     "notes": ""
+   },
+   {
+    "id": "1kzz2vev",
+    "assessment": "S1_09ADVEN_CAT1: NAPLAN Practice",
+    "date": "2026-02-27",
+    "cls": "9ADV",
+    "notes": "Language Conventions"
    }
   ],
   "VC2E9LA05": [

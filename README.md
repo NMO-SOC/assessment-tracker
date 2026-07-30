@@ -4,6 +4,8 @@ A static site for tracking which **Victorian Curriculum F–10 Version 2.0 Engli
 
 96 content descriptions: 24 per level (9 Language, 6 Literature, 9 Literacy).
 
+**This is a record, not a checklist.** The site deliberately shows no completion percentage and no progress bars — full curriculum coverage isn't the goal. The summary counts what's been assessed, how many tasks it took, how much of it carries evidence notes, and what's been revisited more than once, so depth of assessment is what's visible.
+
 ## Publishing to GitHub Pages
 
 1. Create a new repository on GitHub (e.g. `english-assessment-coverage`).
@@ -60,9 +62,9 @@ The same content description can carry multiple records (different classes, diff
 
 ## Views and filters
 
-- **Curriculum** view — the four-level grid, with an overall progress ring and per-level (or per-strand) bars.
+- **Curriculum** view — the four-level grid. Assessed descriptions carry a tick, the assessment names, and a page icon where evidence notes exist. Ones with no records stay quiet rather than being flagged as gaps.
 - **By assessment** view — every assessment you've recorded and the content descriptions it covered. Useful for checking an assessment task's spread.
-- Filters: level, strand, assessed / not yet assessed, class, and free-text search (searches descriptions, codes, assessment names, and notes).
+- Filters: level, strand, with / without records, class, and free-text search (searches descriptions, codes, assessment names, and notes).
 - **Export CSV** produces one row per content description per record — for reporting or importing into a spreadsheet.
 
 ## Files

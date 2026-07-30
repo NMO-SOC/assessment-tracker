@@ -61,21 +61,16 @@
   .menu hr{border:0;border-top:1px solid var(--line);margin:5px 2px}
   .menu .hint{font-size:11.5px;color:var(--muted);padding:4px 10px 8px;line-height:1.4}
 
-  /* ---------- progress ---------- */
-  .progress{display:flex;flex-wrap:wrap;gap:22px;align-items:center;
-    background:var(--card);border:1px solid var(--line);border-radius:var(--r);
-    box-shadow:var(--shadow);padding:14px 20px;margin:20px 0 8px}
-  .ring{width:56px;height:56px;border-radius:50%;display:grid;place-items:center;flex:none;
-    background:conic-gradient(var(--done) var(--pct),var(--line) 0)}
-  .ring i{width:44px;height:44px;border-radius:50%;background:var(--card);display:grid;place-items:center;
-    font-size:13px;font-weight:650;font-style:normal}
-  .ring-label{font-size:12px;color:var(--muted)}
-  .ring-label b{display:block;font-size:14px;color:var(--ink);font-weight:600}
-  .mini{flex:1;min-width:120px}
-  .mini .top{display:flex;justify-content:space-between;font-size:12px;color:var(--muted);margin-bottom:5px}
-  .mini .top b{color:var(--ink-soft);font-weight:600}
-  .bar{height:6px;border-radius:99px;background:var(--line);overflow:hidden}
-  .bar i{display:block;height:100%;background:var(--done);border-radius:99px;transition:width .25s ease}
+  /* ---------- summary ---------- */
+  .summary{background:var(--card);border:1px solid var(--line);border-radius:var(--r);
+    box-shadow:var(--shadow);padding:15px 20px;margin:20px 0 8px}
+  .tiles{display:flex;flex-wrap:wrap;gap:14px 30px;align-items:flex-start}
+  .tile{min-width:96px}
+  .tile b{display:block;font-size:22px;font-weight:650;letter-spacing:-.02em;line-height:1.25}
+  .tile span{font-size:12px;color:var(--muted)}
+  .ethos{font-size:12.5px;color:var(--muted);margin-top:12px;padding-top:11px;
+    border-top:1px solid var(--line-soft);display:flex;align-items:center;gap:7px}
+  .ethos svg{flex:none;opacity:.55}
 
   /* ---------- matrix ---------- */
   main{padding-bottom:80px}
@@ -177,7 +172,7 @@
     <div class="titlebar">
       <div>
         <h1>English 7–10 · Assessment Coverage</h1>
-        <div class="sub">Victorian Curriculum F–10 Version 2.0 — 96 content descriptions</div>
+        <div class="sub">Victorian Curriculum F–10 Version 2.0 — a record of what you've assessed and how</div>
       </div>
       <div class="spacer"></div>
       <div class="menu-host">
@@ -199,10 +194,10 @@
     <div class="filters">
       <div class="seg" id="levelSeg"></div>
       <select id="strandSel" aria-label="Strand"></select>
-      <select id="statusSel" aria-label="Status">
+      <select id="statusSel" aria-label="Records">
         <option value="">All content descriptions</option>
-        <option value="covered">Assessed only</option>
-        <option value="uncovered">Not yet assessed</option>
+        <option value="covered">With records</option>
+        <option value="uncovered">Without records</option>
       </select>
       <select id="classSel" aria-label="Class"></select>
       <div class="search">
@@ -286,25 +281,27 @@
   }
   const doneIn = list => list.filter(it=>isDone(it.code)).length;
 
-  /* ---- progress ---- */
-  function renderProgress(){
+  /* ---- summary: descriptive, not a completion target ---- */
+  function renderSummary(){
     const scope = ITEMS.filter(it => visibleLevels().includes(it.level) && (!ui.strand || it.strand===ui.strand));
-    const tot = scope.length, done = doneIn(scope), pct = tot ? Math.round(done/tot*100) : 0;
-    const groupKeys = ui.level ? STRANDS : LEVELS;
-    const label = k => ui.level ? k : "Level "+k;
-    const keyOf = it => ui.level ? it.strand : it.level;
-    let h = '<div class="progress"><div class="ring" style="--pct:'+pct+'%"><i>'+pct+'%</i></div>'+
-      '<div class="ring-label"><b>'+done+' of '+tot+'</b>'+
-      (ui.level ? "Level "+ui.level : "all levels")+(ui.strand ? " · "+ui.strand : "")+
-      (ui.cls ? " · "+esc(ui.cls) : "")+'</div>';
-    groupKeys.forEach(k => {
-      const list = scope.filter(it => keyOf(it) === k);
-      if (!list.length) return;
-      const d = doneIn(list), p = Math.round(d/list.length*100);
-      h += '<div class="mini"><div class="top"><b>'+esc(label(k))+'</b><span>'+d+"/"+list.length+'</span></div>'+
-           '<div class="bar"><i style="width:'+p+'%"></i></div></div>';
-    });
-    h += '</div>';
+    const rows = [];
+    scope.forEach(it => inScopeRecs(it.code).forEach(r => rows.push(r)));
+    const tasks = new Set(rows.map(r=>r.assessment));
+    const withNotes = rows.filter(r => r.notes).length;
+    const revisited = scope.filter(it => inScopeRecs(it.code).length > 1).length;
+    const filterLabel = [ui.level?"Level "+ui.level:"", ui.strand, ui.cls].filter(Boolean).join(" · ");
+    const tile = (n,l) => '<div class="tile"><b>'+n+'</b><span>'+l+'</span></div>';
+    let h = '<div class="summary"><div class="tiles">';
+    h += tile(doneIn(scope), "content descriptions assessed");
+    h += tile(tasks.size, "assessment task"+(tasks.size===1?"":"s"));
+    h += tile(rows.length, "record"+(rows.length===1?"":"s"));
+    h += tile(withNotes, "with evidence notes");
+    h += tile(revisited, "revisited more than once");
+    h += '</div><div class="ethos">'+
+      '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">'+
+      '<circle cx="12" cy="12" r="9"/><path d="M12 16v-5M12 8h.01"/></svg>'+
+      '<span>Depth over coverage. This is a record of what you assessed and how well — not a checklist to finish.'+
+      (filterLabel ? ' Showing '+esc(filterLabel)+'.' : '')+'</span></div></div>';
     $("progress").innerHTML = h;
   }
 
@@ -318,8 +315,9 @@
       const shown = inStrand.filter(matches);
       if (!shown.length) return;
       any = true;
+      const dS = doneIn(inStrand);
       html += '<section class="strand"><div class="strand-head"><h2>'+strand+'</h2>'+
-              '<span class="of">'+doneIn(inStrand)+" of "+inStrand.length+' assessed</span></div>'+
+              '<span class="of">'+(dS ? dS+' assessed' : 'nothing recorded yet')+'</span></div>'+
               '<div class="grid" style="grid-template-columns:repeat('+lv.length+',minmax(0,1fr))">';
       lv.forEach(l => { html += '<div class="colhead">Level '+l+'</div>'; });
       const subs = [...new Set(inStrand.map(it=>it.substrand))];
@@ -327,8 +325,9 @@
         const inSub = inStrand.filter(it=>it.substrand===sub);
         const shownSub = inSub.filter(matches);
         if (!shownSub.length) return;
+        const dSub = doneIn(inSub);
         html += '<div class="band"><h3>'+esc(sub)+'</h3><span class="rule"></span>'+
-                '<span class="of">'+doneIn(inSub)+"/"+inSub.length+'</span></div>';
+                (dSub ? '<span class="of">'+dSub+' assessed</span>' : '')+'</div>';
         const seqs = [...new Set(inSub.map(it=>seqOf(it.code)))].sort((a,b)=>a-b);
         seqs.forEach(n => {
           const row = inSub.filter(it=>seqOf(it.code)===n);
@@ -348,12 +347,14 @@
     const rs = inScopeRecs(it.code);
     const done = rs.length > 0;
     const names = [...new Set(rs.map(r=>r.assessment))];
+    const noted = rs.some(r=>r.notes);
     let h = '<button class="cell'+(done?" done":"")+'" data-code="'+it.code+'" data-level="Level '+it.level+'">';
     h += '<span class="row1"><span class="code">'+it.code+'</span><span class="tick">';
-    h += done
-      ? '<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="m5 13 4.5 4.5L19 7"/></svg>'+
-        (rs.length>1 ? rs.length+" records" : "assessed")
-      : 'not assessed';
+    if (done){
+      h += '<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="m5 13 4.5 4.5L19 7"/></svg>'+
+        (rs.length>1 ? rs.length+" records" : "assessed");
+      if (noted) h += '<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="margin-left:2px;opacity:.7"><path d="M4 4h16v12l-4 4H4z"/><path d="M8 9h8M8 13h5"/></svg>';
+    }
     h += '</span></span>';
     h += '<span class="cd-text">'+esc(it.description)+'</span>';
     if (names.length) h += '<span class="tags">'+names.slice(0,3).map(n=>'<span class="tag">'+esc(n)+'</span>').join("")+
@@ -407,7 +408,7 @@
     let h = '<div class="drawer-top"><div class="crumb">Level '+it.level+' · '+esc(it.strand)+' · '+esc(it.substrand)+'</div>'+
       '<div class="row1"><span class="code">'+code+'</span>'+
       '<span class="tick" style="margin-left:0;color:'+(rs.length?"var(--done)":"var(--muted)")+'">'+
-      (rs.length ? rs.length+" record"+(rs.length===1?"":"s") : "not yet assessed")+'</span>'+
+      (rs.length ? rs.length+" record"+(rs.length===1?"":"s") : "no records yet")+'</span>'+
       '<button class="close" id="closeDrawer" aria-label="Close">&times;</button></div>'+
       '<p>'+esc(it.description)+'</p></div><div class="drawer-body">';
     h += '<h5>Assessment records</h5>';
@@ -442,7 +443,7 @@
 
   /* ---- render ---- */
   function render(){
-    renderProgress();
+    renderSummary();
     $("content").innerHTML = ui.view === "assessments" ? renderAssessments() : renderMatrix();
     const cls = new Set(), ass = new Set();
     Object.values(coverage).forEach(a => a.forEach(r => { if (r.cls) cls.add(r.cls); ass.add(r.assessment); }));
@@ -451,8 +452,7 @@
     const sel = $("classSel");
     sel.innerHTML = '<option value="">All classes</option>' +
       [...cls].sort().map(c=>'<option'+(c===ui.cls?" selected":"")+'>'+esc(c)+'</option>').join("");
-    const n = ITEMS.filter(it=>isDone(it.code)).length;
-    $("foot").textContent = n+" of "+ITEMS.length+" content descriptions assessed · "+DATA.source;
+    $("foot").textContent = "Records save to this browser automatically · "+DATA.source;
     if (ui.code) openDrawer(ui.code);
   }
 

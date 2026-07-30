@@ -1,6 +1,6 @@
 {
  "version": 1,
- "updated": "2026-07-30T06:35:18.195Z",
+ "updated": "2026-07-30T06:43:30.276Z",
  "coverage": {
   "VC2E7LY01": [
    {
@@ -40,7 +40,12 @@
     "assessment": "S1_07ADVEN_26_CAT1: Creative Writing - Newspaper Report",
     "date": "2026-02-25",
     "cls": "7ADV",
-    "notes": "Voice, Audience & Journalistic Style"
+    "notes": "Voice, Audience & Journalistic Style",
+    "dist": {
+     "Established": 3,
+     "Highly Developed": 11,
+     "Exceeding": 5
+    }
    }
   ],
   "VC2E7LY02": [
@@ -176,7 +181,12 @@
     "assessment": "S1_08ADVEN_26_CAT2: Neurodivergence Research Report",
     "date": "2026-05-04",
     "cls": "8ADV",
-    "notes": "Structure and Organisation"
+    "notes": "Structure and Organisation",
+    "dist": {
+     "Developing": 1,
+     "Established": 4,
+     "Highly Developed": 16
+    }
    }
   ],
   "VC2E8LY04": [
@@ -234,7 +244,11 @@
     "assessment": "S1_07ADVEN_26_CAT1: Creative Writing - Newspaper Report",
     "date": "2026-02-25",
     "cls": "7ADV",
-    "notes": "Technical Control"
+    "notes": "Technical Control",
+    "dist": {
+     "Established": 10,
+     "Highly Developed": 9
+    }
    }
   ],
   "VC2E8LA09": [
@@ -258,7 +272,11 @@
     "assessment": "S1_08ADVEN_26_CAT2: Neurodivergence Research Report",
     "date": "2026-05-04",
     "cls": "8ADV",
-    "notes": "Grammar, Sentence Structure, and Punctuation"
+    "notes": "Grammar, Sentence Structure, and Punctuation",
+    "dist": {
+     "Established": 15,
+     "Highly Developed": 6
+    }
    }
   ],
   "VC2E8LY07": [
@@ -365,7 +383,13 @@
     "assessment": "S1_09ADVEN1_CAT3: Story Telling",
     "date": "2026-05-18",
     "cls": "9ADV",
-    "notes": "Oral Presentation Skills"
+    "notes": "Oral Presentation Skills",
+    "dist": {
+     "Developing": 3,
+     "Established": 7,
+     "Highly Developed": 11,
+     "Exceeding": 2
+    }
    },
    {
     "id": "3rpwn7gy",
@@ -396,7 +420,11 @@
     "assessment": "S1_09ADVEN_CAT2: Personal Text Response",
     "date": "2026-03-30",
     "cls": "9ADV",
-    "notes": "Creation of Text"
+    "notes": "Creation of Text",
+    "dist": {
+     "Established": 9,
+     "Highly Developed": 14
+    }
    }
   ],
   "VC2E9LA08": [
@@ -437,14 +465,25 @@
     "assessment": "S1_09ADVEN_CAT1: NAPLAN Practice",
     "date": "2026-02-27",
     "cls": "9ADV",
-    "notes": "Writing"
+    "notes": "Writing",
+    "dist": {
+     "Requires Support": 1,
+     "Established": 6,
+     "Highly Developed": 15,
+     "Exceeding": 1
+    }
    },
    {
     "id": "fbxg1q8v",
     "assessment": "S1_09ADVEN_CAT2: Personal Text Response",
     "date": "2026-03-30",
     "cls": "9ADV",
-    "notes": "Editing"
+    "notes": "Editing",
+    "dist": {
+     "Developing": 2,
+     "Established": 6,
+     "Highly Developed": 15
+    }
    }
   ],
   "VC2E9LY08": [
@@ -475,7 +514,12 @@
     "assessment": "S1_09ADVEN1_CAT3: Story Telling",
     "date": "2026-05-18",
     "cls": "9ADV",
-    "notes": "Development of Idea and Purpose"
+    "notes": "Development of Idea and Purpose",
+    "dist": {
+     "Established": 6,
+     "Highly Developed": 11,
+     "Exceeding": 6
+    }
    }
   ],
   "VC2E9LY03": [
@@ -499,7 +543,12 @@
     "assessment": "S1_09ADVEN_CAT1: NAPLAN Practice",
     "date": "2026-02-27",
     "cls": "9ADV",
-    "notes": "Language Conventions"
+    "notes": "Language Conventions",
+    "dist": {
+     "Established": 5,
+     "Highly Developed": 11,
+     "Exceeding": 7
+    }
    }
   ],
   "VC2E9LA05": [
@@ -550,7 +599,12 @@
     "assessment": "S1_09ADVEN_CAT2: Personal Text Response",
     "date": "2026-03-30",
     "cls": "9ADV",
-    "notes": "Interpretation"
+    "notes": "Interpretation",
+    "dist": {
+     "Established": 12,
+     "Highly Developed": 10,
+     "Exceeding": 1
+    }
    }
   ],
   "VC2E10LY08": [
@@ -559,14 +613,30 @@
     "assessment": "S1_10EN_CAT1: Creative Writing",
     "date": "2026-02-27",
     "cls": "10",
-    "notes": "Creating a written text that reflects on complex ideas or issues explored in mentor texts"
+    "notes": "Creating a written text that reflects on complex ideas or issues explored in mentor texts",
+    "dist": {
+     "Requires Support": 12,
+     "Developing": 48,
+     "Established": 47,
+     "Highly Developed": 24,
+     "Exceeding": 4,
+     "(Excluded)": 1
+    }
    },
    {
     "id": "7vyn7i7l",
     "assessment": "S2_10EN_CAT2: Analytical Text Response Essay",
     "date": "2026-05-06",
     "cls": "10",
-    "notes": "Arguments"
+    "notes": "Arguments",
+    "dist": {
+     "Requires Support": 24,
+     "Developing": 51,
+     "Established": 42,
+     "Highly Developed": 11,
+     "Exceeding": 3,
+     "(Excluded)": 1
+    }
    }
   ],
   "VC2E10LE06": [
@@ -575,14 +645,26 @@
     "assessment": "S1_10EN_CAT1: Creative Writing",
     "date": "2026-02-27",
     "cls": "10",
-    "notes": "Creating a sustained voice and adapting literary text structures, devices and language from mentor texts"
+    "notes": "Creating a sustained voice and adapting literary text structures, devices and language from mentor texts",
+    "dist": {
+     "Requires Support": 9,
+     "Developing": 39,
+     "Established": 51,
+     "Highly Developed": 31,
+     "Exceeding": 5,
+     "(Excluded)": 1
+    }
    },
    {
     "id": "mvo0npcq",
     "assessment": "S1_10ADVEN1_CAT1: Personal Text Response",
     "date": "2026-02-26",
     "cls": "10ADV",
-    "notes": "Voice"
+    "notes": "Voice",
+    "dist": {
+     "Established": 3,
+     "Highly Developed": 21
+    }
    }
   ],
   "VC2E10LA08": [
@@ -591,7 +673,15 @@
     "assessment": "S1_10EN_CAT1: Creative Writing",
     "date": "2026-02-27",
     "cls": "10",
-    "notes": "Experiment with vocabulary, text structures and language features for effective and cohesive writing"
+    "notes": "Experiment with vocabulary, text structures and language features for effective and cohesive writing",
+    "dist": {
+     "Requires Support": 13,
+     "Developing": 42,
+     "Established": 58,
+     "Highly Developed": 21,
+     "Exceeding": 1,
+     "(Excluded)": 1
+    }
    },
    {
     "id": "muq4b047",
@@ -614,7 +704,12 @@
     "assessment": "S1_10ADVEN_CAT2: English Conventions",
     "date": "2026-03-30",
     "cls": "10ADV",
-    "notes": "Punctuation"
+    "notes": "Punctuation",
+    "dist": {
+     "Developing": 2,
+     "Established": 11,
+     "Highly Developed": 11
+    }
    }
   ],
   "VC2E10LY09": [
@@ -623,14 +718,26 @@
     "assessment": "S1_10EN_CAT1: Creative Writing",
     "date": "2026-02-27",
     "cls": "10",
-    "notes": "Experiment with vocabulary, text structures and language features for effective and cohesive writing"
+    "notes": "Experiment with vocabulary, text structures and language features for effective and cohesive writing",
+    "dist": {
+     "Requires Support": 16,
+     "Developing": 27,
+     "Established": 75,
+     "Highly Developed": 15,
+     "Exceeding": 2,
+     "(Excluded)": 1
+    }
    },
    {
     "id": "xpsutq8i",
     "assessment": "S1_10ADVEN1_CAT1: Personal Text Response",
     "date": "2026-02-26",
     "cls": "10ADV",
-    "notes": "Editing"
+    "notes": "Editing",
+    "dist": {
+     "Established": 10,
+     "Highly Developed": 14
+    }
    }
   ],
   "VC2E10LY05": [
@@ -639,7 +746,15 @@
     "assessment": "S2_10EN_CAT2: Analytical Text Response Essay",
     "date": "2026-05-06",
     "cls": "10",
-    "notes": "Analysis of Ideas"
+    "notes": "Analysis of Ideas",
+    "dist": {
+     "Requires Support": 20,
+     "Developing": 65,
+     "Established": 31,
+     "Highly Developed": 13,
+     "Exceeding": 2,
+     "(Excluded)": 1
+    }
    },
    {
     "id": "e78wd9on",
@@ -662,7 +777,12 @@
     "assessment": "S1_10ADVEN_CAT1: Love Framework of Ideas",
     "date": "2026-05-19",
     "cls": "10ADV",
-    "notes": "Uses evidence and techniques to support interpretation"
+    "notes": "Uses evidence and techniques to support interpretation",
+    "dist": {
+     "Established": 3,
+     "Highly Developed": 15,
+     "Exceeding": 6
+    }
    }
   ],
   "VC2E10LA04": [
@@ -671,7 +791,15 @@
     "assessment": "S2_10EN_CAT2: Analytical Text Response Essay",
     "date": "2026-05-06",
     "cls": "10",
-    "notes": "Structure"
+    "notes": "Structure",
+    "dist": {
+     "Requires Support": 32,
+     "Developing": 29,
+     "Established": 54,
+     "Highly Developed": 14,
+     "Exceeding": 2,
+     "(Excluded)": 1
+    }
    },
    {
     "id": "3lmk73ku",
@@ -687,7 +815,10 @@
     "assessment": "S1_07ADVEN_26_CAT1: Creative Writing - Newspaper Report",
     "date": "2026-02-25",
     "cls": "7ADV",
-    "notes": "Structure and Genre"
+    "notes": "Structure and Genre",
+    "dist": {
+     "Highly Developed": 19
+    }
    }
   ],
   "VC2E7LE02": [
@@ -696,7 +827,11 @@
     "assessment": "S1_07ADVEN_26_CAT2: Trash Chapter Expert Task",
     "date": "2026-05-13",
     "cls": "7ADV",
-    "notes": "Contention and Interpretation"
+    "notes": "Contention and Interpretation",
+    "dist": {
+     "Established": 3,
+     "Highly Developed": 16
+    }
    }
   ],
   "VC2E7LE03": [
@@ -705,7 +840,11 @@
     "assessment": "S1_07ADVEN_26_CAT2: Trash Chapter Expert Task",
     "date": "2026-05-13",
     "cls": "7ADV",
-    "notes": "Analysis of Language and Authorial Choices"
+    "notes": "Analysis of Language and Authorial Choices",
+    "dist": {
+     "Established": 9,
+     "Highly Developed": 10
+    }
    }
   ],
   "VC2E7LA02": [
@@ -714,7 +853,11 @@
     "assessment": "S1_07ADVEN_26_CAT2: Trash Chapter Expert Task",
     "date": "2026-05-13",
     "cls": "7ADV",
-    "notes": "Use of Evidence and Analytical Writing"
+    "notes": "Use of Evidence and Analytical Writing",
+    "dist": {
+     "Established": 9,
+     "Highly Developed": 10
+    }
    }
   ],
   "VC2E7LE01": [
@@ -723,7 +866,11 @@
     "assessment": "S1_07ADVEN_26_CAT2: Trash Chapter Expert Task",
     "date": "2026-05-13",
     "cls": "7ADV",
-    "notes": "Connections, Evaluation and Critical Thinking"
+    "notes": "Connections, Evaluation and Critical Thinking",
+    "dist": {
+     "Established": 6,
+     "Highly Developed": 13
+    }
    }
   ],
   "VC2E7LE06": [
@@ -732,7 +879,12 @@
     "assessment": "S1_07ADVEN_26_CAT1: Creative Writing - Newspaper Report",
     "date": "2026-02-25",
     "cls": "7ADV",
-    "notes": "Language Features and Literary Adaption"
+    "notes": "Language Features and Literary Adaption",
+    "dist": {
+     "Established": 7,
+     "Highly Developed": 8,
+     "Exceeding": 4
+    }
    }
   ],
   "VC2E7LE05": [
@@ -750,7 +902,13 @@
     "assessment": "S1_08ADVEN_26_CAT1: Creative Writing - Sympathetic Character",
     "date": "2026-03-02",
     "cls": "8ADV",
-    "notes": "Criterion\tCode\tDescriptor\nCharacter Development – Characterisation / S.T.E.A.L / Voice"
+    "notes": "Character Development – Characterisation / S.T.E.A.L / Voice",
+    "dist": {
+     "Developing": 1,
+     "Established": 9,
+     "Highly Developed": 9,
+     "Exceeding": 3
+    }
    }
   ],
   "VC2E8LA03": [
@@ -759,7 +917,11 @@
     "assessment": "S1_08ADVEN_26_CAT1: Creative Writing - Sympathetic Character",
     "date": "2026-03-02",
     "cls": "8ADV",
-    "notes": "Narrative Writing Structure"
+    "notes": "Narrative Writing Structure",
+    "dist": {
+     "Established": 14,
+     "Highly Developed": 8
+    }
    }
   ],
   "VC2E8LE05": [
@@ -768,7 +930,12 @@
     "assessment": "S1_08ADVEN_26_CAT1: Creative Writing - Sympathetic Character",
     "date": "2026-03-02",
     "cls": "8ADV",
-    "notes": "Language Features"
+    "notes": "Language Features",
+    "dist": {
+     "Established": 15,
+     "Highly Developed": 5,
+     "Exceeding": 2
+    }
    }
   ],
   "VC2E8LA05": [
@@ -777,7 +944,12 @@
     "assessment": "S1_08ADVEN_26_CAT1: Creative Writing - Sympathetic Character",
     "date": "2026-03-02",
     "cls": "8ADV",
-    "notes": "Control of Conventions"
+    "notes": "Control of Conventions",
+    "dist": {
+     "Developing": 5,
+     "Established": 15,
+     "Highly Developed": 2
+    }
    }
   ],
   "VC2E8LY05": [
@@ -786,7 +958,13 @@
     "assessment": "S1_08ADVEN_26_CAT2: Neurodivergence Research Report",
     "date": "2026-05-04",
     "cls": "8ADV",
-    "notes": "Content Knowledge and Research"
+    "notes": "Content Knowledge and Research",
+    "dist": {
+     "Developing": 3,
+     "Established": 11,
+     "Highly Developed": 6,
+     "Exceeding": 1
+    }
    }
   ],
   "VC2E8LA08": [
@@ -795,7 +973,12 @@
     "assessment": "S1_08ADVEN_26_CAT2: Neurodivergence Research Report",
     "date": "2026-05-04",
     "cls": "8ADV",
-    "notes": "Use of Language and Vocabulary"
+    "notes": "Use of Language and Vocabulary",
+    "dist": {
+     "Developing": 2,
+     "Established": 13,
+     "Highly Developed": 6
+    }
    }
   ],
   "VC2E8LE01": [
@@ -804,7 +987,11 @@
     "assessment": "S1_08ADVEN_26_CAT3: Curious Incident Passage Analysis",
     "date": "2026-05-29",
     "cls": "8ADV",
-    "notes": "Understanding of characters"
+    "notes": "Understanding of characters",
+    "dist": {
+     "Established": 15,
+     "Highly Developed": 7
+    }
    }
   ],
   "VC2E8LY06": [
@@ -813,7 +1000,11 @@
     "assessment": "S1_08ADVEN_26_CAT3: Curious Incident Passage Analysis",
     "date": "2026-05-29",
     "cls": "8ADV",
-    "notes": "Understanding of events and structure"
+    "notes": "Understanding of events and structure",
+    "dist": {
+     "Established": 18,
+     "Highly Developed": 4
+    }
    }
   ],
   "VC2E8LE03": [
@@ -822,7 +1013,12 @@
     "assessment": "S1_08ADVEN_26_CAT3: Curious Incident Passage Analysis",
     "date": "2026-05-29",
     "cls": "8ADV",
-    "notes": "Understanding of themes and ideas"
+    "notes": "Understanding of themes and ideas",
+    "dist": {
+     "Developing": 2,
+     "Established": 16,
+     "Highly Developed": 4
+    }
    }
   ],
   "VC2E8LA04": [
@@ -831,7 +1027,13 @@
     "assessment": "S1_08ADVEN_26_CAT3: Curious Incident Passage Analysis",
     "date": "2026-05-29",
     "cls": "8ADV",
-    "notes": "Paragraph construction"
+    "notes": "Paragraph construction",
+    "dist": {
+     "Requires Support": 1,
+     "Developing": 2,
+     "Established": 17,
+     "Highly Developed": 2
+    }
    }
   ],
   "VC2E9LY01": [
@@ -840,7 +1042,12 @@
     "assessment": "S1_09ADVEN_CAT1: NAPLAN Practice",
     "date": "2026-02-27",
     "cls": "9ADV",
-    "notes": "Reading Comprehension"
+    "notes": "Reading Comprehension",
+    "dist": {
+     "Established": 3,
+     "Highly Developed": 19,
+     "Exceeding": 1
+    }
    }
   ],
   "VC2E9LE03": [
@@ -849,7 +1056,12 @@
     "assessment": "S1_09ADVEN_CAT2: Personal Text Response",
     "date": "2026-03-30",
     "cls": "9ADV",
-    "notes": "Positioning"
+    "notes": "Positioning",
+    "dist": {
+     "Developing": 1,
+     "Established": 8,
+     "Highly Developed": 14
+    }
    }
   ],
   "VC2E9LY04": [
@@ -858,7 +1070,11 @@
     "assessment": "S1_09ADVEN_CAT2: Personal Text Response",
     "date": "2026-03-30",
     "cls": "9ADV",
-    "notes": "Analysis"
+    "notes": "Analysis",
+    "dist": {
+     "Established": 10,
+     "Highly Developed": 13
+    }
    }
   ],
   "VC2E9LA03": [
@@ -867,7 +1083,12 @@
     "assessment": "S1_09ADVEN1_CAT3: Story Telling",
     "date": "2026-05-18",
     "cls": "9ADV",
-    "notes": "Voice, Structure and Literary Features"
+    "notes": "Voice, Structure and Literary Features",
+    "dist": {
+     "Established": 5,
+     "Highly Developed": 14,
+     "Exceeding": 4
+    }
    }
   ],
   "VC2E9LA09": [
@@ -876,7 +1097,12 @@
     "assessment": "S1_09ADVEN1_CAT3: Story Telling",
     "date": "2026-05-18",
     "cls": "9ADV",
-    "notes": "Editing and Refinement"
+    "notes": "Editing and Refinement",
+    "dist": {
+     "Established": 8,
+     "Highly Developed": 11,
+     "Exceeding": 4
+    }
    },
    {
     "id": "6ikab583",
@@ -910,7 +1136,11 @@
     "assessment": "S1_10ADVEN1_CAT1: Personal Text Response",
     "date": "2026-02-26",
     "cls": "10ADV",
-    "notes": "Interpretation"
+    "notes": "Interpretation",
+    "dist": {
+     "Established": 15,
+     "Highly Developed": 9
+    }
    }
   ],
   "VC2E10LE03": [
@@ -919,7 +1149,11 @@
     "assessment": "S1_10ADVEN1_CAT1: Personal Text Response",
     "date": "2026-02-26",
     "cls": "10ADV",
-    "notes": "Positioning"
+    "notes": "Positioning",
+    "dist": {
+     "Established": 4,
+     "Highly Developed": 20
+    }
    }
   ],
   "VC2E10LY04": [
@@ -928,7 +1162,11 @@
     "assessment": "S1_10ADVEN1_CAT1: Personal Text Response",
     "date": "2026-02-26",
     "cls": "10ADV",
-    "notes": "Evaluation"
+    "notes": "Evaluation",
+    "dist": {
+     "Established": 4,
+     "Highly Developed": 20
+    }
    }
   ],
   "VC2E10LA05": [
@@ -937,7 +1175,27 @@
     "assessment": "S1_10ADVEN_CAT2: English Conventions",
     "date": "2026-03-30",
     "cls": "10ADV",
-    "notes": "Sentence Structures"
+    "notes": "Sentence Structures",
+    "dist": {
+     "Developing": 2,
+     "Established": 11,
+     "Highly Developed": 11
+    }
+   },
+   {
+    "id": "f261f2f7",
+    "assessment": "S2_10EN_CAT2: Analytical Text Response Essay",
+    "date": "2026-05-06",
+    "cls": "10",
+    "notes": "Effectiveness of Sentence Structures",
+    "dist": {
+     "Requires Support": 33,
+     "Developing": 60,
+     "Established": 29,
+     "Highly Developed": 6,
+     "Exceeding": 3,
+     "(Excluded)": 1
+    }
    }
   ],
   "VC2E10LA06": [
@@ -946,7 +1204,12 @@
     "assessment": "S1_10ADVEN_CAT2: English Conventions",
     "date": "2026-03-30",
     "cls": "10ADV",
-    "notes": "Syntax and Meaning"
+    "notes": "Syntax and Meaning",
+    "dist": {
+     "Established": 8,
+     "Highly Developed": 15,
+     "Exceeding": 1
+    }
    }
   ],
   "VC2E10LE01": [
@@ -955,7 +1218,12 @@
     "assessment": "S1_10ADVEN_CAT2: English Conventions",
     "date": "2026-03-30",
     "cls": "10ADV",
-    "notes": "Representation and Context"
+    "notes": "Representation and Context",
+    "dist": {
+     "Established": 2,
+     "Highly Developed": 19,
+     "Exceeding": 3
+    }
    }
   ],
   "VC2E10LY07": [
@@ -964,7 +1232,11 @@
     "assessment": "S1_10ADVEN_CAT1: Love Framework of Ideas",
     "date": "2026-05-19",
     "cls": "10ADV",
-    "notes": "Analyses representations of love"
+    "notes": "Analyses representations of love",
+    "dist": {
+     "Highly Developed": 22,
+     "Exceeding": 2
+    }
    }
   ],
   "VC2E10LA02": [
@@ -973,7 +1245,12 @@
     "assessment": "S1_10ADVEN_CAT1: Love Framework of Ideas",
     "date": "2026-05-19",
     "cls": "10ADV",
-    "notes": "Interprets creator's purpose and viewpoint"
+    "notes": "Interprets creator's purpose and viewpoint",
+    "dist": {
+     "Established": 3,
+     "Highly Developed": 16,
+     "Exceeding": 5
+    }
    }
   ],
   "VC2E10LY02": [
@@ -982,7 +1259,12 @@
     "assessment": "S1_10ADVEN_CAT1: Love Framework of Ideas",
     "date": "2026-05-19",
     "cls": "10ADV",
-    "notes": "Presents ideas fluently for a specific audience"
+    "notes": "Presents ideas fluently for a specific audience",
+    "dist": {
+     "Established": 8,
+     "Highly Developed": 11,
+     "Exceeding": 5
+    }
    }
   ],
   "VC2E10LA03": [

@@ -1,6 +1,6 @@
 {
  "version": 1,
- "updated": "2026-07-30T03:43:58.473Z",
+ "updated": "2026-07-30T03:44:27.551Z",
  "coverage": {
   "VC2E7LY01": [
    {
@@ -396,6 +396,15 @@
     "date": "2026-05-13",
     "cls": "7ADV",
     "notes": "Use of Evidence and Analytical Writing"
+   }
+  ],
+  "VC2E7LE01": [
+   {
+    "id": "y3f2eglx",
+    "assessment": "S1_07ADVEN_26_CAT2: Trash Chapter Expert Task",
+    "date": "2026-05-13",
+    "cls": "7ADV",
+    "notes": "Connections, Evaluation and Critical Thinking"
    }
   ]
  }

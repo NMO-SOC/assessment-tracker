@@ -17,6 +17,7 @@
     --toast-bg:#1b2430; --toast-ink:#fff; --veil:rgba(16,24,40,.34); --veil-strong:rgba(16,24,40,.4);
     --shadow:0 1px 2px rgba(16,24,40,.06); --shadow-lg:0 12px 32px rgba(16,24,40,.14);
     --lift:0 4px 14px rgba(16,24,40,.09);
+    --b1:#dfe4ea; --b2:#b7d8c6; --b3:#84c4a5; --b4:#4faa82; --b5:#0f8a5f; --bx:#cfd6de;
     --r:12px; --hdr:170px;
   }
   :root[data-theme="dark"]{
@@ -31,6 +32,7 @@
     --toast-bg:#e7ebf1; --toast-ink:#12161c; --veil:rgba(0,0,0,.6); --veil-strong:rgba(0,0,0,.66);
     --shadow:0 1px 2px rgba(0,0,0,.4); --shadow-lg:0 14px 36px rgba(0,0,0,.6);
     --lift:0 4px 14px rgba(0,0,0,.45);
+    --b1:#3a424c; --b2:#2f5e4b; --b3:#3c7d61; --b4:#49a67d; --b5:#6fd6a6; --bx:#4a5361;
   }
   *{box-sizing:border-box}
   html{-webkit-text-size-adjust:100%}
@@ -158,6 +160,18 @@
   .tags{display:flex;flex-wrap:wrap;gap:4px;margin-top:1px}
   .tag{font-size:11px;background:var(--done-soft);color:var(--done);border:1px solid var(--done-line);
     padding:1px 7px;border-radius:99px;max-width:100%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+  /* achievement distributions */
+  .dbar{display:flex;height:6px;border-radius:99px;overflow:hidden;background:var(--line);margin-top:1px}
+  .dbar i{display:block;height:100%}
+  .dbar .s1{background:var(--b1)} .dbar .s2{background:var(--b2)} .dbar .s3{background:var(--b3)}
+  .dbar .s4{background:var(--b4)} .dbar .s5{background:var(--b5)}
+  .dnum{font-size:11px;color:var(--muted);margin-top:3px;display:flex;flex-wrap:wrap;gap:2px 9px}
+  .dnum b{color:var(--ink-soft);font-weight:600}
+  .dlegend{display:flex;flex-wrap:wrap;gap:4px 12px;font-size:11px;color:var(--muted);margin:8px 0 2px}
+  .dlegend span{display:inline-flex;align-items:center;gap:5px}
+  .dlegend i{width:9px;height:9px;border-radius:3px;display:inline-block}
+  .rec .dwrap{margin-top:8px;padding-top:8px;border-top:1px solid var(--line-soft)}
+
   .cell.blank{background:transparent;border:1px dashed var(--line);border-left:1px dashed var(--line);
     box-shadow:none;cursor:default}
   .cell.blank:hover{transform:none;box-shadow:none}
@@ -650,6 +664,8 @@
     h += '<span class="cd-text">'+esc(it.description)+'</span>';
     if (names.length) h += '<span class="tags">'+names.slice(0,3).map(n=>'<span class="tag">'+esc(n)+'</span>').join("")+
       (names.length>3 ? '<span class="tag">+'+(names.length-3)+'</span>' : '')+'</span>';
+    const agg = mergeDists(rs.map(r=>r.dist));
+    if (agg && distTotal(agg)) h += distBar(agg);
     return h + '</button>';
   }
 
@@ -657,6 +673,38 @@
      One card per assessment task. Grouped on the name alone, ignoring case and
      spacing, so a differing date or a stray space doesn't split a task in two. */
   const normName = s => String(s||"").toLowerCase().replace(/\s+/g,"").replace(/[–—]/g,"-");
+
+  /* ---- achievement distributions ----
+     Optional per-record tally from a Compass learning-task export. Counts only,
+     never names. "(Excluded)" sits outside the achievement scale.            */
+  const BANDS = ["Requires Support","Developing","Established","Highly Developed","Exceeding"];
+  const ABBR  = {"Requires Support":"RS","Developing":"Dev","Established":"Est",
+                 "Highly Developed":"HD","Exceeding":"Exc"};
+  const EXCLUDED = "(Excluded)";
+  const distTotal = d => BANDS.reduce((n,b) => n + (d[b]||0), 0);
+  function mergeDists(list){
+    const out = {}; let any = false;
+    list.forEach(d => { if (!d) return; any = true;
+      BANDS.concat([EXCLUDED]).forEach(b => { if (d[b]) out[b] = (out[b]||0) + d[b]; }); });
+    return any ? out : null;
+  }
+  function distBar(d){
+    const n = distTotal(d);
+    if (!n) return "";
+    return '<div class="dbar" title="'+esc(BANDS.map(b=>ABBR[b]+" "+(d[b]||0)).join(", "))+'">'+
+      BANDS.map((b,i) => (d[b] ? '<i class="s'+(i+1)+'" style="width:'+(d[b]/n*100)+'%"></i>' : "")).join("")+
+      '</div>';
+  }
+  function distNums(d){
+    const n = distTotal(d);
+    if (!n) return "";
+    const parts = BANDS.filter(b=>d[b]).map(b => ABBR[b]+" <b>"+d[b]+"</b>");
+    parts.push("n <b>"+n+"</b>");
+    if (d[EXCLUDED]) parts.push("excluded <b>"+d[EXCLUDED]+"</b>");
+    return '<div class="dnum">'+parts.map(p=>'<span>'+p+'</span>').join("")+'</div>';
+  }
+  const distLegend = () => '<div class="dlegend">'+BANDS.map((b,i) =>
+      '<span><i style="background:var(--b'+(i+1)+')"></i>'+esc(b)+'</span>').join("")+'</div>';
 
   function renderAssessments(){
     const by = {};
@@ -675,9 +723,10 @@
         /* One row per content description: a task that assessed the same
            description twice shows once, marked, not as a duplicate row.      */
         let row = g.seen[it.code];
-        if (!row){ row = g.seen[it.code] = {it:it, notes:[], n:0}; g.rows.push(row); }
+        if (!row){ row = g.seen[it.code] = {it:it, notes:[], dists:[], n:0}; g.rows.push(row); }
         row.n++;
         if (r.notes) row.notes.push(r.notes);
+        if (r.dist) row.dists.push(r.dist);
         if (r.date) g.dates.push(r.date);
         if (r.cls) g.classes.add(r.cls);
         g.levels.add(it.level);
@@ -704,11 +753,13 @@
       ].filter(Boolean);
       return '<div class="acard"><h4>'+esc(g.title)+'</h4>'+
         '<div class="meta">'+meta.map(esc).join(" · ")+'</div>'+
-        '<div class="crit">'+g.rows.map(x =>
-          '<div class="crit-row"><span class="code" title="'+esc(x.it.description)+'">'+x.it.code+'</span>'+
+        '<div class="crit">'+g.rows.map(x => { const ag = mergeDists(x.dists);
+          return '<div class="crit-row"><span class="code" title="'+esc(x.it.description)+'">'+x.it.code+'</span>'+
           '<span>'+(x.notes.length ? esc(x.notes.join(" · ")) : '<em>no note — '+esc(x.it.description)+'</em>')+
-          (x.n>1 ? ' <span class="times">assessed '+x.n+'×</span>' : '')+'</span></div>'
-        ).join("")+'</div></div>';
+          (x.n>1 ? ' <span class="times">assessed '+x.n+'×</span>' : '')+
+          (ag && distTotal(ag) ? distNums(ag)+distBar(ag) : '')+'</span></div>'; }
+        ).join("")+'</div>'+
+        (g.rows.some(x=>mergeDists(x.dists)) ? distLegend() : '')+'</div>';
     }).join("")+'</div>';
   }
   /* ---- tidying ----
@@ -825,8 +876,9 @@
         if (r.date) t.dates.push(r.date);
         if (r.cls) t.classes.add(r.cls);
         let row = t.rows[it.code];
-        if (!row){ row = t.rows[it.code] = {it:it, notes:[]}; t.order.push(row); }
+        if (!row){ row = t.rows[it.code] = {it:it, notes:[], dists:[]}; t.order.push(row); }
         if (r.notes) row.notes.push(r.notes);
+        if (r.dist) row.dists.push(r.dist);
       });
     });
     const keys = Object.keys(sections).sort((a,b) => {
@@ -871,12 +923,16 @@
         h += '<tr><td class="task">'+esc(t.title)+'</td>'+
           '<td class="when">'+esc(dateSpan(t.dates) || "—")+'</td>'+
           '<td class="who">'+esc([...t.classes].sort().join(", ") || "—")+'</td><td>'+
-          t.order.map(row => '<div class="cdline"><b>'+row.it.code+'</b>'+
+          t.order.map(row => { const ag = mergeDists(row.dists);
+            return '<div class="cdline"><b>'+row.it.code+'</b>'+
             (row.notes.length ? '<span class="crit">'+esc(row.notes.join(" · "))+'</span>' : '')+
-            '<span class="desc">'+esc(row.it.description)+'</span></div>').join("")+
+            '<span class="desc">'+esc(row.it.description)+'</span>'+
+            (ag && distTotal(ag) ? distNums(ag)+distBar(ag) : '')+'</div>'; }).join("")+
           '</td></tr>';
       });
-      h += '</tbody></table><div class="foot">'+
+      const anyDist = tasks.some(t => t.order.some(row => mergeDists(row.dists)));
+      h += '</tbody></table>'+(anyDist ? distLegend() : '')+'<div class="foot">'+
+        (anyDist ? 'Achievement figures are cohort counts per criterion, blanks excluded. No student-level data. ' : '')+
         'Victorian Curriculum F–10 Version 2.0, English Levels 7–10. '+
         'A record of assessed content descriptions; full curriculum coverage is not the intent. '+
         'Generated '+fmtDate(new Date().toISOString().slice(0,10))+'.</div></section>';
@@ -915,7 +971,9 @@
           '<span class="acts2"><button class="x" data-edit="'+r.id+'">Edit</button>'+
           '<button class="x del" data-del="'+r.id+'">Remove</button></span></div>'+
           '<div class="m">'+[fmtDate(r.date)||"no date", r.cls||"no class"].map(esc).join(" · ")+'</div>'+
-          (r.notes?'<div class="n">'+esc(r.notes)+'</div>':'')+'</div>';
+          (r.notes?'<div class="n">'+esc(r.notes)+'</div>':'')+
+          (r.dist && distTotal(r.dist) ? '<div class="dwrap">'+distBar(r.dist)+distNums(r.dist)+distLegend()+'</div>' : '')+
+          '</div>';
       });
     } else {
       h += '<p class="none">Nothing recorded against this content description yet.</p>';

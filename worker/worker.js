@@ -156,6 +156,21 @@ function mergeCoverage(remote, local, seen) {
 
 const FIELDS = ["id", "assessment", "date", "cls", "notes"];
 
+/* Optional cohort tally per record: band -> count. Counts only, never names. */
+const BANDS = ["Requires Support", "Developing", "Established", "Highly Developed", "Exceeding", "(Excluded)"];
+
+function cleanDist(d) {
+  if (!d || typeof d !== "object" || Array.isArray(d)) return null;
+  const out = {};
+  for (const b of BANDS) {
+    const v = d[b];
+    if (typeof v === "number" && Number.isFinite(v) && v >= 0 && v <= 100000 && v === Math.floor(v)) {
+      if (v > 0) out[b] = v;
+    }
+  }
+  return Object.keys(out).length ? out : null;
+}
+
 function sanitise(cov) {
   if (!cov || typeof cov !== "object" || Array.isArray(cov)) return null;
   const codes = Object.keys(cov);
@@ -171,6 +186,8 @@ function sanitise(cov) {
       const rec = {};
       for (const f of FIELDS) rec[f] = typeof r[f] === "string" ? r[f].slice(0, 2000) : "";
       if (!rec.assessment) continue;
+      const dist = cleanDist(r.dist);
+      if (dist) rec.dist = dist;
       clean.push(rec);
     }
     if (clean.length) out[code] = clean;

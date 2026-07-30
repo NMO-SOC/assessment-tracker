@@ -91,6 +91,28 @@ Typing an assessment name that already exists fills in that task's date and clas
 
 Each record has **Edit** and **Remove**. Editing opens the same fields in place and keeps the record's id, so an edit updates that record everywhere rather than creating a second one. Cancel discards the change.
 
+## Achievement figures from Compass
+
+A record can optionally carry a cohort tally, folded in from a Compass learning-task export:
+
+```json
+"dist": {"Requires Support": 3, "Developing": 25, "Established": 57,
+         "Highly Developed": 43, "Exceeding": 17, "(Excluded)": 1}
+```
+
+Counts only — no names, no comments, no per-student rows, and blanks are not counted. `(Excluded)` is reported next to the figures rather than inside the bar, since it isn't an achievement level. Scale order is Requires Support → Developing → Established → Highly Developed → Exceeding, shown as a five-segment bar on the grid, in the side panel, on the By assessment cards and in the report.
+
+To fold in an export:
+
+```bash
+python3 tools/ingest-compass.py coverage.json "exports/LearningTaskExport_*.csv" --dry-run
+python3 tools/ingest-compass.py coverage.json "exports/LearningTaskExport_*.csv" -o coverage-updated.json
+```
+
+Then **Data → Import JSON**. The script matches each criterion column to the record whose `notes` hold that criterion name, on the task identified by the code in the filename (`S1_07EN_CAT1`), so naming drift between Compass and the tracker doesn't matter. Anything it can't match is listed rather than guessed, as are any values outside the rating scale.
+
+**Never commit the CSVs.** This repo is public and git history is permanent. Keep exports outside the working folder, or add them to `.gitignore` before they can be swept up by `git add -A`.
+
 ## Dark mode
 
 The moon/sun button in the header toggles it, and the choice is remembered per browser. With no choice made it follows your operating system's setting. It's a display preference only — stored separately from your records, never synced.

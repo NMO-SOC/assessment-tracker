@@ -1,2 +1,7 @@
 .DS_Store
 Thumbs.db
+
+# Compass exports contain student data — never commit these
+LearningTaskExport*.csv
+exports/
+coverage-updated.json

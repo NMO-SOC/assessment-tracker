@@ -1,6 +1,6 @@
 {
  "version": 1,
- "updated": "2026-07-30T04:32:21.602Z",
+ "updated": "2026-07-30T04:35:14.533Z",
  "coverage": {
   "VC2E7LY01": [
    {
@@ -728,6 +728,15 @@
     "date": "2026-03-30",
     "cls": "10ADV",
     "notes": "Representation and Context"
+   }
+  ],
+  "VC2E10LY07": [
+   {
+    "id": "k8vdirui",
+    "assessment": "S2_10ADVEN_CAT1: Love Framework of Ideas",
+    "date": "2026-05-19",
+    "cls": "10ADV",
+    "notes": "Analyses representations of love"
    }
   ]
  }

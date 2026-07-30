@@ -1,6 +1,6 @@
 {
  "version": 1,
- "updated": "2026-07-30T04:31:33.338Z",
+ "updated": "2026-07-30T04:31:54.519Z",
  "coverage": {
   "VC2E7LY01": [
    {
@@ -710,6 +710,15 @@
     "date": "2026-03-30",
     "cls": "10ADV",
     "notes": "Sentence Structures"
+   }
+  ],
+  "VC2E10LA06": [
+   {
+    "id": "kqe5wlrg",
+    "assessment": "S1_10ADVEN_CAT2: English Conventions",
+    "date": "2026-03-30",
+    "cls": "10ADV",
+    "notes": "Syntax and Meaning"
    }
   ]
  }

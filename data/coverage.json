@@ -1,6 +1,6 @@
 {
  "version": 1,
- "updated": "2026-07-30T03:46:47.218Z",
+ "updated": "2026-07-30T03:52:38.506Z",
  "coverage": {
   "VC2E7LY01": [
    {
@@ -430,6 +430,15 @@
     "date": "2026-05-27",
     "cls": "7ADV",
     "notes": "TEEL Paragraph Structure"
+   }
+  ],
+  "VC2E8LE06": [
+   {
+    "id": "wsi6m551",
+    "assessment": "S1_08ADVEN_26_CAT1: Creative Writing - Sympathetic Character",
+    "date": "2026-07-23",
+    "cls": "8ADV",
+    "notes": "Criterion\tCode\tDescriptor\nCharacter Development – Characterisation / S.T.E.A.L / Voice"
    }
   ]
  }

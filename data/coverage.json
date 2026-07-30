@@ -1,6 +1,6 @@
 {
  "version": 1,
- "updated": "2026-07-30T04:39:41.304Z",
+ "updated": "2026-07-30T04:40:05.517Z",
  "coverage": {
   "VC2E7LY01": [
    {
@@ -472,6 +472,13 @@
     "date": "2026-05-06",
     "cls": "10",
     "notes": ""
+   },
+   {
+    "id": "3lmk73ku",
+    "assessment": "S2_10ADVEN_CAT1: Analysing Argument",
+    "date": "2026-08-04",
+    "cls": "10ADV",
+    "notes": "Construction of Essay"
    }
   ],
   "VC2E7LA03": [

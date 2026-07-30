@@ -39,8 +39,21 @@ META_COLS = {"id", "name", "submission state", "sn", "comment (open)", "comment"
 
 
 def norm(s):
-    """Loose key for matching names: case and spacing insensitive."""
-    return re.sub(r"\s+", "", str(s or "").lower()).replace("–", "-").replace("—", "-")
+    """Loose key for matching names: ignores case, spacing and hyphenation."""
+    s = str(s or "").lower().replace("–", "-").replace("—", "-")
+    return re.sub(r"[\s\-]+", "", s)
+
+
+def subject(tok):
+    """08ENG and 08EN are the same subject in Compass exports; ADVEN is not."""
+    tok = tok.upper()
+    m = re.match(r"^([0-9]{2})(.*)$", tok)
+    if not m:
+        return tok
+    level, rest = m.group(1), m.group(2)
+    if rest in ("ENG", "EN"):
+        rest = "EN"
+    return level + rest
 
 
 def task_code(text):
@@ -48,7 +61,7 @@ def task_code(text):
     m = re.search(r"(S\d)[_ ]*([0-9]{2}[A-Z]+[0-9]*)[_ ]*(CAT\s*\d+)", str(text), re.I)
     if not m:
         return None
-    return norm(m.group(1) + m.group(2) + m.group(3))
+    return norm(m.group(1) + subject(m.group(2)) + m.group(3))
 
 
 def read_export(path):
@@ -84,7 +97,17 @@ def main():
     ap.add_argument("csvs", nargs="+", help="LearningTaskExport CSV files (globs ok)")
     ap.add_argument("-o", "--out", help="where to write the updated coverage.json")
     ap.add_argument("--dry-run", action="store_true", help="report only, write nothing")
+    ap.add_argument("--aliases", help="JSON map for criteria whose Compass wording differs "
+                                      "from the tracker: {taskCode: {csvColumn: VC2Ecode}}")
     args = ap.parse_args()
+
+    aliases = {}
+    if args.aliases:
+        with open(args.aliases, encoding="utf-8") as fh:
+            for tc, cols in json.load(fh).items():
+                if tc.startswith("_") or not isinstance(cols, dict):
+                    continue          # comment keys
+                aliases[task_code(tc) or norm(tc)] = {norm(k): v for k, v in cols.items()}
 
     paths = []
     for pattern in args.csvs:
@@ -94,15 +117,15 @@ def main():
         doc = json.load(fh)
     coverage = doc.get("coverage", doc)
 
-    # index records by (task code, normalised criterion)
-    index, tasks_seen = {}, {}
+    # index records by (task code, normalised criterion) and by (task code, cd code)
+    index, by_cd, tasks_seen = {}, {}, {}
     for code, records in coverage.items():
         for rec in records:
             tc = task_code(rec.get("assessment"))
             if tc:
                 tasks_seen.setdefault(tc, set()).add(rec.get("assessment"))
-            key = (tc, norm(rec.get("notes")))
-            index.setdefault(key, []).append((code, rec))
+            index.setdefault((tc, norm(rec.get("notes"))), []).append((code, rec))
+            by_cd.setdefault((tc, code), []).append((code, rec))
 
     applied, unmatched, oddities = [], [], []
 
@@ -126,14 +149,26 @@ def main():
             if not dist:
                 continue
             hits = index.get((tc, norm(crit)), [])
+            via = ""
+            if not hits:
+                target = aliases.get(tc, {}).get(norm(crit))
+                if target:
+                    hits = by_cd.get((tc, target), [])
+                    via = " (via alias -> %s)" % target
+                    if not hits:
+                        unmatched.append((base, crit, "alias points at %s but no such record on the task" % target))
+                        continue
             if not hits:
                 unmatched.append((base, crit, "no record with this criterion on the task"))
                 continue
             for code, rec in hits:
                 rec["dist"] = dist
                 applied.append((code, crit, sum(dist[b] for b in BANDS if b in dist)))
-                print("    %-11s %-42s %s" % (code, crit[:42],
-                      " ".join("%s=%d" % (b[:3], dist[b]) for b in VALID if b in dist)))
+                print("    %-11s %-42s %s%s" % (code, crit[:42],
+                      " ".join("%s=%d" % (b[:3], dist[b]) for b in VALID if b in dist), via))
+            if len(hits) > 1:
+                oddities.append((base, crit, "matched %d records: %s"
+                                 % (len(hits), ", ".join(c for c, _ in hits))))
         for col in skipped:
             print("    (ignored empty column: %s)" % col)
 

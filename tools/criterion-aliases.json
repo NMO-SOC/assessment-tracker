@@ -1,0 +1,16 @@
+{
+  "_comment": [
+    "Criteria whose Compass wording differs from the note recorded in the tracker.",
+    "Keyed by assessment code, then the exact CSV column heading, mapping to the",
+    "content-description code it belongs against. Each of these is a judgement call —",
+    "check them if the criterion wording changes.",
+    "Note: 08ENG and 08EN are treated as the same subject when matching task codes."
+  ],
+
+  "S1_09EN_CAT2": {
+    "Literary Features":  "VC2E9LE06",
+    "Proofreading":       "VC2E9LY09",
+    "Quality of Idea":    "VC2E9LY08",
+    "Vocabulary Choice":  "VC2E9LA08"
+  }
+}

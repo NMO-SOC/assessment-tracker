@@ -1,6 +1,6 @@
 {
  "version": 1,
- "updated": "2026-07-30T05:26:09.228Z",
+ "updated": "2026-07-30T05:26:22.250Z",
  "coverage": {
   "VC2E7LY01": [
    {
@@ -356,7 +356,7 @@
   "VC2E10LY08": [
    {
     "id": "ht376vxt",
-    "assessment": "S2_10EN_CAT1: Creative Writing",
+    "assessment": "S1_10EN_CAT1: Creative Writing",
     "date": "2026-02-27",
     "cls": "10",
     "notes": "Creating a written text that reflects on complex ideas or issues explored in mentor texts"

@@ -1,6 +1,6 @@
 {
  "version": 1,
- "updated": "2026-07-30T03:06:45.004Z",
+ "updated": "2026-07-30T03:07:02.577Z",
  "coverage": {
   "VC2E7LY01": [
    {
@@ -68,6 +68,13 @@
     "id": "ae7sh4ct",
     "assessment": "S1_08ENG_CAT1: Where does language come from? Oral Presentation",
     "date": "2026-03-06",
+    "cls": "8",
+    "notes": ""
+   },
+   {
+    "id": "h56iuvzo",
+    "assessment": "S1_08ENG_CAT2: Holes Creative Writing",
+    "date": "2026-05-25",
     "cls": "8",
     "notes": ""
    }

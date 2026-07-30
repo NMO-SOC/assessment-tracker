@@ -1,6 +1,6 @@
 {
  "version": 1,
- "updated": "2026-07-30T03:15:32.767Z",
+ "updated": "2026-07-30T03:16:37.292Z",
  "coverage": {
   "VC2E7LY01": [
    {
@@ -156,6 +156,15 @@
     "id": "68ihbf8x",
     "assessment": "S1_09EN_CAT1: Presenting Argument",
     "date": "2026-02-20",
+    "cls": "9",
+    "notes": ""
+   }
+  ],
+  "VC2E9LY08": [
+   {
+    "id": "ml0fzm82",
+    "assessment": "S1_09EN_CAT2: Creative",
+    "date": "2026-03-20",
     "cls": "9",
     "notes": ""
    }

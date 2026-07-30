@@ -1,6 +1,6 @@
 {
  "version": 1,
- "updated": "2026-07-30T03:20:23.270Z",
+ "updated": "2026-07-30T03:20:37.310Z",
  "coverage": {
   "VC2E7LY01": [
    {
@@ -199,6 +199,13 @@
     "id": "qmwbkai4",
     "assessment": "S1_09EN_CAT2: Creative Writing",
     "date": "2026-03-20",
+    "cls": "9",
+    "notes": ""
+   },
+   {
+    "id": "ajlower8",
+    "assessment": "S2_09EN_CAT1: Runner Essay",
+    "date": "2026-07-24",
     "cls": "9",
     "notes": ""
    }

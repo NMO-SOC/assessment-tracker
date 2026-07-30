@@ -1,6 +1,6 @@
 {
  "version": 1,
- "updated": "2026-07-30T05:25:47.291Z",
+ "updated": "2026-07-30T05:26:09.228Z",
  "coverage": {
   "VC2E7LY01": [
    {
@@ -420,10 +420,10 @@
   "VC2E10LY09": [
    {
     "id": "ebbh5v1u",
-    "assessment": "S2_10EN_CAT1: Creative Writing",
+    "assessment": "S1_10EN_CAT1: Creative Writing",
     "date": "2026-02-27",
     "cls": "10",
-    "notes": ""
+    "notes": "Experiment with vocabulary, text structures and language features for effective and cohesive writing"
    },
    {
     "id": "xpsutq8i",

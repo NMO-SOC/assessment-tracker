@@ -6,12 +6,31 @@
 <title>English 7–10 Assessment Coverage</title>
 <style>
   :root{
-    --bg:#f6f7fa; --card:#fff; --ink:#1b2430; --ink-soft:#3f4b5b; --muted:#717d8d;
-    --line:#e5e9ef; --line-soft:#eef1f5;
+    color-scheme:light;
+    --bg:#f6f7fa; --card:#fff; --card-alt:#fcfdfe; --hover:#f8f9fb; --done-bg:#fbfefc;
+    --header-bg:rgba(255,255,255,.92);
+    --ink:#1b2430; --ink-soft:#3f4b5b; --muted:#717d8d; --on-accent:#fff;
+    --line:#e5e9ef; --line-soft:#eef1f5; --line-hover:#d3d9e3;
     --accent:#3f51b5; --accent-soft:#eef0fb; --accent-ink:#2b3a8f;
     --done:#0f8a5f; --done-soft:#e7f6ef; --done-line:#a9dcc4;
+    --danger:#b3261e; --warn-ink:#8a5a00; --warn-dot:#d98324; --err-dot:#c5372c;
+    --toast-bg:#1b2430; --toast-ink:#fff; --veil:rgba(16,24,40,.34); --veil-strong:rgba(16,24,40,.4);
     --shadow:0 1px 2px rgba(16,24,40,.06); --shadow-lg:0 12px 32px rgba(16,24,40,.14);
+    --lift:0 4px 14px rgba(16,24,40,.09);
     --r:12px; --hdr:170px;
+  }
+  :root[data-theme="dark"]{
+    color-scheme:dark;
+    --bg:#12161c; --card:#1a2027; --card-alt:#1e252d; --hover:#222a34; --done-bg:#16201c;
+    --header-bg:rgba(18,22,28,.92);
+    --ink:#e7ebf1; --ink-soft:#bfc8d4; --muted:#8b96a5; --on-accent:#f2f4ff;
+    --line:#2a323c; --line-soft:#232a33; --line-hover:#3b4653;
+    --accent:#5a6dd8; --accent-soft:#242c48; --accent-ink:#b3bdf5;
+    --done:#4cc38a; --done-soft:#16302a; --done-line:#2f6b52;
+    --danger:#f28b81; --warn-ink:#e0a458; --warn-dot:#d98324; --err-dot:#e5645a;
+    --toast-bg:#e7ebf1; --toast-ink:#12161c; --veil:rgba(0,0,0,.6); --veil-strong:rgba(0,0,0,.66);
+    --shadow:0 1px 2px rgba(0,0,0,.4); --shadow-lg:0 14px 36px rgba(0,0,0,.6);
+    --lift:0 4px 14px rgba(0,0,0,.45);
   }
   *{box-sizing:border-box}
   html{-webkit-text-size-adjust:100%}
@@ -21,7 +40,7 @@
   .wrap{max-width:1320px;margin:0 auto;padding:0 24px}
 
   /* ---------- header ---------- */
-  header{background:rgba(255,255,255,.92);backdrop-filter:saturate(180%) blur(8px);
+  header{background:var(--header-bg);backdrop-filter:saturate(180%) blur(8px);
     border-bottom:1px solid var(--line);position:sticky;top:0;z-index:40}
   .titlebar{display:flex;align-items:flex-start;gap:16px;padding:16px 0 0}
   h1{margin:0;font-size:20px;letter-spacing:-.01em;font-weight:650}
@@ -42,13 +61,15 @@
   .search svg{position:absolute;left:9px;top:50%;transform:translateY(-50%);opacity:.45}
   .btn{font:inherit;font-size:13.5px;padding:6px 12px;border:1px solid var(--line);border-radius:9px;
     background:var(--card);color:var(--ink);cursor:pointer;box-shadow:var(--shadow)}
-  .btn:hover{background:#f8f9fb}
-  .btn.primary{background:var(--accent);border-color:var(--accent);color:#fff;box-shadow:none}
+  .btn:hover{background:var(--hover)}
+  .btn.primary{background:var(--accent);border-color:var(--accent);color:var(--on-accent);box-shadow:none}
   .btn.primary:hover{filter:brightness(1.08)}
   .btn.ghost{box-shadow:none;border-color:transparent;background:transparent}
   .btn.ghost:hover{background:var(--line-soft)}
-  .btn.danger{color:#b3261e}
+  .btn.danger{color:var(--danger)}
   .icon-btn{display:inline-flex;align-items:center;gap:6px}
+  .icon-only{display:inline-flex;align-items:center;justify-content:center;padding:6px 9px;color:var(--muted)}
+  .icon-only:hover{color:var(--ink)}
 
   /* data menu */
   .menu-host{position:relative}
@@ -65,19 +86,19 @@
   .chip{display:inline-flex;align-items:center;gap:6px;font-size:12.5px;color:var(--muted);
     background:var(--card);border:1px solid var(--line);border-radius:99px;padding:5px 11px;
     box-shadow:var(--shadow);cursor:pointer;font-family:inherit}
-  .chip:hover{background:#f8f9fb;color:var(--ink-soft)}
+  .chip:hover{background:var(--hover);color:var(--ink-soft)}
   .chip .dot{width:7px;height:7px;border-radius:50%;background:var(--muted);flex:none}
   .chip.ok .dot{background:var(--done)}
   .chip.ok{color:var(--done)}
   .chip.busy .dot{background:var(--accent);animation:pulse 1s ease-in-out infinite}
-  .chip.warn .dot{background:#d98324}
-  .chip.warn{color:#8a5a00}
-  .chip.err .dot{background:#c5372c}
-  .chip.err{color:#b3261e}
+  .chip.warn .dot{background:var(--warn-dot)}
+  .chip.warn{color:var(--warn-ink)}
+  .chip.err .dot{background:var(--err-dot)}
+  .chip.err{color:var(--danger)}
   @keyframes pulse{0%,100%{opacity:1}50%{opacity:.3}}
 
   /* modal */
-  .modal-veil{position:fixed;inset:0;background:rgba(16,24,40,.4);z-index:100;display:none;
+  .modal-veil{position:fixed;inset:0;background:var(--veil-strong);z-index:100;display:none;
     align-items:center;justify-content:center;padding:20px}
   .modal-veil.on{display:flex}
   .modal{background:var(--card);border-radius:16px;box-shadow:var(--shadow-lg);width:min(480px,100%);
@@ -89,7 +110,7 @@
   .modal label{display:block;font-size:11.5px;color:var(--muted);margin-bottom:4px}
   .modal input{width:100%;font-family:ui-monospace,Menlo,monospace;font-size:12.5px}
   .modal .acts{display:flex;gap:8px;justify-content:flex-end;margin-top:16px;align-items:center}
-  .modal .err{color:#b3261e;font-size:12.5px;margin:10px 0 0}
+  .modal .err{color:var(--danger);font-size:12.5px;margin:10px 0 0}
 
   /* ---------- summary ---------- */
   .summary{background:var(--card);border:1px solid var(--line);border-radius:var(--r);
@@ -121,9 +142,9 @@
     border-radius:var(--r);padding:11px 13px;cursor:pointer;box-shadow:var(--shadow);
     display:flex;flex-direction:column;gap:7px;text-align:left;font:inherit;color:inherit;
     transition:transform .12s ease,box-shadow .12s ease,border-color .12s ease}
-  .cell:hover{transform:translateY(-1px);box-shadow:0 4px 14px rgba(16,24,40,.09);border-color:#d3d9e3}
+  .cell:hover{transform:translateY(-1px);box-shadow:var(--lift);border-color:var(--line-hover)}
   .cell:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
-  .cell.done{border-left-color:var(--done);background:linear-gradient(#fff,#fcfefd)}
+  .cell.done{border-left-color:var(--done);background:var(--done-bg)}
   .cell .row1{display:flex;align-items:center;gap:7px}
   .code{font:11.5px/1.5 ui-monospace,SFMono-Regular,Menlo,monospace;letter-spacing:.02em;
     background:var(--accent-soft);color:var(--accent-ink);padding:1px 7px;border-radius:5px;white-space:nowrap}
@@ -147,7 +168,7 @@
   .acard .note{font-size:12.5px;color:var(--muted);margin-top:9px;padding-top:9px;border-top:1px solid var(--line-soft)}
 
   /* ---------- drawer ---------- */
-  .veil{position:fixed;inset:0;background:rgba(16,24,40,.34);opacity:0;pointer-events:none;
+  .veil{position:fixed;inset:0;background:var(--veil);opacity:0;pointer-events:none;
     transition:opacity .18s ease;z-index:80}
   .veil.on{opacity:1;pointer-events:auto}
   .drawer{position:fixed;top:0;right:0;height:100%;width:min(460px,100%);background:var(--card);
@@ -163,13 +184,17 @@
   .close:hover{color:var(--ink)}
   .drawer-body{padding:16px 20px 26px;overflow:auto;flex:1}
   .drawer-body h5{margin:0 0 9px;font-size:11.5px;text-transform:uppercase;letter-spacing:.06em;color:var(--muted)}
-  .rec{border:1px solid var(--line);border-radius:10px;padding:10px 12px;margin-bottom:8px;background:#fcfdfe}
+  .rec{border:1px solid var(--line);border-radius:10px;padding:10px 12px;margin-bottom:8px;background:var(--card-alt)}
   .rec .r1{display:flex;align-items:center;gap:8px}
   .rec b{font-size:14px;font-weight:600}
   .rec .m{font-size:12px;color:var(--muted);margin-top:2px}
   .rec .n{font-size:13px;color:var(--ink-soft);margin-top:6px;padding-top:6px;border-top:1px solid var(--line-soft)}
-  .rec .x{margin-left:auto;border:0;background:transparent;color:var(--muted);cursor:pointer;font-size:12.5px}
-  .rec .x:hover{color:#b3261e}
+  .rec .acts2{margin-left:auto;display:flex;gap:2px;flex:none}
+  .rec .x{border:0;background:transparent;color:var(--muted);cursor:pointer;font-size:12.5px;
+    padding:2px 6px;border-radius:6px}
+  .rec .x:hover{background:var(--line-soft);color:var(--ink)}
+  .rec .x.del:hover{color:var(--danger)}
+  .rec.editing{background:var(--card);border-color:var(--accent);box-shadow:var(--shadow)}
   .none{color:var(--muted);font-size:13.5px;margin:0 0 14px}
   form.add{display:grid;gap:8px;margin-top:6px}
   form.add .two{display:grid;grid-template-columns:1fr 1fr;gap:8px}
@@ -180,7 +205,7 @@
 
   .empty-state{background:var(--card);border:1px dashed var(--line);border-radius:var(--r);
     padding:36px;text-align:center;color:var(--muted);margin-top:20px}
-  .toast{position:fixed;left:50%;bottom:24px;transform:translate(-50%,80px);background:#1b2430;color:#fff;
+  .toast{position:fixed;left:50%;bottom:24px;transform:translate(-50%,80px);background:var(--toast-bg);color:var(--toast-ink);
     font-size:13.5px;padding:10px 16px;border-radius:10px;box-shadow:var(--shadow-lg);z-index:100;
     transition:transform .2s ease,opacity .2s ease;opacity:0}
   .toast.on{transform:translate(-50%,0);opacity:1}
@@ -205,6 +230,9 @@
         <div class="sub">Victorian Curriculum F–10 Version 2.0 — a record of what you've assessed and how</div>
       </div>
       <div class="spacer"></div>
+      <button class="btn icon-only" id="themeBtn" aria-label="Switch to dark mode" title="Switch to dark mode">
+        <svg id="themeIcon" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"></svg>
+      </button>
       <button class="chip" id="syncChip" title="Sync status"><span class="dot"></span><span id="syncText">Loading…</span></button>
       <div class="menu-host">
         <button class="btn icon-btn" id="dataBtn" aria-haspopup="true" aria-expanded="false">
@@ -220,7 +248,7 @@
           <button id="importBtn">Import JSON…</button>
           <button id="csvBtn">Export CSV</button>
           <hr>
-          <button id="clearBtn" style="color:#b3261e">Clear all records</button>
+          <button id="clearBtn" style="color:var(--danger)">Clear all records</button>
           <div class="hint" id="menuHint"></div>
         </div>
       </div>
@@ -296,7 +324,7 @@
   const $ = id => document.getElementById(id);
 
   let coverage = {};
-  const ui = {level:"", strand:"", status:"", cls:"", q:"", view:"curriculum", code:null};
+  const ui = {level:"", strand:"", status:"", cls:"", q:"", view:"curriculum", code:null, editing:null};
 
   /* ---- data helpers ---- */
   const uid = () => Math.random().toString(36).slice(2,10);
@@ -611,29 +639,50 @@
     h += '<h5>Assessment records</h5>';
     if (rs.length){
       rs.forEach(r => {
-        h += '<div class="rec"><div class="r1"><b>'+esc(r.assessment)+'</b>'+
-          '<button class="x" data-del="'+r.id+'">Remove</button></div>'+
+        h += (r.id === ui.editing) ? recordForm(r) :
+          '<div class="rec"><div class="r1"><b>'+esc(r.assessment)+'</b>'+
+          '<span class="acts2"><button class="x" data-edit="'+r.id+'">Edit</button>'+
+          '<button class="x del" data-del="'+r.id+'">Remove</button></span></div>'+
           '<div class="m">'+[fmtDate(r.date)||"no date", r.cls||"no class"].map(esc).join(" · ")+'</div>'+
           (r.notes?'<div class="n">'+esc(r.notes)+'</div>':'')+'</div>';
       });
     } else {
       h += '<p class="none">Nothing recorded against this content description yet.</p>';
     }
-    h += '<hr class="divider"><h5>Add a record</h5><form class="add" id="addForm">'+
-      '<div><label for="f-a">Assessment name</label>'+
-      '<input id="f-a" name="assessment" type="text" list="assessList" placeholder="e.g. Persuasive essay — Unit 2" required></div>'+
-      '<div class="two"><div><label for="f-d">Date</label><input id="f-d" name="date" type="date" value="'+
-        new Date().toISOString().slice(0,10)+'"></div>'+
-      '<div><label for="f-c">Class / cohort</label><input id="f-c" name="cls" type="text" list="classList" placeholder="e.g. 9C" value="'+esc(ui.cls)+'"></div></div>'+
-      '<div><label for="f-n">Notes / evidence</label><textarea id="f-n" name="notes" placeholder="How was this assessed? What did students produce?"></textarea></div>'+
-      '<button class="btn primary" type="submit" style="justify-self:start">Mark as assessed</button></form></div>';
+    if (!ui.editing){
+      h += '<hr class="divider"><h5>Add a record</h5>'+
+        recordFields({date:new Date().toISOString().slice(0,10), cls:ui.cls}, "addForm", "Mark as assessed");
+    }
+    h += '</div>';
     const d = $("drawer");
     d.innerHTML = h; d.classList.add("on"); d.setAttribute("aria-hidden","false");
     $("veil").classList.add("on");
     setTimeout(()=>{ const el = $("f-a"); if (el) el.focus(); }, 220);
   }
+  /* One field set, used for both adding and editing — same shape either way. */
+  function recordFields(v, formId, submitLabel, extra){
+    const p = formId+"-";
+    return '<form class="add" id="'+formId+'"'+(v.id?' data-editing="'+v.id+'"':'')+'>'+
+      '<div><label for="'+p+'a">Assessment name</label>'+
+      '<input id="'+p+'a" name="assessment" type="text" list="assessList" placeholder="e.g. Persuasive essay — Unit 2" value="'+esc(v.assessment)+'" required></div>'+
+      '<div class="two"><div><label for="'+p+'d">Date</label>'+
+      '<input id="'+p+'d" name="date" type="date" value="'+esc(v.date)+'"></div>'+
+      '<div><label for="'+p+'c">Class / cohort</label>'+
+      '<input id="'+p+'c" name="cls" type="text" list="classList" placeholder="e.g. 9C" value="'+esc(v.cls)+'"></div></div>'+
+      '<div><label for="'+p+'n">Notes / evidence</label>'+
+      '<textarea id="'+p+'n" name="notes" placeholder="How was this assessed? What did students produce?">'+esc(v.notes)+'</textarea></div>'+
+      '<div style="display:flex;gap:8px;align-items:center">'+
+      '<button class="btn primary" type="submit">'+submitLabel+'</button>'+(extra||"")+'</div></form>';
+  }
+  function recordForm(r){
+    return '<div class="rec editing">'+
+      recordFields(r, "editForm", "Save changes",
+        '<button class="btn" type="button" id="cancelEdit">Cancel</button>'+
+        '<button class="btn danger" type="button" data-del="'+r.id+'" style="margin-left:auto">Remove</button>')+'</div>';
+  }
+
   function closeDrawer(){
-    ui.code = null;
+    ui.code = null; ui.editing = null;
     $("drawer").classList.remove("on"); $("drawer").setAttribute("aria-hidden","true");
     $("veil").classList.remove("on");
   }
@@ -658,11 +707,16 @@
     const c = e.target.closest(".cell[data-code]");
     if (c){ openDrawer(c.getAttribute("data-code")); return; }
     if (e.target.closest("#closeDrawer")){ closeDrawer(); return; }
+    const ed = e.target.closest("[data-edit]");
+    if (ed && ui.code){ ui.editing = ed.getAttribute("data-edit"); openDrawer(ui.code);
+      setTimeout(()=>{ const el = $("editForm-a"); if (el){ el.focus(); el.select(); } }, 20); return; }
+    if (e.target.closest("#cancelEdit")){ ui.editing = null; openDrawer(ui.code); return; }
     const del = e.target.closest("[data-del]");
     if (del && ui.code){
       const code = ui.code, id = del.getAttribute("data-del");
       coverage[code] = recs(code).filter(r=>r.id!==id);
       if (!coverage[code].length) delete coverage[code];
+      if (ui.editing === id) ui.editing = null;
       save(); render(); queuePush(); toast("Record removed."); return;
     }
     if (!e.target.closest(".menu-host")) $("dataMenu").classList.remove("open");
@@ -673,13 +727,23 @@
       $("tokenVeil").classList.remove("on"); }
   });
   document.addEventListener("submit", e => {
-    if (!e.target.closest("#addForm")) return;
+    const f = e.target.closest("#addForm, #editForm");
+    if (!f) return;
     e.preventDefault();
-    const f = e.target, code = ui.code;
+    const code = ui.code; if (!code) return;
     const g = n => (f.querySelector('[name='+n+']').value||"").trim();
-    const name = g("assessment"); if (!name || !code) return;
-    (coverage[code] = coverage[code] || []).push({id:uid(), assessment:name, date:g("date"), cls:g("cls"), notes:g("notes")});
-    save(); render(); queuePush(); toast("Recorded against "+code+".");
+    const name = g("assessment"); if (!name) return;
+    const editId = f.getAttribute("data-editing");
+    if (editId){
+      const r = recs(code).find(x => x.id === editId);
+      if (!r) return;
+      r.assessment = name; r.date = g("date"); r.cls = g("cls"); r.notes = g("notes");
+      ui.editing = null;
+      save(); render(); queuePush(); toast("Record updated.");
+    } else {
+      (coverage[code] = coverage[code] || []).push({id:uid(), assessment:name, date:g("date"), cls:g("cls"), notes:g("notes")});
+      save(); render(); queuePush(); toast("Recorded against "+code+".");
+    }
   });
   $("dataBtn").addEventListener("click", e => {
     e.stopPropagation();
@@ -708,7 +772,35 @@
     document.documentElement.style.setProperty("--hdr", h+"px");
   }
 
+  /* ---- theme ---- */
+  const THEME_KEY = "vic-english-7-10-theme";
+  const SUN = '<circle cx="12" cy="12" r="4.2"/><path d="M12 2.6v2M12 19.4v2M2.6 12h2M19.4 12h2M5.4 5.4l1.4 1.4M17.2 17.2l1.4 1.4M18.6 5.4l-1.4 1.4M6.8 17.2l-1.4 1.4"/>';
+  const MOON = '<path d="M20 14.4A8.4 8.4 0 0 1 9.6 4a8.4 8.4 0 1 0 10.4 10.4Z"/>';
+  function applyTheme(mode){
+    document.documentElement.setAttribute("data-theme", mode);
+    const dark = mode === "dark";
+    $("themeIcon").innerHTML = dark ? SUN : MOON;
+    const label = dark ? "Switch to light mode" : "Switch to dark mode";
+    $("themeBtn").setAttribute("aria-label", label);
+    $("themeBtn").title = label;
+    syncHdr();
+  }
+  function initTheme(){
+    let mode;
+    try{ mode = localStorage.getItem(THEME_KEY); }catch(e){}
+    if (mode !== "dark" && mode !== "light"){
+      mode = window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+    }
+    applyTheme(mode);
+    $("themeBtn").onclick = () => {
+      const next = document.documentElement.getAttribute("data-theme") === "dark" ? "light" : "dark";
+      applyTheme(next);
+      try{ localStorage.setItem(THEME_KEY, next); }catch(e){}
+    };
+  }
+
   function init(){
+    initTheme();
     $("levelSeg").innerHTML = '<button data-val="" class="on">All levels</button>' +
       LEVELS.map(l=>'<button data-val="'+l+'">Level '+l+'</button>').join("");
     $("strandSel").innerHTML = '<option value="">All strands</option>' + STRANDS.map(s=>'<option>'+s+'</option>').join("");

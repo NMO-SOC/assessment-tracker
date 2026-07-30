@@ -85,6 +85,12 @@ Click any content description to open the side panel, then enter:
 
 The same content description can carry multiple records (different classes, different tasks). Filter by class to see coverage for one group only.
 
+Each record has **Edit** and **Remove**. Editing opens the same fields in place and keeps the record's id, so an edit updates that record everywhere rather than creating a second one. Cancel discards the change.
+
+## Dark mode
+
+The moon/sun button in the header toggles it, and the choice is remembered per browser. With no choice made it follows your operating system's setting. It's a display preference only — stored separately from your records, never synced.
+
 ## Views and filters
 
 - **Curriculum** view — the four-level grid. Assessed descriptions carry a tick, the assessment names, and a page icon where evidence notes exist. Ones with no records stay quiet rather than being flagged as gaps.

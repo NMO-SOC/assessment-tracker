@@ -1,6 +1,6 @@
 {
  "version": 1,
- "updated": "2026-07-30T03:45:19.647Z",
+ "updated": "2026-07-30T03:45:38.688Z",
  "coverage": {
   "VC2E7LY01": [
    {
@@ -398,6 +398,15 @@
     "date": "2026-05-13",
     "cls": "7ADV",
     "notes": "Connections, Evaluation and Critical Thinking"
+   }
+  ],
+  "VC2E7LE06": [
+   {
+    "id": "7b9gea8o",
+    "assessment": "S1_07ADVEN_26_CAT1: Creative Writing - Newspaper Report",
+    "date": "2026-02-25",
+    "cls": "7ADV",
+    "notes": "Language Features and Literary Adaption"
    }
   ]
  }

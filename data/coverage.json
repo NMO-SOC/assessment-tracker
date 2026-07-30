@@ -1,6 +1,6 @@
 {
  "version": 1,
- "updated": "2026-07-30T05:23:41.457Z",
+ "updated": "2026-07-30T05:23:43.704Z",
  "coverage": {
   "VC2E7LY01": [
    {
@@ -255,13 +255,6 @@
     "date": "2026-03-20",
     "cls": "9",
     "notes": "Reviewing and editing writing"
-   },
-   {
-    "id": "x0ol7w5c",
-    "assessment": "S2_09EN_CAT1: Runner Essay",
-    "date": "2026-07-24",
-    "cls": "9",
-    "notes": ""
    },
    {
     "id": "4kptnlwg",

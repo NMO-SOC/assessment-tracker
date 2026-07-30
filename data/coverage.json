@@ -1,6 +1,6 @@
 {
  "version": 1,
- "updated": "2026-07-30T03:18:45.746Z",
+ "updated": "2026-07-30T03:19:03.196Z",
  "coverage": {
   "VC2E7LY01": [
    {
@@ -147,6 +147,13 @@
     "id": "gx0ddbie",
     "assessment": "S1_09EN_CAT1: Presenting Argument",
     "date": "2026-02-20",
+    "cls": "9",
+    "notes": ""
+   },
+   {
+    "id": "mjcny8l9",
+    "assessment": "S1_09EN_CAT3: Runner Language Test",
+    "date": "2026-05-28",
     "cls": "9",
     "notes": ""
    }

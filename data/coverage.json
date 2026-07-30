@@ -1,6 +1,6 @@
 {
  "version": 1,
- "updated": "2026-07-30T04:21:34.782Z",
+ "updated": "2026-07-30T04:24:39.357Z",
  "coverage": {
   "VC2E7LY01": [
    {
@@ -628,6 +628,15 @@
     "date": "2026-05-18",
     "cls": "9ADV",
     "notes": "Editing and Refinement"
+   }
+  ],
+  "VC2E9LY05": [
+   {
+    "id": "p80udoi5",
+    "assessment": "S1_09ADVEN_CAT1: Analysing Argument",
+    "date": "2026-08-03",
+    "cls": "9ADV",
+    "notes": "Understanding and Interpreting Argument"
    }
   ]
  }

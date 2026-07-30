@@ -1,16 +1,77 @@
 {
   "_comment": [
     "Criteria whose Compass wording differs from the note recorded in the tracker.",
-    "Keyed by assessment code, then the exact CSV column heading, mapping to the",
-    "content-description code it belongs against. Each of these is a judgement call —",
-    "check them if the criterion wording changes.",
-    "Note: 08ENG and 08EN are treated as the same subject when matching task codes."
+    "Keyed by the tracker's exact task name, then the CSV column heading, mapping to the",
+    "content-description code(s) it belongs against. A list applies the same figures to",
+    "several codes. Matching already ignores case, spacing, hyphens, punctuation and",
+    "treats '&' as 'and', so only genuine wording differences need an entry here.",
+    "Every line below is a judgement call — re-check if a rubric changes."
   ],
 
-  "S1_09EN_CAT2": {
+  "S1_07ADVEN_26_CAT1: Creative Writing - Newspaper Report": {
+    "Evidence of voice, audience, journalsitic style": "VC2E7LY08",
+    "Language features":                               "VC2E7LE06",
+    "Understaning of newspaper structure":             "VC2E7LA03",
+    "Use of grammar, punctuation, spelling":           "VC2E7LA09"
+  },
+
+  "S1_07ADVEN_26_CAT2: Trash Chapter Expert Task": {
+    "Analysis of language, perspective and authors choices": "VC2E7LE03"
+  },
+
+  "S1_08ADVEN_26_CAT1: Creative Writing - Sympathetic Character": {
+    "Charatcer development":          "VC2E8LE06",
+    "Control of writing conventions": "VC2E8LA05",
+    "Narrative writing style":        "VC2E8LA03"
+  },
+
+  "S1_08ADVEN_26_CAT2: Neurodivergence Research Report": {
+    "Structure and organisation of the presentation": "VC2E8LY08",
+    "Use of language and vocabulary - reflecting mood, style and tone": "VC2E8LA08"
+  },
+
+  "S1_09EN_CAT2: Creative Writing": {
     "Literary Features":  "VC2E9LE06",
     "Proofreading":       "VC2E9LY09",
     "Quality of Idea":    "VC2E9LY08",
     "Vocabulary Choice":  "VC2E9LA08"
+  },
+
+  "S1_09ADVEN_CAT2: Personal Text Response": {
+    "Positioning in Text": "VC2E9LE03",
+    "Refinement":          "VC2E9LY09",
+    "Voice and Structure": "VC2E9LE06",
+    "Evaluation":          "VC2E9LY04"
+  },
+
+  "S1_10ADVEN1_CAT1: Personal Text Response": {
+    "Personal Interpretation": "VC2E10LE02",
+    "Positioning in Text":     "VC2E10LE03",
+    "Refinement":              "VC2E10LY09",
+    "Voice and Structure":     "VC2E10LE06"
+  },
+
+  "S1_10ADVEN_CAT2: English Conventions": {
+    "Sentence Structures & Punctuation": ["VC2E10LA05", "VC2E10LA09"]
+  },
+
+  "S1_10EN_CAT1: Creative Writing": {
+    "Complexity of Ideas":  "VC2E10LY08",
+    "Voice":                "VC2E10LE06",
+    "Vocabulary":           "VC2E10LA08",
+    "Refinement of Text":   "VC2E10LY09"
+  },
+
+  "S2_10EN_CAT2: Analytical Text Response Essay": {
+    "Creation of Arguments":              "VC2E10LY08",
+    "Structure and Coherence":            "VC2E10LA04",
+    "Effectiveness of Sentence Structures": "VC2E10LA05"
+  },
+
+  "S1_10ADVEN_CAT1: Love Framework of Ideas": {
+    "Analyses representations of love VC2E10LY07 &  VC2E10LA01": "VC2E10LY07",
+    "Interprets creator's purpose and viewpoint VC2E10LE06 & VC2E10LA07": "VC2E10LA02",
+    "Presents ideas fluently for a specific audience  VC2E10LY02 &  VC2E10LA01": "VC2E10LY02",
+    "Uses evidence and techniques to support interpretation VC2E10LY07 & VC2E10LE06": "VC2E10LE04"
   }
 }

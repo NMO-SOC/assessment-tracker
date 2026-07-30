@@ -1,0 +1,17 @@
+{
+  "_comment": [
+    "Exports whose filename doesn't resolve to the tracker's task name on its own.",
+    "Key = any distinctive fragment of the export filename (matched loosely, ignoring",
+    "case, spaces, hyphens and punctuation). Value = the exact `assessment` value used",
+    "in coverage.json. Add an entry whenever Compass and the tracker disagree on the",
+    "code, the semester, or the spelling."
+  ],
+
+  "S1_08ADVEN1_CAT2":  "S1_08ADVEN_26_CAT2: Neurodivergence Research Report",
+  "S1_08ADVEN_CAT3":   "S1_08ADVEN_26_CAT3: Curious Incident Passage Analysis",
+  "S1_09ADEVN1_CAT3":  "S1_09ADVEN1_CAT3: Story Telling",
+  "NAPLAN Practice":   "S1_09ADVEN_CAT1: NAPLAN Practice",
+  "S1_10ADVEN_CAT1_ Personal Text Response": "S1_10ADVEN1_CAT1: Personal Text Response",
+  "S1_10EN_CAT2":      "S2_10EN_CAT2: Analytical Text Response Essay",
+  "Love Framework of Ideas": "S1_10ADVEN_CAT1: Love Framework of Ideas"
+}

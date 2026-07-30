@@ -39,8 +39,11 @@ META_COLS = {"id", "name", "submission state", "sn", "comment (open)", "comment"
 
 
 def norm(s):
-    """Loose key for matching names: ignores case, spacing and hyphenation."""
+    """Loose key for matching names: ignores case, spacing, hyphens, punctuation,
+    and treats '&' as 'and'."""
     s = str(s or "").lower().replace("–", "-").replace("—", "-")
+    s = s.replace("&", "and").replace("’", "'")
+    s = re.sub(r"[,.'‘’\"]", "", s)
     return re.sub(r"[\s\-]+", "", s)
 
 
@@ -58,7 +61,7 @@ def subject(tok):
 
 def task_code(text):
     """Pull an assessment code like S1_07EN_CAT1 out of a filename or task name."""
-    m = re.search(r"(S\d)[_ ]*([0-9]{2}[A-Z]+[0-9]*)[_ ]*(CAT\s*\d+)", str(text), re.I)
+    m = re.search(r"(S\d)[_ ]*([0-9]{2}[A-Z]+?)[0-9]*[_ ]*(?:[0-9]+[_ ]*)?(CAT\s*\d+)", str(text), re.I)
     if not m:
         return None
     return norm(m.group(1) + subject(m.group(2)) + m.group(3))
@@ -66,8 +69,16 @@ def task_code(text):
 
 def read_export(path):
     """Return (criterion -> Counter of bands, n_rows, skipped_columns)."""
-    with open(path, encoding="utf-8-sig", errors="replace") as fh:
-        raw = fh.read()
+    data = open(path, "rb").read()
+    raw = None
+    for enc in ("utf-8-sig", "cp1252", "latin-1"):
+        try:
+            raw = data.decode(enc)
+            break
+        except UnicodeDecodeError:
+            continue
+    if raw is None:
+        raw = data.decode("utf-8", errors="replace")
     rows = list(csv.DictReader(io.StringIO(raw)))
     if not rows:
         return {}, 0, []
@@ -98,16 +109,25 @@ def main():
     ap.add_argument("-o", "--out", help="where to write the updated coverage.json")
     ap.add_argument("--dry-run", action="store_true", help="report only, write nothing")
     ap.add_argument("--aliases", help="JSON map for criteria whose Compass wording differs "
-                                      "from the tracker: {taskCode: {csvColumn: VC2Ecode}}")
+                                      "from the tracker: {taskName: {csvColumn: VC2Ecode | [codes]}}")
+    ap.add_argument("--create-missing", action="store_true",
+                    help="if an alias names a content description with no record on that task, "
+                         "add one (date and class copied from the task's other records)")
+    ap.add_argument("--task-map", help="JSON map for exports whose filename doesn't match the "
+                                       "tracker's task name: {filenameFragment: exactTaskName}")
     args = ap.parse_args()
 
+    def load_map(path):
+        if not path:
+            return {}
+        with open(path, encoding="utf-8") as fh:
+            return {k: v for k, v in json.load(fh).items() if not k.startswith("_")}
+
     aliases = {}
-    if args.aliases:
-        with open(args.aliases, encoding="utf-8") as fh:
-            for tc, cols in json.load(fh).items():
-                if tc.startswith("_") or not isinstance(cols, dict):
-                    continue          # comment keys
-                aliases[task_code(tc) or norm(tc)] = {norm(k): v for k, v in cols.items()}
+    for tname, cols in load_map(args.aliases).items():
+        if isinstance(cols, dict):
+            aliases[norm(tname)] = {norm(k): v for k, v in cols.items()}
+    task_map = {norm(k): v for k, v in load_map(args.task_map).items()}
 
     paths = []
     for pattern in args.csvs:
@@ -117,30 +137,42 @@ def main():
         doc = json.load(fh)
     coverage = doc.get("coverage", doc)
 
-    # index records by (task code, normalised criterion) and by (task code, cd code)
-    index, by_cd, tasks_seen = {}, {}, {}
+    # index records by exact task name, then criterion or cd code
+    index, by_cd, by_code, all_tasks = {}, {}, {}, set()
     for code, records in coverage.items():
         for rec in records:
-            tc = task_code(rec.get("assessment"))
+            tname = rec.get("assessment") or ""
+            all_tasks.add(tname)
+            index.setdefault((norm(tname), norm(rec.get("notes"))), []).append((code, rec))
+            by_cd.setdefault((norm(tname), code), []).append((code, rec))
+            tc = task_code(tname)
             if tc:
-                tasks_seen.setdefault(tc, set()).add(rec.get("assessment"))
-            index.setdefault((tc, norm(rec.get("notes"))), []).append((code, rec))
-            by_cd.setdefault((tc, code), []).append((code, rec))
+                by_code.setdefault(tc, set()).add(tname)
 
-    applied, unmatched, oddities = [], [], []
+    def resolve_task(base):
+        """Filename -> the tracker's task name. Explicit map first, then code."""
+        for frag, tname in task_map.items():
+            if frag and frag in norm(base):
+                return tname, "mapped"
+        tc = task_code(base)
+        if tc and tc in by_code:
+            names = sorted(by_code[tc])
+            if len(names) == 1:
+                return names[0], "by code"
+            return None, "code %s is ambiguous: %s" % (tc, "; ".join(names))
+        return None, "no matching task"
+
+    applied, unmatched, oddities, created = [], [], [], []
 
     for path in paths:
         base = os.path.basename(path)
-        tc = task_code(base)
         tallies, nrows, skipped = read_export(path)
-        if not tc:
-            unmatched.append((base, "-", "no assessment code in the filename"))
+        tname, how = resolve_task(base)
+        if not tname:
+            unmatched.append((base, "-", how))
             continue
-        if tc not in tasks_seen:
-            unmatched.append((base, "-", "no records for this task in coverage.json"))
-            continue
-        print("\n%s\n  task %s -> %s  (%d student rows)"
-              % (base, tc, sorted(tasks_seen[tc])[0], nrows))
+        tc = norm(tname)
+        print("\n%s\n  -> %s  (%s, %d student rows)" % (base, tname, how, nrows))
         for crit, counts in tallies.items():
             others = {k.split(":", 1)[1]: v for k, v in counts.items() if k.startswith("__other__:")}
             dist = {b: counts[b] for b in VALID if counts[b]}
@@ -153,10 +185,32 @@ def main():
             if not hits:
                 target = aliases.get(tc, {}).get(norm(crit))
                 if target:
-                    hits = by_cd.get((tc, target), [])
-                    via = " (via alias -> %s)" % target
+                    targets = target if isinstance(target, list) else [target]
+                    hits, missing = [], []
+                    for t in targets:
+                        got = by_cd.get((tc, t), [])
+                        hits.extend(got)
+                        if not got:
+                            missing.append(t)
+                    via = " (alias -> %s)" % ", ".join(targets)
+                    for t_code in missing:
+                        if not args.create_missing:
+                            unmatched.append((base, crit,
+                                "alias names %s but the task has no record on it "
+                                "(re-run with --create-missing to add it)" % t_code))
+                            continue
+                        sibling = next((r for (tn, _c), lst in by_cd.items() if tn == tc
+                                        for _cc, r in lst), None)
+                        new = {"id": "%08x" % (abs(hash(tc + t_code + crit)) & 0xffffffff),
+                               "assessment": tname,
+                               "date": (sibling or {}).get("date", ""),
+                               "cls": (sibling or {}).get("cls", ""),
+                               "notes": crit.strip()}
+                        coverage.setdefault(t_code, []).append(new)
+                        by_cd.setdefault((tc, t_code), []).append((t_code, new))
+                        hits.append((t_code, new))
+                        created.append((t_code, tname, crit.strip()))
                     if not hits:
-                        unmatched.append((base, crit, "alias points at %s but no such record on the task" % target))
                         continue
             if not hits:
                 unmatched.append((base, crit, "no record with this criterion on the task"))
@@ -173,6 +227,10 @@ def main():
             print("    (ignored empty column: %s)" % col)
 
     print("\n%d record(s) updated." % len(applied))
+    if created:
+        print("\nNew records added (no existing record carried this criterion):")
+        for code, tname, crit in created:
+            print("  %s on %s  <- %s" % (code, tname, crit))
     if oddities:
         print("\nValues outside the rating scale — not counted:")
         for base, crit, others in oddities:

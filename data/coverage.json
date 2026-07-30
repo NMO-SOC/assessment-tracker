@@ -1,6 +1,6 @@
 {
  "version": 1,
- "updated": "2026-07-30T05:17:50.515Z",
+ "updated": "2026-07-30T05:18:02.992Z",
  "coverage": {
   "VC2E7LY01": [
    {
@@ -190,7 +190,7 @@
     "assessment": "S1_09EN_CAT1: Presenting Argument",
     "date": "2026-02-20",
     "cls": "9",
-    "notes": ""
+    "notes": "Language Choices\nVC2E9LA01"
    },
    {
     "id": "mjcny8l9",

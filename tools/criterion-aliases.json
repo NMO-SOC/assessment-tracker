@@ -69,9 +69,10 @@
   },
 
   "S1_10ADVEN_CAT1: Love Framework of Ideas": {
-    "Analyses representations of love VC2E10LY07 &  VC2E10LA01": "VC2E10LY07",
-    "Interprets creator's purpose and viewpoint VC2E10LE06 & VC2E10LA07": "VC2E10LA02",
-    "Presents ideas fluently for a specific audience  VC2E10LY02 &  VC2E10LA01": "VC2E10LY02",
-    "Uses evidence and techniques to support interpretation VC2E10LY07 & VC2E10LE06": "VC2E10LE04"
+    "_note": "This rubric names its own codes in the column headings, so they win. The records were re-pointed to match: LA02 -> LE06 and LE04 -> LY07, with LA01 and LA07 added.",
+    "Analyses representations of love VC2E10LY07 &  VC2E10LA01": ["VC2E10LY07", "VC2E10LA01"],
+    "Interprets creator's purpose and viewpoint VC2E10LE06 & VC2E10LA07": ["VC2E10LE06", "VC2E10LA07"],
+    "Presents ideas fluently for a specific audience  VC2E10LY02 &  VC2E10LA01": ["VC2E10LY02", "VC2E10LA01"],
+    "Uses evidence and techniques to support interpretation VC2E10LY07 & VC2E10LE06": ["VC2E10LY07", "VC2E10LE06"]
   }
 }

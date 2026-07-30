@@ -1,6 +1,6 @@
 {
  "version": 1,
- "updated": "2026-07-30T03:12:20.819Z",
+ "updated": "2026-07-30T03:12:31.174Z",
  "coverage": {
   "VC2E7LY01": [
    {
@@ -219,6 +219,13 @@
     "date": "2026-07-24",
     "cls": "9",
     "notes": ""
+   },
+   {
+    "id": "cy4bshyn",
+    "assessment": "S2_09EN_CAT1: Runner Analytical Essay",
+    "date": "2026-07-24",
+    "cls": "9",
+    "notes": "Twice"
    }
   ]
  }

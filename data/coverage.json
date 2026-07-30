@@ -1,6 +1,6 @@
 {
  "version": 1,
- "updated": "2026-07-30T03:43:06.267Z",
+ "updated": "2026-07-30T03:43:37.730Z",
  "coverage": {
   "VC2E7LY01": [
    {
@@ -378,6 +378,15 @@
     "date": "2026-05-13",
     "cls": "7ADV",
     "notes": "Contention and Interpretation"
+   }
+  ],
+  "VC2E7LE03": [
+   {
+    "id": "dt9jv0ip",
+    "assessment": "S1_07ADVEN_26_CAT2: Trash Chapter Expert Task",
+    "date": "2026-05-13",
+    "cls": "7ADV",
+    "notes": "Analysis of Language and Authorial Choices"
    }
   ]
  }

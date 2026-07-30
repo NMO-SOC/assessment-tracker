@@ -1,6 +1,6 @@
 {
  "version": 1,
- "updated": "2026-07-30T03:05:06.084Z",
+ "updated": "2026-07-30T03:06:05.071Z",
  "coverage": {
   "VC2E7LY01": [
    {
@@ -17,6 +17,13 @@
     "assessment": "S1_07EN_CAT1: Persuasive Pitch",
     "date": "2026-04-24",
     "cls": "7",
+    "notes": ""
+   },
+   {
+    "id": "1yxqgfy7",
+    "assessment": "S1_08ENG_CAT2: Holes Creative Writing",
+    "date": "2026-05-25",
+    "cls": "8",
     "notes": ""
    }
   ],

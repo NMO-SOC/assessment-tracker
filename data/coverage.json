@@ -1,6 +1,6 @@
 {
  "version": 1,
- "updated": "2026-07-30T04:36:40.276Z",
+ "updated": "2026-07-30T04:37:18.290Z",
  "coverage": {
   "VC2E7LY01": [
    {
@@ -753,6 +753,15 @@
     "date": "2026-05-19",
     "cls": "10ADV",
     "notes": "Interprets creator's purpose and viewpoint"
+   }
+  ],
+  "VC2E10LY02": [
+   {
+    "id": "737jrf6b",
+    "assessment": "S1_10ADVEN_CAT1: Love Framework of Ideas",
+    "date": "2026-05-19",
+    "cls": "10ADV",
+    "notes": "Presents ideas fluently for a specific audience"
    }
   ]
  }

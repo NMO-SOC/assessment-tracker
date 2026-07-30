@@ -1,6 +1,6 @@
 {
  "version": 1,
- "updated": "2026-07-30T02:59:06.989Z",
+ "updated": "2026-07-30T02:59:26.063Z",
  "coverage": {
   "VC2E7LY01": [
    {
@@ -14,6 +14,15 @@
   "VC2E7LY08": [
    {
     "id": "qshsbh67",
+    "assessment": "S1_07EN_CAT1: Persuasive Pitch",
+    "date": "2026-04-24",
+    "cls": "7",
+    "notes": ""
+   }
+  ],
+  "VC2E7LY02": [
+   {
+    "id": "ludthrxq",
     "assessment": "S1_07EN_CAT1: Persuasive Pitch",
     "date": "2026-04-24",
     "cls": "7",

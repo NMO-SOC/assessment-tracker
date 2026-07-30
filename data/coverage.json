@@ -1,6 +1,6 @@
 {
  "version": 1,
- "updated": "2026-07-30T04:37:18.290Z",
+ "updated": "2026-07-30T04:38:52.518Z",
  "coverage": {
   "VC2E7LY01": [
    {
@@ -440,6 +440,13 @@
     "date": "2026-05-06",
     "cls": "10",
     "notes": ""
+   },
+   {
+    "id": "e78wd9on",
+    "assessment": "S2_10ADVEN_CAT1: Analysing Argument",
+    "date": "2026-08-04",
+    "cls": "10ADV",
+    "notes": "Analysis of Argument and Persuasive Language"
    }
   ],
   "VC2E10LE04": [

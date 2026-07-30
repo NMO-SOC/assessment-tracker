@@ -1,6 +1,6 @@
 {
  "version": 1,
- "updated": "2026-07-30T05:39:15.467Z",
+ "updated": "2026-07-30T06:28:15.144Z",
  "coverage": {
   "VC2E7LY01": [
    {
@@ -8,7 +8,15 @@
     "assessment": "S1_07EN_CAT1: Persuasive Pitch",
     "date": "2026-04-24",
     "cls": "7",
-    "notes": "Persuasive Language Features"
+    "notes": "Persuasive Language Features",
+    "dist": {
+     "Requires Support": 3,
+     "Developing": 25,
+     "Established": 57,
+     "Highly Developed": 43,
+     "Exceeding": 17,
+     "(Excluded)": 1
+    }
    }
   ],
   "VC2E7LY08": [
@@ -17,7 +25,15 @@
     "assessment": "S1_07EN_CAT1: Persuasive Pitch",
     "date": "2026-04-24",
     "cls": "7",
-    "notes": "Visual Persuasion"
+    "notes": "Visual Persuasion",
+    "dist": {
+     "Requires Support": 3,
+     "Developing": 8,
+     "Established": 76,
+     "Highly Developed": 35,
+     "Exceeding": 23,
+     "(Excluded)": 1
+    }
    },
    {
     "id": "y59a02j7",
@@ -33,7 +49,15 @@
     "assessment": "S1_07EN_CAT1: Persuasive Pitch",
     "date": "2026-04-24",
     "cls": "7",
-    "notes": "Voice qualities"
+    "notes": "Voice qualities",
+    "dist": {
+     "Requires Support": 7,
+     "Developing": 20,
+     "Established": 61,
+     "Highly Developed": 43,
+     "Exceeding": 14,
+     "(Excluded)": 1
+    }
    }
   ],
   "VC2E7LY07": [
@@ -42,14 +66,30 @@
     "assessment": "S1_07EN_CAT2: Coraline Comprehension Questions",
     "date": "2026-06-06",
     "cls": "7",
-    "notes": "Literal Questions"
+    "notes": "Literal Questions",
+    "dist": {
+     "Requires Support": 3,
+     "Developing": 17,
+     "Established": 71,
+     "Highly Developed": 41,
+     "Exceeding": 7,
+     "(Excluded)": 4
+    }
    },
    {
     "id": "qmgpxjvz",
     "assessment": "S1_07EN_CAT2: Coraline Comprehension Questions",
     "date": "2026-06-06",
     "cls": "7",
-    "notes": "Inferential Questions"
+    "notes": "Inferential Questions",
+    "dist": {
+     "Requires Support": 4,
+     "Developing": 23,
+     "Established": 71,
+     "Highly Developed": 36,
+     "Exceeding": 5,
+     "(Excluded)": 4
+    }
    },
    {
     "id": "g2tfs4d1",
@@ -65,7 +105,15 @@
     "assessment": "S1_07EN_CAT2: Coraline Comprehension Questions",
     "date": "2026-06-06",
     "cls": "7",
-    "notes": "Evaluative Questions"
+    "notes": "Evaluative Questions",
+    "dist": {
+     "Requires Support": 9,
+     "Developing": 34,
+     "Established": 54,
+     "Highly Developed": 36,
+     "Exceeding": 6,
+     "(Excluded)": 4
+    }
    },
    {
     "id": "icy7h5ry",

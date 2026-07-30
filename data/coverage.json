@@ -1,6 +1,6 @@
 {
  "version": 1,
- "updated": "2026-07-30T04:39:13.304Z",
+ "updated": "2026-07-30T04:39:41.304Z",
  "coverage": {
   "VC2E7LY01": [
    {
@@ -778,6 +778,15 @@
     "date": "2026-08-04",
     "cls": "10ADV",
     "notes": "Analysis of Structure"
+   }
+  ],
+  "VC2E10LY06": [
+   {
+    "id": "g647weqf",
+    "assessment": "S2_10ADVEN_CAT1: Analysing Argument",
+    "date": "2026-08-04",
+    "cls": "10ADV",
+    "notes": "Analysis of Organisaition of Ideas"
    }
   ]
  }

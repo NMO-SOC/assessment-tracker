@@ -1,6 +1,6 @@
 {
  "version": 1,
- "updated": "2026-07-30T05:21:26.264Z",
+ "updated": "2026-07-30T05:23:41.457Z",
  "coverage": {
   "VC2E7LY01": [
    {
@@ -684,6 +684,13 @@
     "date": "2026-05-18",
     "cls": "9ADV",
     "notes": "Editing and Refinement"
+   },
+   {
+    "id": "6ikab583",
+    "assessment": "S2_09EN_CAT1: Runner Essay",
+    "date": "2026-07-24",
+    "cls": "9",
+    "notes": "Vocabulary and written expression."
    }
   ],
   "VC2E9LY05": [

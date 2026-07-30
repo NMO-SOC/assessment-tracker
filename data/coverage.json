@@ -1,6 +1,6 @@
 {
  "version": 1,
- "updated": "2026-07-30T05:17:11.447Z",
+ "updated": "2026-07-30T05:17:50.515Z",
  "coverage": {
   "VC2E7LY01": [
    {
@@ -181,7 +181,7 @@
     "assessment": "S1_09EN_CAT1: Presenting Argument",
     "date": "2026-02-20",
     "cls": "9",
-    "notes": ""
+    "notes": "Create and Deliver Structured Spoken Texts"
    }
   ],
   "VC2E9LA01": [

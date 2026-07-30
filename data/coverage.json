@@ -1,6 +1,6 @@
 {
  "version": 1,
- "updated": "2026-07-30T04:40:05.517Z",
+ "updated": "2026-07-30T04:40:29.127Z",
  "coverage": {
   "VC2E7LY01": [
    {
@@ -399,6 +399,13 @@
     "date": "2026-02-27",
     "cls": "10",
     "notes": ""
+   },
+   {
+    "id": "muq4b047",
+    "assessment": "S2_10ADVEN_CAT1: Analysing Argument",
+    "date": "2026-08-04",
+    "cls": "10ADV",
+    "notes": "Expression of Analytical Essay"
    }
   ],
   "VC2E10LA09": [

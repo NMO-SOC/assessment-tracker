@@ -1,6 +1,6 @@
 {
  "version": 1,
- "updated": "2026-07-30T04:24:39.357Z",
+ "updated": "2026-07-30T04:25:12.440Z",
  "coverage": {
   "VC2E7LY01": [
    {
@@ -214,6 +214,13 @@
     "date": "2026-05-18",
     "cls": "9ADV",
     "notes": "Oral Presentation Skills"
+   },
+   {
+    "id": "3rpwn7gy",
+    "assessment": "S1_09ADVEN_CAT1: Analysing Argument",
+    "date": "2026-08-03",
+    "cls": "9ADV",
+    "notes": "Analysis of Persuasive Language and Techniques"
    }
   ],
   "VC2E9LE06": [

@@ -1,6 +1,6 @@
 {
  "version": 1,
- "updated": "2026-07-30T04:20:39.527Z",
+ "updated": "2026-07-30T04:21:34.782Z",
  "coverage": {
   "VC2E7LY01": [
    {
@@ -207,6 +207,13 @@
     "date": "2026-02-20",
     "cls": "9",
     "notes": ""
+   },
+   {
+    "id": "6qlob8ef",
+    "assessment": "S1_09ADVEN1_CAT3: Story Telling",
+    "date": "2026-05-18",
+    "cls": "9ADV",
+    "notes": "Oral Presentation Skills"
    }
   ],
   "VC2E9LE06": [

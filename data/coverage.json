@@ -1,6 +1,6 @@
 {
  "version": 1,
- "updated": "2026-07-30T03:57:07.908Z",
+ "updated": "2026-07-30T03:57:31.458Z",
  "coverage": {
   "VC2E7LY01": [
    {
@@ -516,6 +516,15 @@
     "date": "2026-05-29",
     "cls": "8ADV",
     "notes": "Understanding of events and structure"
+   }
+  ],
+  "VC2E8LE03": [
+   {
+    "id": "e6pleun4",
+    "assessment": "S1_08ADVEN_26_CAT3: Curious Incident Passage Analysis",
+    "date": "2026-05-29",
+    "cls": "8ADV",
+    "notes": "Understanding of themes and ideas"
    }
   ]
  }

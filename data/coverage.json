@@ -1,6 +1,6 @@
 {
  "version": 1,
- "updated": "2026-07-30T03:12:05.329Z",
+ "updated": "2026-07-30T03:12:20.819Z",
  "coverage": {
   "VC2E7LY01": [
    {
@@ -206,6 +206,15 @@
   "VC2E9LE02": [
    {
     "id": "nuzfn7r2",
+    "assessment": "S2_09EN_CAT1: Runner Analytical Essay",
+    "date": "2026-07-24",
+    "cls": "9",
+    "notes": ""
+   }
+  ],
+  "VC2E9LY08": [
+   {
+    "id": "xby40ovy",
     "assessment": "S2_09EN_CAT1: Runner Analytical Essay",
     "date": "2026-07-24",
     "cls": "9",

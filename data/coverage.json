@@ -1,12 +1,12 @@
 {
  "version": 1,
- "updated": "2026-07-30T05:34:10.555Z",
+ "updated": "2026-07-30T05:39:15.467Z",
  "coverage": {
   "VC2E7LY01": [
    {
     "id": "sogxqn0q",
-    "assessment": "S1_07EN_CAT 1: Persuasive Pitch",
-    "date": "2026-07-30",
+    "assessment": "S1_07EN_CAT1: Persuasive Pitch",
+    "date": "2026-04-24",
     "cls": "7",
     "notes": "Persuasive Language Features"
    }
@@ -79,7 +79,7 @@
    {
     "id": "srfunkwy",
     "assessment": "S1_08ENG_CAT1: Where does language come from? Oral Presentation",
-    "date": "2026-08-06",
+    "date": "2026-03-06",
     "cls": "8",
     "notes": "Presentation Skills (Voice, tone, volume)"
    }
@@ -453,7 +453,7 @@
    {
     "id": "a2177qg8",
     "assessment": "S2_10EN_CAT2: Analytical Text Response Essay",
-    "date": "2026-04-06",
+    "date": "2026-05-06",
     "cls": "10",
     "notes": "Analysis and Evaluation"
    },
@@ -548,7 +548,7 @@
    {
     "id": "wsi6m551",
     "assessment": "S1_08ADVEN_26_CAT1: Creative Writing - Sympathetic Character",
-    "date": "2026-07-23",
+    "date": "2026-03-02",
     "cls": "8ADV",
     "notes": "Criterion\tCode\tDescriptor\nCharacter Development – Characterisation / S.T.E.A.L / Voice"
    }
@@ -629,7 +629,7 @@
    {
     "id": "4oub132c",
     "assessment": "S1_08ADVEN_26_CAT3: Curious Incident Passage Analysis",
-    "date": "2026-07-30",
+    "date": "2026-05-29",
     "cls": "8ADV",
     "notes": "Paragraph construction"
    }

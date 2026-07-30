@@ -61,6 +61,36 @@
   .menu hr{border:0;border-top:1px solid var(--line);margin:5px 2px}
   .menu .hint{font-size:11.5px;color:var(--muted);padding:4px 10px 8px;line-height:1.4}
 
+  /* sync chip */
+  .chip{display:inline-flex;align-items:center;gap:6px;font-size:12.5px;color:var(--muted);
+    background:var(--card);border:1px solid var(--line);border-radius:99px;padding:5px 11px;
+    box-shadow:var(--shadow);cursor:pointer;font-family:inherit}
+  .chip:hover{background:#f8f9fb;color:var(--ink-soft)}
+  .chip .dot{width:7px;height:7px;border-radius:50%;background:var(--muted);flex:none}
+  .chip.ok .dot{background:var(--done)}
+  .chip.ok{color:var(--done)}
+  .chip.busy .dot{background:var(--accent);animation:pulse 1s ease-in-out infinite}
+  .chip.warn .dot{background:#d98324}
+  .chip.warn{color:#8a5a00}
+  .chip.err .dot{background:#c5372c}
+  .chip.err{color:#b3261e}
+  @keyframes pulse{0%,100%{opacity:1}50%{opacity:.3}}
+
+  /* modal */
+  .modal-veil{position:fixed;inset:0;background:rgba(16,24,40,.4);z-index:100;display:none;
+    align-items:center;justify-content:center;padding:20px}
+  .modal-veil.on{display:flex}
+  .modal{background:var(--card);border-radius:16px;box-shadow:var(--shadow-lg);width:min(480px,100%);
+    padding:22px 24px 20px;max-height:90vh;overflow:auto}
+  .modal h3{margin:0 0 6px;font-size:17px;font-weight:650}
+  .modal p{margin:0 0 14px;font-size:13.5px;color:var(--muted);line-height:1.55}
+  .modal ol{margin:0 0 16px;padding-left:20px;font-size:13px;color:var(--ink-soft);line-height:1.7}
+  .modal ol code{background:var(--line-soft);padding:1px 5px;border-radius:4px;font-size:12px}
+  .modal label{display:block;font-size:11.5px;color:var(--muted);margin-bottom:4px}
+  .modal input{width:100%;font-family:ui-monospace,Menlo,monospace;font-size:12.5px}
+  .modal .acts{display:flex;gap:8px;justify-content:flex-end;margin-top:16px;align-items:center}
+  .modal .err{color:#b3261e;font-size:12.5px;margin:10px 0 0}
+
   /* ---------- summary ---------- */
   .summary{background:var(--card);border:1px solid var(--line);border-radius:var(--r);
     box-shadow:var(--shadow);padding:15px 20px;margin:20px 0 8px}
@@ -175,19 +205,23 @@
         <div class="sub">Victorian Curriculum F–10 Version 2.0 — a record of what you've assessed and how</div>
       </div>
       <div class="spacer"></div>
+      <button class="chip" id="syncChip" title="Sync status"><span class="dot"></span><span id="syncText">Loading…</span></button>
       <div class="menu-host">
         <button class="btn icon-btn" id="dataBtn" aria-haspopup="true" aria-expanded="false">
           <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><ellipse cx="12" cy="5" rx="8" ry="3"/><path d="M4 5v14c0 1.7 3.6 3 8 3s8-1.3 8-3V5"/><path d="M4 12c0 1.7 3.6 3 8 3s8-1.3 8-3"/></svg>
           Data
         </button>
         <div class="menu" id="dataMenu" role="menu">
+          <button id="connectBtn">Enable saving on this device…</button>
+          <button id="syncNowBtn">Sync now</button>
+          <button id="repoBtn">Discard local, reload shared copy</button>
+          <hr>
           <button id="exportBtn">Export coverage.json</button>
           <button id="importBtn">Import JSON…</button>
           <button id="csvBtn">Export CSV</button>
           <hr>
-          <button id="repoBtn">Reload from repo file</button>
-          <button id="clearBtn" class="danger" style="color:#b3261e">Clear all records</button>
-          <div class="hint">Records save to this browser automatically. Export and commit <code>data/coverage.json</code> to sync across devices.</div>
+          <button id="clearBtn" style="color:#b3261e">Clear all records</button>
+          <div class="hint" id="menuHint"></div>
         </div>
       </div>
     </div>
@@ -222,6 +256,22 @@
 <div class="veil" id="veil"></div>
 <aside class="drawer" id="drawer" aria-hidden="true"></aside>
 <div class="toast" id="toast"></div>
+
+<div class="modal-veil" id="tokenVeil">
+  <div class="modal" role="dialog" aria-modal="true" aria-labelledby="tokenTitle">
+    <h3 id="tokenTitle">Enable saving on this device</h3>
+    <p id="tokenBlurb">Records are shared by every device that opens the site. Viewing needs nothing. To add or remove records, enter the passphrase set on the sync worker — once per device, then it's remembered.</p>
+    <label for="tokenIn">Passphrase</label>
+    <input type="password" id="tokenIn" placeholder="Your passphrase" autocomplete="current-password" spellcheck="false">
+    <p class="err" id="tokenErr" style="display:none"></p>
+    <div class="acts">
+      <button class="btn" id="tokenForget" style="margin-right:auto;display:none">Remove from this device</button>
+      <button class="btn" id="tokenCancel">Cancel</button>
+      <button class="btn primary" id="tokenSave">Enable saving</button>
+    </div>
+  </div>
+</div>
+
 <input type="file" id="fileIn" accept=".json" hidden>
 <datalist id="classList"></datalist>
 <datalist id="assessList"></datalist>
@@ -230,7 +280,15 @@
 <script>
 (function(){
   "use strict";
+  /* ===================== configuration =====================
+     SYNC_URL is the Cloudflare worker that holds the GitHub credential.
+     Paste the worker URL here once it's deployed — that's the only edit needed.
+     Leave it empty and the site works, but records stay in each browser.      */
+  const SYNC_URL = "https://silent-star-96b1.nicholas-morlin.workers.dev/";
+
   const LS_KEY = "vic-english-7-10-coverage-v1";
+  const PASS_KEY = "vic-english-7-10-passphrase";
+  const SEEN_KEY = "vic-english-7-10-seen-ids";
   const DATA = window.CURRICULUM;
   const ITEMS = DATA.items;
   const LEVELS = DATA.levels;
@@ -258,8 +316,147 @@
     try{ localStorage.setItem(LS_KEY, JSON.stringify({version:1,updated:new Date().toISOString(),coverage})); }
     catch(e){ toast("Couldn't save to this browser: "+e.message); }
   }
-  const fetchBaseline = () => fetch("data/coverage.json",{cache:"no-store"})
-    .then(r=>r.ok?r.json():null).catch(()=>null);
+
+  /* ========================== sync ==========================
+     A small worker holds the GitHub credential, so no token is ever stored in
+     a browser. Reads are open; saving sends the passphrase you set on the
+     worker. Local storage is the offline cache, never the source of truth.   */
+  const sync = {state:"idle", lastAt:null, msg:"", seen:new Set(), timer:null, polling:null, dirty:false};
+  const configured = () => !!SYNC_URL;
+
+  const getPass = () => { try{ return localStorage.getItem(PASS_KEY)||""; }catch(e){ return ""; } };
+  const setPass = p => { try{ p ? localStorage.setItem(PASS_KEY,p) : localStorage.removeItem(PASS_KEY); }catch(e){} };
+  const canWrite = () => configured() && !!getPass();
+  function loadSeen(){
+    try{ sync.seen = new Set(JSON.parse(localStorage.getItem(SEEN_KEY)||"[]")); }catch(e){ sync.seen = new Set(); }
+  }
+  function markSeen(cov){
+    sync.seen = new Set();
+    Object.values(cov).forEach(a => a.forEach(r => sync.seen.add(r.id)));
+    try{ localStorage.setItem(SEEN_KEY, JSON.stringify([...sync.seen])); }catch(e){}
+  }
+  const allIds = cov => { const s = new Set(); Object.values(cov).forEach(a=>a.forEach(r=>s.add(r.id))); return s; };
+
+  /* Keep records another device added since our last sync; honour our own deletes. */
+  function mergeRemote(remote, local){
+    const out = {}; Object.keys(local).forEach(k => out[k] = local[k].slice());
+    const localIds = allIds(local);
+    Object.keys(remote||{}).forEach(code => {
+      (remote[code]||[]).forEach(r => {
+        if (!r || !r.id) return;
+        if (localIds.has(r.id)) return;          // already have it
+        if (sync.seen.has(r.id)) return;         // we deleted it locally
+        (out[code] = out[code] || []).push(r);   // new from another device
+      });
+    });
+    Object.keys(out).forEach(k => { if (!out[k].length) delete out[k]; });
+    return out;
+  }
+
+  /* Read: the worker gives the live copy straight from the repo. The committed
+     file is the fallback, a Pages rebuild behind but always there.            */
+  function readRepo(){
+    const fromFile = () => fetch("data/coverage.json?t="+Date.now(), {cache:"no-store"})
+      .then(r => r.ok ? r.json() : null).catch(() => null);
+    if (!configured()) return fromFile();
+    return fetch(SYNC_URL, {cache:"no-store"})
+      .then(r => r.ok ? r.json() : null)
+      .catch(() => null)
+      .then(j => j || fromFile());
+  }
+
+  function setSync(state, msg){
+    sync.state = state; sync.msg = msg || "";
+    const chip = $("syncChip"), txt = $("syncText");
+    if (!chip) return;
+    chip.className = "chip " + ({saving:"busy", ok:"ok", local:"warn", error:"err"}[state] || "");
+    txt.textContent = msg || state;
+    chip.title = state==="local"
+      ? "Records are saved in this browser only. Enable saving to share them with every device."
+      : (msg || "");
+    const hint = $("menuHint");
+    if (hint) hint.textContent = !configured()
+      ? "Saving isn't set up yet — records stay in this browser. See the README to deploy the sync worker."
+      : (canWrite()
+        ? "This device saves to the shared records. Every device that opens the site sees them."
+        : "Read-only on this device. Enable saving to add records for every device.");
+    const forget = $("tokenForget"); if (forget) forget.style.display = getPass() ? "inline-block" : "none";
+    const cb = $("connectBtn"); if (cb) cb.textContent = getPass() ? "Change or remove passphrase…" : "Enable saving on this device…";
+  }
+  const agoText = () => {
+    if (!sync.lastAt) return "Synced";
+    const s = Math.round((Date.now()-sync.lastAt)/1000);
+    if (s < 45) return "Synced just now";
+    if (s < 5400) return "Synced "+Math.round(s/60)+"m ago";
+    return "Synced "+Math.round(s/3600)+"h ago";
+  };
+
+  /* Pull the repo copy in and adopt anything new. */
+  function pull(opts){
+    opts = opts || {};
+    return readRepo().then(remote => {
+      if (!remote){
+        setSync("local","Local only");
+        return false;
+      }
+      const rc = remote.coverage || {};
+      const before = JSON.stringify(coverage);
+      coverage = opts.replace ? rc : mergeRemote(rc, coverage);
+      const changed = JSON.stringify(coverage) !== before;
+      if (changed || opts.replace){ save(); render(); }
+      if (opts.replace || !sync.dirty) markSeen(coverage);
+      sync.lastAt = Date.now();
+      setSync(canWrite() ? "ok" : "idle", canWrite() ? agoText() : (configured() ? "Read-only" : "This browser only"));
+      return changed;
+    });
+  }
+
+  /* Push local state through the worker, which merges and commits it. */
+  function push(){
+    if (!canWrite()){ sync.dirty = true; setSync("local","Local only"); return Promise.resolve(false); }
+    setSync("saving","Saving…");
+    return fetch(SYNC_URL, {
+        method:"POST", headers:{"Content-Type":"application/json"},
+        body: JSON.stringify({passphrase:getPass(), coverage, seenIds:[...sync.seen]})
+      })
+      .then(res => res.json().catch(()=>({})).then(body => {
+        if (!res.ok) throw new Error(body.error || ("The sync worker returned "+res.status+"."));
+        return body;
+      }))
+      .then(body => {
+        if (body.coverage) coverage = body.coverage;
+        sync.dirty = false; sync.lastAt = Date.now();
+        markSeen(coverage); save(); render();
+        setSync("ok", agoText());
+        return true;
+      })
+      .catch(err => {
+        sync.dirty = true;
+        setSync("error", "Not saved");
+        const known = /passphrase|worker returned|GitHub|repo/i.test(err.message||"");
+        toast(known ? err.message
+          : "Couldn't reach the sync service — your records are safe in this browser and will go up on the next sync.");
+        return false;
+      });
+  }
+
+  function queuePush(){
+    sync.dirty = true;
+    if (!canWrite()){ setSync("local","Local only"); return; }
+    setSync("saving","Saving…");
+    clearTimeout(sync.timer);
+    sync.timer = setTimeout(()=>push(), 1800);
+  }
+  function startPolling(){
+    clearInterval(sync.polling);
+    sync.polling = setInterval(() => {
+      if (document.hidden || sync.dirty || sync.state==="saving") return;
+      pull({});
+    }, 60000);
+    document.addEventListener("visibilitychange", () => {
+      if (!document.hidden && !sync.dirty) pull({});
+    });
+  }
 
   let toastTimer;
   function toast(msg){
@@ -452,7 +649,7 @@
     const sel = $("classSel");
     sel.innerHTML = '<option value="">All classes</option>' +
       [...cls].sort().map(c=>'<option'+(c===ui.cls?" selected":"")+'>'+esc(c)+'</option>').join("");
-    $("foot").textContent = "Records save to this browser automatically · "+DATA.source;
+    $("foot").textContent = "Records live in data/coverage.json in the repo, shared by every device · "+DATA.source;
     if (ui.code) openDrawer(ui.code);
   }
 
@@ -466,13 +663,14 @@
       const code = ui.code, id = del.getAttribute("data-del");
       coverage[code] = recs(code).filter(r=>r.id!==id);
       if (!coverage[code].length) delete coverage[code];
-      save(); render(); toast("Record removed."); return;
+      save(); render(); queuePush(); toast("Record removed."); return;
     }
     if (!e.target.closest(".menu-host")) $("dataMenu").classList.remove("open");
   });
   $("veil").addEventListener("click", closeDrawer);
   document.addEventListener("keydown", e => {
-    if (e.key === "Escape"){ closeDrawer(); $("dataMenu").classList.remove("open"); }
+    if (e.key === "Escape"){ closeDrawer(); $("dataMenu").classList.remove("open");
+      $("tokenVeil").classList.remove("on"); }
   });
   document.addEventListener("submit", e => {
     if (!e.target.closest("#addForm")) return;
@@ -481,7 +679,7 @@
     const g = n => (f.querySelector('[name='+n+']').value||"").trim();
     const name = g("assessment"); if (!name || !code) return;
     (coverage[code] = coverage[code] || []).push({id:uid(), assessment:name, date:g("date"), cls:g("cls"), notes:g("notes")});
-    save(); render(); toast("Marked "+code+" as assessed.");
+    save(); render(); queuePush(); toast("Recorded against "+code+".");
   });
   $("dataBtn").addEventListener("click", e => {
     e.stopPropagation();
@@ -540,27 +738,62 @@
       fr.onload = () => { try{
           const j = JSON.parse(fr.result), c = j.coverage || j;
           if (typeof c !== "object" || Array.isArray(c)) throw new Error("unexpected format");
-          coverage = c; save(); render(); toast("Imported "+f.name+".");
+          coverage = c; save(); render(); queuePush(); toast("Imported "+f.name+".");
         }catch(err){ toast("Couldn't import that file: "+err.message); } };
       fr.readAsText(f); e.target.value = "";
     };
     $("repoBtn").onclick = () => { $("dataMenu").classList.remove("open");
-      fetchBaseline().then(b => {
-        if (!b){ toast("Couldn't read data/coverage.json — needs to be served over http."); return; }
-        if (!confirm("Replace the records in this browser with the committed data/coverage.json?")) return;
-        coverage = b.coverage || {}; save(); render(); toast("Loaded committed coverage.");
-      }); };
+      if (!confirm("Discard the records in this browser and load the repo copy instead?")) return;
+      pull({replace:true}).then(ok => toast(ok===false ? "Couldn't read the shared copy." : "Loaded the shared copy."));
+    };
+    $("syncNowBtn").onclick = () => { $("dataMenu").classList.remove("open");
+      (sync.dirty && canWrite() ? push() : pull({})).then(() => toast(canWrite() ? "Synced." : "Refreshed the shared records (read-only on this device)."));
+    };
     $("clearBtn").onclick = () => { $("dataMenu").classList.remove("open");
-      if (!confirm("Delete every assessment record stored in this browser? Export first if you want a backup.")) return;
-      coverage = {}; save(); render(); toast("All records cleared."); };
+      if (!confirm("Delete every assessment record"+(canWrite()?", on every device":" in this browser")+"? Export first if you want a backup.")) return;
+      coverage = {}; save(); render(); queuePush(); toast("All records cleared."); };
 
+    /* passphrase modal */
+    const openToken = () => { $("dataMenu").classList.remove("open");
+      $("tokenBlurb").textContent = configured()
+        ? "Records are shared by every device that opens the site. Viewing needs nothing. To add or remove records, enter the passphrase set on the sync worker — once per device, then it's remembered."
+        : "Sharing isn't switched on yet: SYNC_URL in index.html is still empty, so records stay in this browser. Deploy the worker in worker/worker.js and paste its URL there — the README has the steps.";
+      $("tokenIn").disabled = !configured();
+      $("tokenSave").disabled = !configured();
+      $("tokenErr").style.display = "none"; $("tokenIn").value = "";
+      $("tokenVeil").classList.add("on");
+      if (configured()) setTimeout(()=>$("tokenIn").focus(), 60); };
+    const closeToken = () => $("tokenVeil").classList.remove("on");
+    $("connectBtn").onclick = openToken;
+    $("syncChip").onclick = () => { if (!canWrite()) openToken(); else $("syncNowBtn").onclick(); };
+    $("tokenCancel").onclick = closeToken;
+    $("tokenVeil").addEventListener("click", e => { if (e.target === $("tokenVeil")) closeToken(); });
+    $("tokenIn").addEventListener("keydown", e => { if (e.key === "Enter") $("tokenSave").click(); });
+    $("tokenForget").onclick = () => { setPass(""); setSync("local","Read-only"); closeToken();
+      toast("Saving switched off here. Records stay visible on this device."); };
+    $("tokenSave").onclick = () => {
+      const p = $("tokenIn").value.trim();
+      const err = m => { const e = $("tokenErr"); e.textContent = m; e.style.display = "block"; };
+      if (!p) return err("Enter the passphrase first.");
+      $("tokenSave").disabled = true;
+      const prev = getPass(); setPass(p);
+      push().then(ok => {
+        $("tokenSave").disabled = false;
+        if (!ok){ setPass(prev); return err("That passphrase was rejected."); }
+        closeToken(); toast("Saving enabled. Changes here now reach every device.");
+      });
+    };
+
+    loadSeen();
     const hadLocal = load();
+    setSync(canWrite() ? "idle" : "local", "Loading…");
     render(); syncHdr();
     window.addEventListener("resize", syncHdr);
-    fetchBaseline().then(b => {
-      if (b && !hadLocal && b.coverage && Object.keys(b.coverage).length){
-        coverage = b.coverage; save(); render(); toast("Loaded committed coverage from the repo.");
-      }
+    pull({replace: !hadLocal}).then(() => { if (sync.dirty && canWrite()) push(); });
+    startPolling();
+    setInterval(() => { if (sync.state==="ok") setSync("ok", agoText()); }, 30000);
+    window.addEventListener("beforeunload", e => {
+      if (sync.dirty && canWrite()){ e.preventDefault(); e.returnValue = ""; }
     });
   }
   init();

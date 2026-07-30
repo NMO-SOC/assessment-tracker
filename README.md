@@ -6,44 +6,69 @@ A static site for tracking which **Victorian Curriculum F–10 Version 2.0 Engli
 
 **This is a record, not a checklist.** The site deliberately shows no completion percentage and no progress bars — full curriculum coverage isn't the goal. The summary counts what's been assessed, how many tasks it took, how much of it carries evidence notes, and what's been revisited more than once, so depth of assessment is what's visible.
 
-## Publishing to GitHub Pages
+## Where it lives
 
-1. Create a new repository on GitHub (e.g. `english-assessment-coverage`).
-2. Upload the contents of this folder (`index.html`, `data/`, `.nojekyll`, `README.md`) to the repo root.
-3. Repo **Settings → Pages → Build and deployment**: Source = *Deploy from a branch*, Branch = `main`, Folder = `/ (root)`. Save.
-4. The site appears at `https://<username>.github.io/<repo>/` within a minute or two.
+Repo `NMO-SOC/assessment-tracker`, published by GitHub Pages from `main` / root:
 
-Via command line:
+**https://nmo-soc.github.io/assessment-tracker/**
 
-```bash
-cd "Assessment Marker"
-git init && git add . && git commit -m "English 7-10 assessment coverage tracker"
-git branch -M main
-git remote add origin https://github.com/<username>/<repo>.git
-git push -u origin main
-```
+Sync worker: `https://silent-star-96b1.nicholas-morlin.workers.dev/` (Cloudflare, source in `worker/worker.js`).
 
 ## How the data works
 
-Two layers:
+`data/coverage.json` in this repo is the single source of truth. Every device that opens the site reads it, so they all show the same records. Saving commits straight back to that file.
 
-| Layer | File | Role |
+A browser has no authority to write to a repo, so something has to hold the GitHub credential. It lives in a small Cloudflare worker (`worker/worker.js`) rather than in any browser — the site just calls the worker, and the worker commits. On the device you only ever type a passphrase.
+
+| Layer | Where | Role |
 |---|---|---|
-| Working copy | browser `localStorage` | Every tick you make is saved instantly to the browser you're using. |
-| Source of truth | `data/coverage.json` | Committed to the repo. Loaded on first visit in a fresh browser, and shared across devices. |
+| Source of truth | `data/coverage.json` | Read by every visitor. Full commit history of every change. |
+| Credential | Cloudflare worker secret | Never in a browser, never in this repo. |
+| Local cache | browser `localStorage` | Written instantly so nothing is lost offline; reconciled on the next sync. |
 
-These actions live under the **Data** button in the top right of the page.
+### One-time worker setup
 
-Workflow to sync across devices:
+1. Sign in at [dash.cloudflare.com](https://dash.cloudflare.com) (free plan, no card) → **Workers & Pages** → **Create** → **Create Worker**. Name it `assessment-sync`, deploy the placeholder.
+2. **Edit code** → delete what's there → paste all of `worker/worker.js` → **Deploy**.
+3. **Settings → Variables and Secrets** → add:
 
-1. Tick things off in the site.
-2. **Data → Export coverage.json** — it downloads.
-3. Replace `data/coverage.json` in the repo with the downloaded file and commit.
-4. On another device, open the site and click **Reload from repo file**.
+   | Name | Type | Value |
+   |---|---|---|
+   | `GITHUB_TOKEN` | Secret | a fine-grained PAT (see below) |
+   | `PASSPHRASE` | Secret | any phrase you'll remember |
+   | `REPO_OWNER` | Text | `NMO-SOC` |
+   | `REPO_NAME` | Text | `assessment-tracker` |
+   | `FILE_PATH` | Text | `data/coverage.json` |
+   | `BRANCH` | Text | `main` |
+   | `ALLOWED_ORIGIN` | Text | `https://nmo-soc.github.io` |
 
-`Reload from repo file` and the automatic first-load only work over http(s) — i.e. on GitHub Pages or a local server, not by double-clicking `index.html`. Everything else works offline.
+   The token: [GitHub → fine-grained tokens → generate new](https://github.com/settings/personal-access-tokens/new) **while signed in as NMO-SOC**, *Only select repositories* → `assessment-tracker`, *Repository permissions* → **Contents: Read and write**. Nothing else. This is the only place it's ever pasted.
+4. Copy the worker URL and set `SYNC_URL` at the top of the script block in `index.html` to it. Commit and push.
 
-To preview locally: `python3 -m http.server 8000` then open `http://localhost:8000`.
+Then on each device: **Data → Enable saving on this device**, type the passphrase once. That's all — no tokens, no expiry to chase.
+
+`ALLOWED_ORIGIN` means only the published site can call the worker, and `PASSPHRASE` means only you can write. Leave `PASSPHRASE` unset and anyone who discovers the worker URL could edit the records — set it.
+
+### The sync chip
+
+Top right of the header, click it to sync on demand:
+
+| Chip | Meaning |
+|---|---|
+| Read-only | No passphrase on this device. You see the shared records but can't save. |
+| Synced *n*m ago | Everything is saved and shared. |
+| Saving… | Push in flight (batched ~2s after your last edit). |
+| Local only | You've made changes this device can't share yet. |
+| Not saved | The push failed — records are safe locally. Check the passphrase, then Sync now. |
+| This browser only | `SYNC_URL` is still empty; the worker isn't set up. |
+
+Every record carries an id, and both ends merge on those ids: if another device saved while you were editing, its records are kept rather than overwritten, and records you deleted stay deleted. Commits retry on conflict.
+
+### Export / import
+
+Still under the **Data** menu — `coverage.json` for a manual backup, and CSV for reporting. Import replaces the working set and pushes it, so treat it as a restore.
+
+To preview locally: `python3 -m http.server 8000` then open `http://localhost:8000`. Double-clicking `index.html` won't work — reading `data/coverage.json` needs http.
 
 ## Layout
 
@@ -69,12 +94,16 @@ The same content description can carry multiple records (different classes, diff
 
 ## Files
 
+Inside `assessment-tracker/` in the homepage repo:
+
 ```
 index.html            the whole app (no build step, no dependencies)
 data/curriculum.js    curriculum data loaded by the page
 data/curriculum.json  same data as plain JSON, for other tools
-data/coverage.json    committed coverage records
-.nojekyll             stops GitHub Pages running Jekyll over the files
+data/coverage.json    the shared assessment records — source of truth
+worker/worker.js      the Cloudflare sync worker (not served; deployed separately)
 ```
+
+`SYNC_URL` at the top of the script block in `index.html` points at the worker. The repo, branch and file path are set as worker variables, not in the page.
 
 Curriculum content descriptions are from the VCAA Victorian Curriculum F–10 Version 2.0, English Levels 7–10 (13 December 2023). To change the curriculum data, edit `data/curriculum.json` and regenerate `data/curriculum.js` as `window.CURRICULUM = <that json>;`.

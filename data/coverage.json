@@ -1,6 +1,6 @@
 {
  "version": 1,
- "updated": "2026-07-30T05:26:22.250Z",
+ "updated": "2026-07-30T05:26:33.623Z",
  "coverage": {
   "VC2E7LY01": [
    {
@@ -372,7 +372,7 @@
   "VC2E10LE06": [
    {
     "id": "51fj8154",
-    "assessment": "S2_10EN_CAT1: Creative Writing",
+    "assessment": "S1_10EN_CAT1: Creative Writing",
     "date": "2026-02-27",
     "cls": "10",
     "notes": "Creating a sustained voice and adapting literary text structures, devices and language from mentor texts"

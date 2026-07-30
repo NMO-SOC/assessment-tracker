@@ -1,6 +1,6 @@
 {
  "version": 1,
- "updated": "2026-07-30T03:57:54.871Z",
+ "updated": "2026-07-30T04:04:07.686Z",
  "coverage": {
   "VC2E7LY01": [
    {
@@ -534,6 +534,15 @@
     "date": "2026-07-30",
     "cls": "8ADV",
     "notes": "Paragraph construction"
+   }
+  ],
+  "VC2E9LY01": [
+   {
+    "id": "9ug217mp",
+    "assessment": "S1_09ADVEN_CAT1: NAPLAN Practice",
+    "date": "2026-02-27",
+    "cls": "9ADV",
+    "notes": "Reading Comprehension"
    }
   ]
  }

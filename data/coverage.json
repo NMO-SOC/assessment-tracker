@@ -1,6 +1,6 @@
 {
  "version": 1,
- "updated": "2026-07-30T04:15:48.237Z",
+ "updated": "2026-07-30T04:16:13.937Z",
  "coverage": {
   "VC2E7LY01": [
    {
@@ -603,6 +603,15 @@
     "date": "2026-03-30",
     "cls": "9ADV",
     "notes": "Analysis"
+   }
+  ],
+  "VC2E9LA03": [
+   {
+    "id": "rvj2wql4",
+    "assessment": "S1_09ADVEN1_CAT3: Story Telling",
+    "date": "2026-05-18",
+    "cls": "9ADV",
+    "notes": "Voice, Structure and Literary Features"
    }
   ]
  }

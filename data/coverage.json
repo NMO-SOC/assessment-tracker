@@ -1,6 +1,6 @@
 {
  "version": 1,
- "updated": "2026-07-30T03:43:37.730Z",
+ "updated": "2026-07-30T03:43:58.473Z",
  "coverage": {
   "VC2E7LY01": [
    {
@@ -387,6 +387,15 @@
     "date": "2026-05-13",
     "cls": "7ADV",
     "notes": "Analysis of Language and Authorial Choices"
+   }
+  ],
+  "VC2E7LA02": [
+   {
+    "id": "fhjq0qoz",
+    "assessment": "S1_07ADVEN_26_CAT2: Trash Chapter Expert Task",
+    "date": "2026-05-13",
+    "cls": "7ADV",
+    "notes": "Use of Evidence and Analytical Writing"
    }
   ]
  }

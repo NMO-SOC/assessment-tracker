@@ -1,6 +1,6 @@
 {
  "version": 1,
- "updated": "2026-07-30T03:19:20.290Z",
+ "updated": "2026-07-30T03:19:57.291Z",
  "coverage": {
   "VC2E7LY01": [
    {
@@ -217,6 +217,15 @@
     "id": "8rdy5xtc",
     "assessment": "S1_09EN_CAT3: Runner Language Test",
     "date": "2026-05-28",
+    "cls": "9",
+    "notes": ""
+   }
+  ],
+  "VC2E9LE01": [
+   {
+    "id": "8qkkmx5z",
+    "assessment": "S2_09EN_CAT1: Runner Essay",
+    "date": "2026-07-24",
     "cls": "9",
     "notes": ""
    }

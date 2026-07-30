@@ -1,6 +1,6 @@
 {
  "version": 1,
- "updated": "2026-07-30T03:46:26.631Z",
+ "updated": "2026-07-30T03:46:47.218Z",
  "coverage": {
   "VC2E7LY01": [
    {
@@ -421,6 +421,15 @@
     "date": "2026-02-25",
     "cls": "7ADV",
     "notes": "Language Features and Literary Adaption"
+   }
+  ],
+  "VC2E7LE05": [
+   {
+    "id": "8gr0zjpr",
+    "assessment": "S1_07ADVEN_CAT3: Trash Passage Analysis",
+    "date": "2026-05-27",
+    "cls": "7ADV",
+    "notes": "TEEL Paragraph Structure"
    }
   ]
  }

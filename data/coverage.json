@@ -1,6 +1,6 @@
 {
  "version": 1,
- "updated": "2026-07-30T04:35:37.720Z",
+ "updated": "2026-07-30T04:36:13.628Z",
  "coverage": {
   "VC2E7LY01": [
    {
@@ -449,6 +449,13 @@
     "date": "2026-04-06",
     "cls": "10",
     "notes": ""
+   },
+   {
+    "id": "7ubekd3x",
+    "assessment": "S1_10ADVEN_CAT1: Love Framework of Ideas",
+    "date": "2026-05-19",
+    "cls": "10ADV",
+    "notes": "Uses evidence and techniques to support interpretation"
    }
   ],
   "VC2E10LA04": [

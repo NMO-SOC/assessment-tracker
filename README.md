@@ -100,6 +100,7 @@ The moon/sun button in the header toggles it, and the choice is remembered per b
 - **Curriculum** view — the four-level grid. Assessed descriptions carry a tick, the assessment names, and a page icon where evidence notes exist. Ones with no records stay quiet rather than being flagged as gaps.
 - **By assessment** view — every assessment you've recorded and the content descriptions it covered. Useful for checking an assessment task's spread.
 - Filters: level, strand, with / without records, class, and free-text search (searches descriptions, codes, assessment names, and notes).
+- **Report** view — a printable document, one page per year level per semester: tasks in date order, dates, classes, and the content descriptions each assessed with your criterion names and the full curriculum wording. Header carries the school name (the `SCHOOL` constant in `index.html`), footer carries the generation date. Print or save as PDF from the button; browser chrome, filters and the summary strip are excluded from print. Honours the level and class filters; ignores search and record filters so a page is never partial. Semester comes from the `S1_` / `S2_` prefix in the task name, falling back to the month of the date.
 - **Export CSV** produces one row per content description per record — for reporting or importing into a spreadsheet.
 
 ## Files

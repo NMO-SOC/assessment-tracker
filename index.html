@@ -119,6 +119,9 @@
   .tile{min-width:96px}
   .tile b{display:block;font-size:22px;font-weight:650;letter-spacing:-.02em;line-height:1.25}
   .tile span{font-size:12px;color:var(--muted)}
+  .tile.clickable{cursor:pointer}
+  .tile.clickable b{color:var(--warn-ink)}
+  .tile.clickable:hover span,.tile.clickable:focus-visible span{color:var(--ink);text-decoration:underline}
   .ethos{font-size:12.5px;color:var(--muted);margin-top:12px;padding-top:11px;
     border-top:1px solid var(--line-soft);display:flex;align-items:center;gap:7px}
   .ethos svg{flex:none;opacity:.55}
@@ -210,6 +213,48 @@
   form.add input{width:100%}
   .divider{border:0;border-top:1px solid var(--line);margin:20px 0 16px}
 
+  /* ---------- printable report ---------- */
+  .repbar{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin:20px 0 4px}
+  .repbar .note2{font-size:12.5px;color:var(--muted)}
+  .rep{background:var(--card);border:1px solid var(--line);border-radius:var(--r);box-shadow:var(--shadow);
+    padding:22px 26px;margin:16px 0}
+  .rep .school{font-size:11.5px;text-transform:uppercase;letter-spacing:.09em;color:var(--muted)}
+  .rep h2{margin:3px 0 3px;font-size:18px;font-weight:650;letter-spacing:-.01em}
+  .rep .repmeta{font-size:12.5px;color:var(--muted);margin-bottom:14px;
+    padding-bottom:12px;border-bottom:1px solid var(--line)}
+  .rep table{width:100%;border-collapse:collapse;font-size:13px}
+  .rep th{text-align:left;font-size:11px;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);
+    font-weight:650;padding:0 12px 7px 0;border-bottom:1px solid var(--line)}
+  .rep td{padding:11px 12px 11px 0;border-bottom:1px solid var(--line-soft);vertical-align:top}
+  .rep td.task{font-weight:600;width:27%}
+  .rep td.when{white-space:nowrap;width:11%;color:var(--ink-soft)}
+  .rep td.who{white-space:nowrap;width:8%;color:var(--ink-soft)}
+  .rep .cdline{margin-bottom:7px}
+  .rep .cdline:last-child{margin-bottom:0}
+  .rep .cdline b{font:11.5px/1.5 ui-monospace,SFMono-Regular,Menlo,monospace;letter-spacing:.02em;
+    background:var(--accent-soft);color:var(--accent-ink);padding:1px 6px;border-radius:5px;margin-right:6px}
+  .rep .cdline .crit{font-weight:600}
+  .rep .cdline .desc{display:block;color:var(--muted);font-size:12px;margin-top:2px;padding-left:2px}
+  .rep .foot{margin-top:16px;padding-top:11px;border-top:1px solid var(--line);
+    font-size:11.5px;color:var(--muted);line-height:1.5}
+
+  @media print{
+    :root,:root[data-theme="dark"]{
+      --bg:#fff; --card:#fff; --card-alt:#fff; --ink:#000; --ink-soft:#222; --muted:#555;
+      --line:#bbb; --line-soft:#ddd; --accent-soft:#fff; --accent-ink:#000; --shadow:none;
+      color-scheme:light}
+    header,#progress,.repbar,.veil,.drawer,.toast,.modal-veil,footer{display:none !important}
+    body{background:#fff}
+    main{padding:0 !important;max-width:none}
+    .wrap{padding:0;max-width:none}
+    .rep{border:0;border-radius:0;box-shadow:none;padding:0;margin:0;
+      break-after:page;page-break-after:always}
+    .rep:last-child{break-after:auto;page-break-after:auto}
+    .rep tr{break-inside:avoid;page-break-inside:avoid}
+    .rep .cdline b{border:1px solid #ccc;background:#fff}
+    @page{margin:16mm}
+  }
+
   .empty-state{background:var(--card);border:1px dashed var(--line);border-radius:var(--r);
     padding:36px;text-align:center;color:var(--muted);margin-top:20px}
   .toast{position:fixed;left:50%;bottom:24px;transform:translate(-50%,80px);background:var(--toast-bg);color:var(--toast-ink);
@@ -268,6 +313,7 @@
         <option value="">All content descriptions</option>
         <option value="covered">With records</option>
         <option value="uncovered">Without records</option>
+        <option value="nonotes">Missing evidence notes</option>
       </select>
       <select id="classSel" aria-label="Class"></select>
       <div class="search">
@@ -278,6 +324,7 @@
       <div class="seg" id="viewSeg">
         <button data-view="curriculum" class="on">Curriculum</button>
         <button data-view="assessments">By assessment</button>
+        <button data-view="report">Report</button>
       </div>
     </div>
   </div>
@@ -321,6 +368,7 @@
      Paste the worker URL here once it's deployed — that's the only edit needed.
      Leave it empty and the site works, but records stay in each browser.      */
   const SYNC_URL = "https://silent-star-96b1.nicholas-morlin.workers.dev/";
+  const SCHOOL = "South Oakleigh College";
 
   const LS_KEY = "vic-english-7-10-coverage-v1";
   const PASS_KEY = "vic-english-7-10-passphrase";
@@ -505,6 +553,7 @@
     if (ui.strand && it.strand !== ui.strand) return false;
     if (ui.status === "covered" && !isDone(it.code)) return false;
     if (ui.status === "uncovered" && isDone(it.code)) return false;
+    if (ui.status === "nonotes" && !inScopeRecs(it.code).some(r => !r.notes)) return false;
     if (ui.q){
       const hay = (it.code+" "+it.description+" "+it.strand+" "+it.substrand+" "+
         recs(it.code).map(r=>[r.assessment,r.cls,r.notes].join(" ")).join(" ")).toLowerCase();
@@ -528,12 +577,16 @@
       return names.length !== new Set(names).size;
     }).length;
     const filterLabel = [ui.level?"Level "+ui.level:"", ui.strand, ui.cls].filter(Boolean).join(" · ");
-    const tile = (n,l) => '<div class="tile"><b>'+n+'</b><span>'+l+'</span></div>';
+    const noNotes = rows.length - withNotes;
+    const tile = (n,l,act) => '<div class="tile'+(act?' clickable':'')+'"'+
+      (act?' role="button" tabindex="0" data-act="'+act+'" title="Show these"':'')+
+      '><b>'+n+'</b><span>'+l+'</span></div>';
     let h = '<div class="summary"><div class="tiles">';
     h += tile(doneIn(scope), "content descriptions assessed");
     h += tile(tasks.size, "assessment task"+(tasks.size===1?"":"s"));
     h += tile(rows.length, "record"+(rows.length===1?"":"s"));
     h += tile(withNotes, "with evidence notes");
+    if (noNotes) h += tile(noNotes, "missing a note", "nonotes");
     h += tile(revisited, "revisited by the same task");
     h += '</div><div class="ethos">'+
       '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">'+
@@ -653,7 +706,7 @@
         '<div class="meta">'+meta.map(esc).join(" · ")+'</div>'+
         '<div class="crit">'+g.rows.map(x =>
           '<div class="crit-row"><span class="code" title="'+esc(x.it.description)+'">'+x.it.code+'</span>'+
-          '<span>'+(x.notes.length ? esc(x.notes.join(" · ")) : '<em>'+esc(x.it.description)+'</em>')+
+          '<span>'+(x.notes.length ? esc(x.notes.join(" · ")) : '<em>no note — '+esc(x.it.description)+'</em>')+
           (x.n>1 ? ' <span class="times">assessed '+x.n+'×</span>' : '')+'</span></div>'
         ).join("")+'</div></div>';
     }).join("")+'</div>';
@@ -745,6 +798,92 @@
     if (filled) toast("Matched an existing assessment — date and class filled in.");
   }
 
+  /* ---- printable report ----
+     One page per year level per semester. Honours the level and class filters;
+     ignores the search and record filters so a page is never partial.        */
+  function semesterOf(r){
+    /* The task name is the deliberate signal — "S1_08ENG…". Fall back to the
+       date only when the name doesn't say.                                   */
+    const m = /^(?:s|sem(?:ester)?)\s*([12])(?:[^0-9]|$)/i.exec(String(r.assessment||"").trim());
+    if (m) return m[1];
+    const mm = parseInt((r.date||"").slice(5,7), 10);
+    return (mm && mm <= 6) ? "1" : "2";
+  }
+  const yearOf = r => (r.date||"").slice(0,4) || "—";
+
+  function renderReport(){
+    const sections = {};
+    ITEMS.forEach(it => {
+      if (ui.level && it.level !== ui.level) return;
+      recs(it.code).forEach(r => {
+        if (ui.cls && r.cls !== ui.cls) return;
+        const key = it.level+"|"+yearOf(r)+"|"+semesterOf(r);
+        const s = sections[key] || (sections[key] = {level:it.level, year:yearOf(r), sem:semesterOf(r), tasks:{}});
+        const tk = normName(r.assessment);
+        const t = s.tasks[tk] || (s.tasks[tk] = {names:{}, dates:[], classes:new Set(), rows:{}, order:[]});
+        t.names[r.assessment] = (t.names[r.assessment]||0)+1;
+        if (r.date) t.dates.push(r.date);
+        if (r.cls) t.classes.add(r.cls);
+        let row = t.rows[it.code];
+        if (!row){ row = t.rows[it.code] = {it:it, notes:[]}; t.order.push(row); }
+        if (r.notes) row.notes.push(r.notes);
+      });
+    });
+    const keys = Object.keys(sections).sort((a,b) => {
+      const A = sections[a], B = sections[b];
+      return (LEVELS.indexOf(A.level)-LEVELS.indexOf(B.level)) ||
+             A.year.localeCompare(B.year) || A.sem.localeCompare(B.sem);
+    });
+
+    let h = '<div class="repbar">'+
+      '<button class="btn primary" id="printBtn">Print or save as PDF</button>'+
+      '<span class="note2">One page per year level and semester'+
+      (ui.level ? ", Level "+ui.level+" only" : "")+(ui.cls ? ", class "+esc(ui.cls) : "")+
+      '. Search and record filters are ignored so no page is partial.</span></div>';
+
+    if (!keys.length) return h + '<div class="empty-state">Nothing recorded for this selection yet.</div>';
+
+    keys.forEach(k => {
+      const s = sections[k];
+      const tasks = Object.keys(s.tasks).map(tk => {
+        const t = s.tasks[tk];
+        t.title = Object.keys(t.names).sort((a,b)=>t.names[b]-t.names[a])[0];
+        t.dates.sort();
+        t.order.sort((a,b)=>a.it.code.localeCompare(b.it.code));
+        return t;
+      }).sort((a,b) => (a.dates[0]||"").localeCompare(b.dates[0]||"") || a.title.localeCompare(b.title));
+
+      const cds = new Set(), strands = {Language:0, Literature:0, Literacy:0};
+      tasks.forEach(t => t.order.forEach(row => {
+        if (!cds.has(row.it.code)) strands[row.it.strand]++;
+        cds.add(row.it.code);
+      }));
+      const spread = STRANDS.filter(x=>strands[x]).map(x => x+" "+strands[x]).join(" · ");
+
+      h += '<section class="rep"><div class="school">'+esc(SCHOOL)+'</div>'+
+        '<h2>English — Level '+s.level+' · Semester '+s.sem+', '+esc(s.year)+'</h2>'+
+        '<div class="repmeta">'+tasks.length+' assessment task'+(tasks.length===1?"":"s")+' · '+
+        cds.size+' content description'+(cds.size===1?"":"s")+' assessed'+
+        (spread ? ' · '+esc(spread) : '')+'</div>'+
+        '<table><thead><tr><th>Assessment task</th><th>Date</th><th>Class</th>'+
+        '<th>Content descriptions assessed</th></tr></thead><tbody>';
+      tasks.forEach(t => {
+        h += '<tr><td class="task">'+esc(t.title)+'</td>'+
+          '<td class="when">'+esc(dateSpan(t.dates) || "—")+'</td>'+
+          '<td class="who">'+esc([...t.classes].sort().join(", ") || "—")+'</td><td>'+
+          t.order.map(row => '<div class="cdline"><b>'+row.it.code+'</b>'+
+            (row.notes.length ? '<span class="crit">'+esc(row.notes.join(" · "))+'</span>' : '')+
+            '<span class="desc">'+esc(row.it.description)+'</span></div>').join("")+
+          '</td></tr>';
+      });
+      h += '</tbody></table><div class="foot">'+
+        'Victorian Curriculum F–10 Version 2.0, English Levels 7–10. '+
+        'A record of assessed content descriptions; full curriculum coverage is not the intent. '+
+        'Generated '+fmtDate(new Date().toISOString().slice(0,10))+'.</div></section>';
+    });
+    return h;
+  }
+
   function dateSpan(dates){
     if (!dates.length) return "";
     const a = dates[0], b = dates[dates.length-1];
@@ -833,7 +972,9 @@
   /* ---- render ---- */
   function render(){
     renderSummary();
-    $("content").innerHTML = ui.view === "assessments" ? renderAssessments() : renderMatrix();
+    $("progress").style.display = ui.view === "report" ? "none" : "";
+    $("content").innerHTML = ui.view === "report" ? renderReport()
+      : ui.view === "assessments" ? renderAssessments() : renderMatrix();
     const cls = new Set(), ass = new Set();
     Object.values(coverage).forEach(a => a.forEach(r => { if (r.cls) cls.add(r.cls); ass.add(r.assessment); }));
     $("classList").innerHTML = [...cls].sort().map(c=>'<option value="'+esc(c)+'">').join("");
@@ -847,6 +988,13 @@
 
   /* ---- events ---- */
   document.addEventListener("click", e => {
+    const act = e.target.closest("[data-act]");
+    if (act){
+      ui.status = act.getAttribute("data-act"); ui.view = "curriculum";
+      $("statusSel").value = ui.status;
+      [...$("viewSeg").children].forEach(b => b.classList.toggle("on", b.dataset.view === "curriculum"));
+      render(); return;
+    }
     const c = e.target.closest(".cell[data-code]");
     if (c){ openDrawer(c.getAttribute("data-code")); return; }
     if (e.target.closest("#closeDrawer")){ closeDrawer(); return; }
@@ -854,6 +1002,7 @@
     if (ed && ui.code){ ui.editing = ed.getAttribute("data-edit"); openDrawer(ui.code);
       setTimeout(()=>{ const el = $("editForm-a"); if (el){ el.focus(); el.select(); } }, 20); return; }
     if (e.target.closest("#cancelEdit")){ ui.editing = null; openDrawer(ui.code); return; }
+    if (e.target.closest("#printBtn")){ window.print(); return; }
     const del = e.target.closest("[data-del]");
     if (del && ui.code){
       const code = ui.code, id = del.getAttribute("data-del");

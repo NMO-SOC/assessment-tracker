@@ -1,5 +1,15 @@
 {
  "version": 1,
- "updated": "2026-07-30T02:56:46.447Z",
- "coverage": {}
+ "updated": "2026-07-30T02:58:05.002Z",
+ "coverage": {
+  "VC2E7LY01": [
+   {
+    "id": "sogxqn0q",
+    "assessment": "S1_07EN_CAT 1: Persuasive Pitch",
+    "date": "2026-07-30",
+    "cls": "7",
+    "notes": ""
+   }
+  ]
+ }
 }

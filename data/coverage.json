@@ -1,6 +1,6 @@
 {
  "version": 1,
- "updated": "2026-07-30T06:28:15.144Z",
+ "updated": "2026-07-30T06:35:18.195Z",
  "coverage": {
   "VC2E7LY01": [
    {
@@ -129,7 +129,15 @@
     "assessment": "S1_08ENG_CAT1: Where does language come from? Oral Presentation",
     "date": "2026-03-06",
     "cls": "8",
-    "notes": "Presentation Skills (Voice, tone, volume)"
+    "notes": "Presentation Skills (Voice, tone, volume)",
+    "dist": {
+     "Requires Support": 2,
+     "Developing": 18,
+     "Established": 57,
+     "Highly Developed": 53,
+     "Exceeding": 9,
+     "(Excluded)": 2
+    }
    }
   ],
   "VC2E8LY08": [
@@ -138,14 +146,30 @@
     "assessment": "S1_08ENG_CAT1: Where does language come from? Oral Presentation",
     "date": "2026-03-06",
     "cls": "8",
-    "notes": "Presentation Skills (Multimodal)"
+    "notes": "Presentation Skills (Multimodal)",
+    "dist": {
+     "Requires Support": 6,
+     "Developing": 10,
+     "Established": 54,
+     "Highly Developed": 49,
+     "Exceeding": 18,
+     "(Excluded)": 2
+    }
    },
    {
     "id": "h56iuvzo",
     "assessment": "S1_08ENG_CAT2: Holes Creative Writing",
     "date": "2026-05-25",
     "cls": "8",
-    "notes": "Creativity of Ideas"
+    "notes": "Creativity of Ideas",
+    "dist": {
+     "Requires Support": 5,
+     "Developing": 16,
+     "Established": 56,
+     "Highly Developed": 48,
+     "Exceeding": 11,
+     "(Excluded)": 5
+    }
    },
    {
     "id": "py0pbegc",
@@ -161,7 +185,15 @@
     "assessment": "S1_08ENG_CAT1: Where does language come from? Oral Presentation",
     "date": "2026-03-06",
     "cls": "8",
-    "notes": "Understanding the history of language"
+    "notes": "Understanding the history of language",
+    "dist": {
+     "Requires Support": 2,
+     "Developing": 14,
+     "Established": 49,
+     "Highly Developed": 54,
+     "Exceeding": 18,
+     "(Excluded)": 2
+    }
    }
   ],
   "VC2E8LA01": [
@@ -170,7 +202,15 @@
     "assessment": "S1_08ENG_CAT1: Where does language come from? Oral Presentation",
     "date": "2026-03-06",
     "cls": "8",
-    "notes": "Language features (slang, in-group and out-group)"
+    "notes": "Language features (slang, in-group and out-group)",
+    "dist": {
+     "Requires Support": 2,
+     "Developing": 19,
+     "Established": 56,
+     "Highly Developed": 48,
+     "Exceeding": 12,
+     "(Excluded)": 1
+    }
    }
   ],
   "VC2E7LA09": [
@@ -179,7 +219,15 @@
     "assessment": "S1_08ENG_CAT2: Holes Creative Writing",
     "date": "2026-05-25",
     "cls": "8",
-    "notes": "Grammar"
+    "notes": "Grammar",
+    "dist": {
+     "Requires Support": 12,
+     "Developing": 58,
+     "Established": 44,
+     "Highly Developed": 20,
+     "Exceeding": 2,
+     "(Excluded)": 5
+    }
    },
    {
     "id": "8c7os1ek",
@@ -195,7 +243,15 @@
     "assessment": "S1_08ENG_CAT2: Holes Creative Writing",
     "date": "2026-05-25",
     "cls": "8",
-    "notes": "Grammar"
+    "notes": "Grammar",
+    "dist": {
+     "Requires Support": 12,
+     "Developing": 58,
+     "Established": 44,
+     "Highly Developed": 20,
+     "Exceeding": 2,
+     "(Excluded)": 5
+    }
    },
    {
     "id": "nhp9gqpf",
@@ -211,7 +267,15 @@
     "assessment": "S1_08ENG_CAT2: Holes Creative Writing",
     "date": "2026-05-25",
     "cls": "8",
-    "notes": "Narrative Structure"
+    "notes": "Narrative Structure",
+    "dist": {
+     "Requires Support": 8,
+     "Developing": 28,
+     "Established": 55,
+     "Highly Developed": 38,
+     "Exceeding": 7,
+     "(Excluded)": 5
+    }
    }
   ],
   "VC2E8LA07": [
@@ -220,7 +284,15 @@
     "assessment": "S1_08ENG_CAT2: Holes Creative Writing",
     "date": "2026-05-25",
     "cls": "8",
-    "notes": "Language features and literary devices"
+    "notes": "Language features and literary devices",
+    "dist": {
+     "Requires Support": 10,
+     "Developing": 38,
+     "Established": 56,
+     "Highly Developed": 30,
+     "Exceeding": 2,
+     "(Excluded)": 5
+    }
    }
   ],
   "VC2E9LY02": [
@@ -229,7 +301,15 @@
     "assessment": "S1_09EN_CAT1: Presenting Argument",
     "date": "2026-02-20",
     "cls": "9",
-    "notes": "Create and Deliver Structured Spoken Texts"
+    "notes": "Create and Deliver Structured Spoken Texts",
+    "dist": {
+     "Requires Support": 14,
+     "Developing": 29,
+     "Established": 60,
+     "Highly Developed": 32,
+     "Exceeding": 4,
+     "(Excluded)": 4
+    }
    }
   ],
   "VC2E9LA01": [
@@ -238,14 +318,30 @@
     "assessment": "S1_09EN_CAT1: Presenting Argument",
     "date": "2026-02-20",
     "cls": "9",
-    "notes": "Language Choices\nVC2E9LA01"
+    "notes": "Language Choices",
+    "dist": {
+     "Requires Support": 13,
+     "Developing": 23,
+     "Established": 61,
+     "Highly Developed": 24,
+     "Exceeding": 18,
+     "(Excluded)": 4
+    }
    },
    {
     "id": "mjcny8l9",
     "assessment": "S1_09EN_CAT3: Runner Language Test",
     "date": "2026-05-28",
     "cls": "9",
-    "notes": "Language & Relationships"
+    "notes": "Language & Relationships",
+    "dist": {
+     "Requires Support": 18,
+     "Developing": 18,
+     "Established": 59,
+     "Highly Developed": 30,
+     "Exceeding": 19,
+     "(Excluded)": 4
+    }
    }
   ],
   "VC2E9LA02": [
@@ -254,7 +350,15 @@
     "assessment": "S1_09EN_CAT1: Presenting Argument",
     "date": "2026-02-20",
     "cls": "9",
-    "notes": "Evaluative Language"
+    "notes": "Evaluative Language",
+    "dist": {
+     "Requires Support": 13,
+     "Developing": 24,
+     "Established": 61,
+     "Highly Developed": 23,
+     "Exceeding": 18,
+     "(Excluded)": 4
+    }
    },
    {
     "id": "6qlob8ef",
@@ -277,7 +381,15 @@
     "assessment": "S1_09EN_CAT2: Creative Writing",
     "date": "2026-03-20",
     "cls": "9",
-    "notes": "Text structure and literary features"
+    "notes": "Text structure and literary features",
+    "dist": {
+     "Requires Support": 17,
+     "Developing": 30,
+     "Established": 61,
+     "Highly Developed": 33,
+     "Exceeding": 3,
+     "(Excluded)": 2
+    }
    },
    {
     "id": "qnluydb9",
@@ -293,7 +405,15 @@
     "assessment": "S1_09EN_CAT2: Creative Writing",
     "date": "2026-03-20",
     "cls": "9",
-    "notes": "Vocabulary, mood and tone"
+    "notes": "Vocabulary, mood and tone",
+    "dist": {
+     "Requires Support": 14,
+     "Developing": 28,
+     "Established": 71,
+     "Highly Developed": 27,
+     "Exceeding": 4,
+     "(Excluded)": 2
+    }
    }
   ],
   "VC2E9LY09": [
@@ -302,7 +422,15 @@
     "assessment": "S1_09EN_CAT2: Creative Writing",
     "date": "2026-03-20",
     "cls": "9",
-    "notes": "Reviewing and editing writing"
+    "notes": "Reviewing and editing writing",
+    "dist": {
+     "Requires Support": 23,
+     "Developing": 36,
+     "Established": 69,
+     "Highly Developed": 13,
+     "Exceeding": 3,
+     "(Excluded)": 2
+    }
    },
    {
     "id": "4kptnlwg",
@@ -325,7 +453,15 @@
     "assessment": "S1_09EN_CAT2: Creative Writing",
     "date": "2026-03-20",
     "cls": "9",
-    "notes": "Creating ideas and voice from stimulus material"
+    "notes": "Creating ideas and voice from stimulus material",
+    "dist": {
+     "Requires Support": 12,
+     "Developing": 19,
+     "Established": 72,
+     "Highly Developed": 35,
+     "Exceeding": 7,
+     "(Excluded)": 2
+    }
    },
    {
     "id": "ajlower8",
@@ -348,7 +484,15 @@
     "assessment": "S1_09EN_CAT3: Runner Language Test",
     "date": "2026-05-28",
     "cls": "9",
-    "notes": "Spelling for Effect"
+    "notes": "Spelling for Effect",
+    "dist": {
+     "Requires Support": 16,
+     "Developing": 28,
+     "Established": 57,
+     "Highly Developed": 27,
+     "Exceeding": 16,
+     "(Excluded)": 4
+    }
    },
    {
     "id": "1kzz2vev",
@@ -364,7 +508,15 @@
     "assessment": "S1_09EN_CAT3: Runner Language Test",
     "date": "2026-05-28",
     "cls": "9",
-    "notes": "Sentence Structures"
+    "notes": "Sentence Structures",
+    "dist": {
+     "Requires Support": 20,
+     "Developing": 28,
+     "Established": 53,
+     "Highly Developed": 30,
+     "Exceeding": 13,
+     "(Excluded)": 4
+    }
    }
   ],
   "VC2E9LE01": [

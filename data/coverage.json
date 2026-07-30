@@ -1,6 +1,6 @@
 {
  "version": 1,
- "updated": "2026-07-30T04:30:29.278Z",
+ "updated": "2026-07-30T04:31:10.335Z",
  "coverage": {
   "VC2E7LY01": [
    {
@@ -694,6 +694,15 @@
     "date": "2026-02-26",
     "cls": "10ADV",
     "notes": "Evaluation"
+   }
+  ],
+  "VC2E10LA05": [
+   {
+    "id": "w8auiyfp",
+    "assessment": "S1_10ADVEN_CAT2: English Conventions",
+    "date": "2026-03-30",
+    "cls": "10ADV",
+    "notes": "Sentence Structures"
    }
   ]
  }

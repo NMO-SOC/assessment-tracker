@@ -1,6 +1,6 @@
 {
  "version": 1,
- "updated": "2026-07-30T03:52:59.130Z",
+ "updated": "2026-07-30T03:53:26.193Z",
  "coverage": {
   "VC2E7LY01": [
    {
@@ -448,6 +448,15 @@
     "date": "2026-03-02",
     "cls": "8ADV",
     "notes": "Narrative Writing Structure"
+   }
+  ],
+  "VC2E8LE05": [
+   {
+    "id": "io331kw4",
+    "assessment": "S1_08ADVEN_26_CAT1: Creative Writing - Sympathetic Character",
+    "date": "2026-03-02",
+    "cls": "8ADV",
+    "notes": "Language Features"
    }
   ]
  }

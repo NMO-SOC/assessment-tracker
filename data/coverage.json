@@ -1,6 +1,6 @@
 {
  "version": 1,
- "updated": "2026-07-30T04:31:54.519Z",
+ "updated": "2026-07-30T04:32:21.602Z",
  "coverage": {
   "VC2E7LY01": [
    {
@@ -719,6 +719,15 @@
     "date": "2026-03-30",
     "cls": "10ADV",
     "notes": "Syntax and Meaning"
+   }
+  ],
+  "VC2E10LE01": [
+   {
+    "id": "hcdnqy8r",
+    "assessment": "S1_10ADVEN_CAT2: English Conventions",
+    "date": "2026-03-30",
+    "cls": "10ADV",
+    "notes": "Representation and Context"
    }
   ]
  }

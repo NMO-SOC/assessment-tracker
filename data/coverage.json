@@ -1,6 +1,6 @@
 {
  "version": 1,
- "updated": "2026-07-30T03:10:17.496Z",
+ "updated": "2026-07-30T03:10:33.445Z",
  "coverage": {
   "VC2E7LY01": [
    {
@@ -170,6 +170,15 @@
   "VC2E9LY03": [
    {
     "id": "ioic1l4t",
+    "assessment": "S1_09EN_CAT2: Creative Writing",
+    "date": "2026-03-20",
+    "cls": "9",
+    "notes": ""
+   }
+  ],
+  "VC2E9LY07": [
+   {
+    "id": "b27kbl8w",
     "assessment": "S1_09EN_CAT2: Creative Writing",
     "date": "2026-03-20",
     "cls": "9",

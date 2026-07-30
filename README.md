@@ -30,10 +30,12 @@ Two layers:
 | Working copy | browser `localStorage` | Every tick you make is saved instantly to the browser you're using. |
 | Source of truth | `data/coverage.json` | Committed to the repo. Loaded on first visit in a fresh browser, and shared across devices. |
 
+These actions live under the **Data** button in the top right of the page.
+
 Workflow to sync across devices:
 
 1. Tick things off in the site.
-2. Click **Export coverage.json** — it downloads.
+2. **Data → Export coverage.json** — it downloads.
 3. Replace `data/coverage.json` in the repo with the downloaded file and commit.
 4. On another device, open the site and click **Reload from repo file**.
 
@@ -41,9 +43,13 @@ Workflow to sync across devices:
 
 To preview locally: `python3 -m http.server 8000` then open `http://localhost:8000`.
 
+## Layout
+
+The Curriculum view mirrors the VCAA document: one section per strand (Language, Literature, Literacy), sub-strand bands within it, and four columns — Level 7, 8, 9, 10 — so the same content description reads across the levels. Filtering to a single level collapses it to one column. Below 900px wide it stacks into a single column with level labels.
+
 ## Recording an assessment
 
-Click any content description to expand it, then enter:
+Click any content description to open the side panel, then enter:
 
 - **Assessment name** (required) — e.g. "Persuasive essay — Unit 2"
 - **Date**
@@ -54,7 +60,7 @@ The same content description can carry multiple records (different classes, diff
 
 ## Views and filters
 
-- **Curriculum** view — grouped by strand and sub-strand, with per-level and per-strand progress bars.
+- **Curriculum** view — the four-level grid, with an overall progress ring and per-level (or per-strand) bars.
 - **By assessment** view — every assessment you've recorded and the content descriptions it covered. Useful for checking an assessment task's spread.
 - Filters: level, strand, assessed / not yet assessed, class, and free-text search (searches descriptions, codes, assessment names, and notes).
 - **Export CSV** produces one row per content description per record — for reporting or importing into a spreadsheet.

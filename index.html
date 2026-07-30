@@ -3,112 +3,233 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>English 7–10 Assessment Coverage Tracker</title>
+<title>English 7–10 Assessment Coverage</title>
 <style>
   :root{
-    --bg:#f6f7f9; --card:#fff; --ink:#16202c; --muted:#6b7785; --line:#e2e6eb;
-    --accent:#1f6feb; --accent-soft:#e8f0fe; --ok:#137a4c; --ok-soft:#e3f4ea;
-    --warn:#8a5a00; --radius:10px;
+    --bg:#f6f7fa; --card:#fff; --ink:#1b2430; --ink-soft:#3f4b5b; --muted:#717d8d;
+    --line:#e5e9ef; --line-soft:#eef1f5;
+    --accent:#3f51b5; --accent-soft:#eef0fb; --accent-ink:#2b3a8f;
+    --done:#0f8a5f; --done-soft:#e7f6ef; --done-line:#a9dcc4;
+    --shadow:0 1px 2px rgba(16,24,40,.06); --shadow-lg:0 12px 32px rgba(16,24,40,.14);
+    --r:12px; --hdr:170px;
   }
   *{box-sizing:border-box}
-  body{margin:0;font:15px/1.5 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;
-       background:var(--bg);color:var(--ink)}
-  header{background:var(--card);border-bottom:1px solid var(--line);padding:16px 20px;position:sticky;top:0;z-index:20}
-  h1{margin:0 0 2px;font-size:19px}
-  .sub{color:var(--muted);font-size:13px}
-  .wrap{max-width:1100px;margin:0 auto}
-  .toolbar{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin-top:12px}
-  .seg{display:flex;border:1px solid var(--line);border-radius:8px;overflow:hidden}
-  .seg button{border:0;background:var(--card);padding:7px 13px;cursor:pointer;font:inherit;font-size:14px;
-              border-right:1px solid var(--line)}
-  .seg button:last-child{border-right:0}
-  .seg button.on{background:var(--accent);color:#fff}
-  select,input[type=text],input[type=date],input[type=search],textarea{
-    font:inherit;padding:7px 9px;border:1px solid var(--line);border-radius:8px;background:var(--card);color:var(--ink)}
-  input[type=search]{min-width:220px;flex:1}
-  .btn{font:inherit;padding:7px 13px;border:1px solid var(--line);border-radius:8px;background:var(--card);cursor:pointer}
-  .btn:hover{background:#f0f2f5}
-  .btn.primary{background:var(--accent);border-color:var(--accent);color:#fff}
+  html{-webkit-text-size-adjust:100%}
+  body{margin:0;background:var(--bg);color:var(--ink);
+    font:15px/1.55 ui-sans-serif,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+    -webkit-font-smoothing:antialiased}
+  .wrap{max-width:1320px;margin:0 auto;padding:0 24px}
+
+  /* ---------- header ---------- */
+  header{background:rgba(255,255,255,.92);backdrop-filter:saturate(180%) blur(8px);
+    border-bottom:1px solid var(--line);position:sticky;top:0;z-index:40}
+  .titlebar{display:flex;align-items:flex-start;gap:16px;padding:16px 0 0}
+  h1{margin:0;font-size:20px;letter-spacing:-.01em;font-weight:650}
+  .sub{color:var(--muted);font-size:12.5px;margin-top:2px}
+  .spacer{flex:1}
+  .filters{display:flex;flex-wrap:wrap;gap:8px;align-items:center;padding:12px 0 14px}
+
+  .seg{display:inline-flex;background:var(--line-soft);border:1px solid var(--line);border-radius:9px;padding:2px}
+  .seg button{border:0;background:transparent;padding:5px 12px;border-radius:7px;cursor:pointer;
+    font:inherit;font-size:13.5px;color:var(--ink-soft);white-space:nowrap}
+  .seg button:hover{color:var(--ink)}
+  .seg button.on{background:var(--card);color:var(--accent-ink);font-weight:600;box-shadow:var(--shadow)}
+  select,input,textarea{font:inherit;color:var(--ink);background:var(--card);
+    border:1px solid var(--line);border-radius:9px;padding:6px 10px;font-size:13.5px}
+  select:focus,input:focus,textarea:focus{outline:2px solid var(--accent-soft);border-color:var(--accent)}
+  .search{position:relative;flex:1;min-width:200px;max-width:340px}
+  .search input{width:100%;padding-left:31px}
+  .search svg{position:absolute;left:9px;top:50%;transform:translateY(-50%);opacity:.45}
+  .btn{font:inherit;font-size:13.5px;padding:6px 12px;border:1px solid var(--line);border-radius:9px;
+    background:var(--card);color:var(--ink);cursor:pointer;box-shadow:var(--shadow)}
+  .btn:hover{background:#f8f9fb}
+  .btn.primary{background:var(--accent);border-color:var(--accent);color:#fff;box-shadow:none}
   .btn.primary:hover{filter:brightness(1.08)}
+  .btn.ghost{box-shadow:none;border-color:transparent;background:transparent}
+  .btn.ghost:hover{background:var(--line-soft)}
   .btn.danger{color:#b3261e}
-  main{max-width:1100px;margin:18px auto 60px;padding:0 20px}
-  .stats{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:18px}
-  .stat{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:10px 14px;min-width:130px;flex:1}
-  .stat b{display:block;font-size:20px}
-  .stat span{color:var(--muted);font-size:12px;text-transform:uppercase;letter-spacing:.04em}
-  .bar{height:6px;background:var(--line);border-radius:99px;overflow:hidden;margin-top:7px}
-  .bar i{display:block;height:100%;background:var(--ok)}
-  h2.strand{font-size:15px;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);margin:26px 0 8px}
-  h3.substrand{font-size:14px;margin:16px 0 6px;color:var(--ink)}
-  .cd{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);margin-bottom:8px;overflow:hidden}
-  .cd.covered{border-left:4px solid var(--ok)}
-  .cd.uncovered{border-left:4px solid var(--line)}
-  .cd-head{display:flex;gap:12px;align-items:flex-start;padding:11px 14px;cursor:pointer}
-  .cd-head:hover{background:#fafbfc}
-  .code{font:12px/1.6 ui-monospace,SFMono-Regular,Menlo,monospace;background:var(--accent-soft);color:#0b4bb3;
-        padding:1px 7px;border-radius:5px;white-space:nowrap}
-  .lvl{font-size:11px;color:var(--muted);white-space:nowrap;padding-top:3px}
-  .desc{flex:1}
-  .pill{font-size:12px;padding:2px 9px;border-radius:99px;white-space:nowrap;background:var(--line);color:var(--muted)}
-  .pill.on{background:var(--ok-soft);color:var(--ok)}
-  .cd-body{border-top:1px solid var(--line);padding:12px 14px;background:#fbfcfd;display:none}
-  .cd.open .cd-body{display:block}
-  table.rec{width:100%;border-collapse:collapse;font-size:14px;margin-bottom:10px}
-  table.rec th{text-align:left;font-size:11px;text-transform:uppercase;letter-spacing:.04em;color:var(--muted);
-               padding:4px 8px 4px 0;font-weight:600}
-  table.rec td{padding:5px 8px 5px 0;border-top:1px solid var(--line);vertical-align:top}
-  .form{display:flex;flex-wrap:wrap;gap:8px;align-items:flex-start}
-  .form input[type=text]{min-width:180px}
-  .form textarea{min-width:220px;flex:1;min-height:36px;resize:vertical}
-  .empty{color:var(--muted);font-size:13px;margin:0 0 10px}
-  .note{background:#fff8e6;border:1px solid #f0dfae;color:var(--warn);padding:9px 12px;border-radius:8px;
-        font-size:13px;margin-bottom:14px;display:none}
-  .assessment-list{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:14px}
-  .assessment-list h4{margin:0 0 4px;font-size:15px}
-  .assessment-list li{margin-bottom:14px;list-style:none}
-  .assessment-list ul{padding:0;margin:0}
-  .codes{display:flex;flex-wrap:wrap;gap:5px;margin-top:5px}
-  footer{color:var(--muted);font-size:12px;text-align:center;padding:0 20px 40px;max-width:1100px;margin:0 auto}
-  @media (max-width:620px){.cd-head{flex-wrap:wrap}.lvl{order:-1}}
+  .icon-btn{display:inline-flex;align-items:center;gap:6px}
+
+  /* data menu */
+  .menu-host{position:relative}
+  .menu{position:absolute;right:0;top:calc(100% + 6px);background:var(--card);border:1px solid var(--line);
+    border-radius:var(--r);box-shadow:var(--shadow-lg);min-width:230px;padding:6px;display:none;z-index:60}
+  .menu.open{display:block}
+  .menu button{display:block;width:100%;text-align:left;border:0;background:transparent;font:inherit;
+    font-size:13.5px;padding:8px 10px;border-radius:8px;cursor:pointer;color:var(--ink)}
+  .menu button:hover{background:var(--line-soft)}
+  .menu hr{border:0;border-top:1px solid var(--line);margin:5px 2px}
+  .menu .hint{font-size:11.5px;color:var(--muted);padding:4px 10px 8px;line-height:1.4}
+
+  /* ---------- progress ---------- */
+  .progress{display:flex;flex-wrap:wrap;gap:22px;align-items:center;
+    background:var(--card);border:1px solid var(--line);border-radius:var(--r);
+    box-shadow:var(--shadow);padding:14px 20px;margin:20px 0 8px}
+  .ring{width:56px;height:56px;border-radius:50%;display:grid;place-items:center;flex:none;
+    background:conic-gradient(var(--done) var(--pct),var(--line) 0)}
+  .ring i{width:44px;height:44px;border-radius:50%;background:var(--card);display:grid;place-items:center;
+    font-size:13px;font-weight:650;font-style:normal}
+  .ring-label{font-size:12px;color:var(--muted)}
+  .ring-label b{display:block;font-size:14px;color:var(--ink);font-weight:600}
+  .mini{flex:1;min-width:120px}
+  .mini .top{display:flex;justify-content:space-between;font-size:12px;color:var(--muted);margin-bottom:5px}
+  .mini .top b{color:var(--ink-soft);font-weight:600}
+  .bar{height:6px;border-radius:99px;background:var(--line);overflow:hidden}
+  .bar i{display:block;height:100%;background:var(--done);border-radius:99px;transition:width .25s ease}
+
+  /* ---------- matrix ---------- */
+  main{padding-bottom:80px}
+  .strand{margin-top:30px}
+  .strand-head{display:flex;align-items:baseline;gap:10px;margin:0 0 10px}
+  .strand-head h2{margin:0;font-size:17px;font-weight:650;letter-spacing:-.01em}
+  .strand-head .of{font-size:12.5px;color:var(--muted)}
+  .grid{display:grid;gap:10px}
+  .colhead{position:sticky;top:var(--hdr);z-index:15;background:var(--bg);
+    padding:6px 2px 7px;font-size:12px;font-weight:650;color:var(--muted);
+    text-transform:uppercase;letter-spacing:.07em;border-bottom:1px solid var(--line)}
+  .band{grid-column:1/-1;display:flex;align-items:center;gap:10px;margin:12px 0 -2px}
+  .band h3{margin:0;font-size:13.5px;font-weight:650;color:var(--ink-soft)}
+  .band .rule{flex:1;height:1px;background:var(--line)}
+  .band .of{font-size:11.5px;color:var(--muted);white-space:nowrap}
+
+  .cell{background:var(--card);border:1px solid var(--line);border-left:3px solid var(--line);
+    border-radius:var(--r);padding:11px 13px;cursor:pointer;box-shadow:var(--shadow);
+    display:flex;flex-direction:column;gap:7px;text-align:left;font:inherit;color:inherit;
+    transition:transform .12s ease,box-shadow .12s ease,border-color .12s ease}
+  .cell:hover{transform:translateY(-1px);box-shadow:0 4px 14px rgba(16,24,40,.09);border-color:#d3d9e3}
+  .cell:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+  .cell.done{border-left-color:var(--done);background:linear-gradient(#fff,#fcfefd)}
+  .cell .row1{display:flex;align-items:center;gap:7px}
+  .code{font:11.5px/1.5 ui-monospace,SFMono-Regular,Menlo,monospace;letter-spacing:.02em;
+    background:var(--accent-soft);color:var(--accent-ink);padding:1px 7px;border-radius:5px;white-space:nowrap}
+  .cell.done .code{background:var(--done-soft);color:var(--done)}
+  .tick{margin-left:auto;display:inline-flex;align-items:center;gap:4px;font-size:11.5px;color:var(--muted)}
+  .cell.done .tick{color:var(--done);font-weight:600}
+  .cd-text{font-size:13.5px;line-height:1.5;color:var(--ink-soft)}
+  .tags{display:flex;flex-wrap:wrap;gap:4px;margin-top:1px}
+  .tag{font-size:11px;background:var(--done-soft);color:var(--done);border:1px solid var(--done-line);
+    padding:1px 7px;border-radius:99px;max-width:100%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+  .cell.blank{background:transparent;border:1px dashed var(--line);border-left:1px dashed var(--line);
+    box-shadow:none;cursor:default}
+  .cell.blank:hover{transform:none;box-shadow:none}
+
+  /* ---------- by assessment ---------- */
+  .alist{display:grid;gap:12px;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));margin-top:20px}
+  .acard{background:var(--card);border:1px solid var(--line);border-radius:var(--r);box-shadow:var(--shadow);padding:14px 16px}
+  .acard h4{margin:0 0 3px;font-size:15px}
+  .acard .meta{font-size:12.5px;color:var(--muted);margin-bottom:9px}
+  .acard .codes{display:flex;flex-wrap:wrap;gap:5px}
+  .acard .note{font-size:12.5px;color:var(--muted);margin-top:9px;padding-top:9px;border-top:1px solid var(--line-soft)}
+
+  /* ---------- drawer ---------- */
+  .veil{position:fixed;inset:0;background:rgba(16,24,40,.34);opacity:0;pointer-events:none;
+    transition:opacity .18s ease;z-index:80}
+  .veil.on{opacity:1;pointer-events:auto}
+  .drawer{position:fixed;top:0;right:0;height:100%;width:min(460px,100%);background:var(--card);
+    box-shadow:var(--shadow-lg);transform:translateX(102%);transition:transform .22s cubic-bezier(.3,.8,.3,1);
+    z-index:90;display:flex;flex-direction:column}
+  .drawer.on{transform:none}
+  .drawer-top{padding:18px 20px 14px;border-bottom:1px solid var(--line)}
+  .crumb{font-size:11.5px;color:var(--muted);text-transform:uppercase;letter-spacing:.06em;margin-bottom:8px}
+  .drawer-top .row1{display:flex;align-items:center;gap:8px;margin-bottom:9px}
+  .drawer-top p{margin:0;font-size:14.5px;line-height:1.5;color:var(--ink-soft)}
+  .close{margin-left:auto;border:0;background:transparent;font-size:22px;line-height:1;color:var(--muted);
+    cursor:pointer;padding:0 2px}
+  .close:hover{color:var(--ink)}
+  .drawer-body{padding:16px 20px 26px;overflow:auto;flex:1}
+  .drawer-body h5{margin:0 0 9px;font-size:11.5px;text-transform:uppercase;letter-spacing:.06em;color:var(--muted)}
+  .rec{border:1px solid var(--line);border-radius:10px;padding:10px 12px;margin-bottom:8px;background:#fcfdfe}
+  .rec .r1{display:flex;align-items:center;gap:8px}
+  .rec b{font-size:14px;font-weight:600}
+  .rec .m{font-size:12px;color:var(--muted);margin-top:2px}
+  .rec .n{font-size:13px;color:var(--ink-soft);margin-top:6px;padding-top:6px;border-top:1px solid var(--line-soft)}
+  .rec .x{margin-left:auto;border:0;background:transparent;color:var(--muted);cursor:pointer;font-size:12.5px}
+  .rec .x:hover{color:#b3261e}
+  .none{color:var(--muted);font-size:13.5px;margin:0 0 14px}
+  form.add{display:grid;gap:8px;margin-top:6px}
+  form.add .two{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+  form.add label{font-size:11.5px;color:var(--muted);display:block;margin-bottom:3px}
+  form.add textarea{min-height:62px;resize:vertical;width:100%}
+  form.add input{width:100%}
+  .divider{border:0;border-top:1px solid var(--line);margin:20px 0 16px}
+
+  .empty-state{background:var(--card);border:1px dashed var(--line);border-radius:var(--r);
+    padding:36px;text-align:center;color:var(--muted);margin-top:20px}
+  .toast{position:fixed;left:50%;bottom:24px;transform:translate(-50%,80px);background:#1b2430;color:#fff;
+    font-size:13.5px;padding:10px 16px;border-radius:10px;box-shadow:var(--shadow-lg);z-index:100;
+    transition:transform .2s ease,opacity .2s ease;opacity:0}
+  .toast.on{transform:translate(-50%,0);opacity:1}
+  footer{color:var(--muted);font-size:12px;text-align:center;padding:0 24px 44px;max-width:1320px;margin:0 auto}
+
+  @media (max-width:900px){
+    .grid{grid-template-columns:1fr !important}
+    .colhead{display:none}
+    .cell.blank{display:none}
+    .cell::before{content:attr(data-level);font-size:11px;color:var(--muted);
+      text-transform:uppercase;letter-spacing:.06em;font-weight:600}
+    .wrap{padding:0 16px}
+  }
 </style>
 </head>
 <body>
 <header>
   <div class="wrap">
-    <h1>English 7–10 — Assessment Coverage Tracker</h1>
-    <div class="sub">Victorian Curriculum F–10 Version 2.0 · tick off each content description as you assess it</div>
-    <div class="toolbar">
+    <div class="titlebar">
+      <div>
+        <h1>English 7–10 · Assessment Coverage</h1>
+        <div class="sub">Victorian Curriculum F–10 Version 2.0 — 96 content descriptions</div>
+      </div>
+      <div class="spacer"></div>
+      <div class="menu-host">
+        <button class="btn icon-btn" id="dataBtn" aria-haspopup="true" aria-expanded="false">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><ellipse cx="12" cy="5" rx="8" ry="3"/><path d="M4 5v14c0 1.7 3.6 3 8 3s8-1.3 8-3V5"/><path d="M4 12c0 1.7 3.6 3 8 3s8-1.3 8-3"/></svg>
+          Data
+        </button>
+        <div class="menu" id="dataMenu" role="menu">
+          <button id="exportBtn">Export coverage.json</button>
+          <button id="importBtn">Import JSON…</button>
+          <button id="csvBtn">Export CSV</button>
+          <hr>
+          <button id="repoBtn">Reload from repo file</button>
+          <button id="clearBtn" class="danger" style="color:#b3261e">Clear all records</button>
+          <div class="hint">Records save to this browser automatically. Export and commit <code>data/coverage.json</code> to sync across devices.</div>
+        </div>
+      </div>
+    </div>
+    <div class="filters">
       <div class="seg" id="levelSeg"></div>
-      <select id="strandSel"><option value="">All strands</option></select>
-      <select id="statusSel">
-        <option value="">All</option>
+      <select id="strandSel" aria-label="Strand"></select>
+      <select id="statusSel" aria-label="Status">
+        <option value="">All content descriptions</option>
         <option value="covered">Assessed only</option>
         <option value="uncovered">Not yet assessed</option>
       </select>
-      <select id="classSel"><option value="">All classes</option></select>
-      <input type="search" id="q" placeholder="Search description, code, assessment…">
+      <select id="classSel" aria-label="Class"></select>
+      <div class="search">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+        <input type="search" id="q" placeholder="Search descriptions, codes, assessments…">
+      </div>
+      <div class="spacer"></div>
       <div class="seg" id="viewSeg">
         <button data-view="curriculum" class="on">Curriculum</button>
         <button data-view="assessments">By assessment</button>
       </div>
     </div>
-    <div class="toolbar">
-      <button class="btn primary" id="exportBtn">Export coverage.json</button>
-      <button class="btn" id="importBtn">Import JSON</button>
-      <button class="btn" id="csvBtn">Export CSV</button>
-      <button class="btn" id="repoBtn">Reload from repo file</button>
-      <button class="btn danger" id="clearBtn">Clear all</button>
-      <input type="file" id="fileIn" accept=".json" hidden>
-    </div>
   </div>
 </header>
 
-<main>
-  <div class="note" id="note"></div>
-  <div class="stats" id="stats"></div>
+<main class="wrap">
+  <div id="progress"></div>
   <div id="content"></div>
 </main>
 <footer id="foot"></footer>
+
+<div class="veil" id="veil"></div>
+<aside class="drawer" id="drawer" aria-hidden="true"></aside>
+<div class="toast" id="toast"></div>
+<input type="file" id="fileIn" accept=".json" hidden>
+<datalist id="classList"></datalist>
+<datalist id="assessList"></datalist>
 
 <script src="data/curriculum.js"></script>
 <script>
@@ -118,300 +239,330 @@
   const DATA = window.CURRICULUM;
   const ITEMS = DATA.items;
   const LEVELS = DATA.levels;
+  const STRANDS = ["Language","Literature","Literacy"];
+  const $ = id => document.getElementById(id);
 
-  // coverage: { CODE: [ {id, assessment, date, cls, notes} ] }
   let coverage = {};
-  let baseline = null;
-  const ui = { level:"", strand:"", status:"", cls:"", q:"", view:"curriculum", open:{} };
+  const ui = {level:"", strand:"", status:"", cls:"", q:"", view:"curriculum", code:null};
 
-  /* ---------- storage ---------- */
+  /* ---- data helpers ---- */
+  const uid = () => Math.random().toString(36).slice(2,10);
+  const esc = s => String(s==null?"":s).replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+  const recs = code => coverage[code] || [];
+  const seqOf = code => parseInt(code.replace(/^VC2E\d+(?:LA|LE|LY)/,""),10);
+  const byCode = {}; ITEMS.forEach(i => byCode[i.code] = i);
+  const inScopeRecs = code => ui.cls ? recs(code).filter(r=>r.cls===ui.cls) : recs(code);
+  const isDone = code => inScopeRecs(code).length > 0;
+
   function load(){
-    try{
-      const raw = localStorage.getItem(LS_KEY);
-      if (raw){ coverage = JSON.parse(raw).coverage || {}; return true; }
-    }catch(e){}
+    try{ const raw = localStorage.getItem(LS_KEY);
+      if (raw){ coverage = JSON.parse(raw).coverage || {}; return true; } }catch(e){}
     return false;
   }
   function save(){
-    try{
-      localStorage.setItem(LS_KEY, JSON.stringify({version:1, updated:new Date().toISOString(), coverage:coverage}));
-    }catch(e){ showNote("Could not save to this browser's storage: "+e.message); }
+    try{ localStorage.setItem(LS_KEY, JSON.stringify({version:1,updated:new Date().toISOString(),coverage})); }
+    catch(e){ toast("Couldn't save to this browser: "+e.message); }
   }
-  function fetchBaseline(){
-    return fetch("data/coverage.json", {cache:"no-store"})
-      .then(r => r.ok ? r.json() : null)
-      .catch(() => null);
-  }
-  function showNote(msg){
-    const n = document.getElementById("note");
-    n.textContent = msg; n.style.display = msg ? "block" : "none";
+  const fetchBaseline = () => fetch("data/coverage.json",{cache:"no-store"})
+    .then(r=>r.ok?r.json():null).catch(()=>null);
+
+  let toastTimer;
+  function toast(msg){
+    const t = $("toast"); t.textContent = msg; t.classList.add("on");
+    clearTimeout(toastTimer); toastTimer = setTimeout(()=>t.classList.remove("on"), 3200);
   }
 
-  /* ---------- helpers ---------- */
-  const uid = () => Math.random().toString(36).slice(2,10);
-  const esc = s => String(s==null?"":s).replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
-  const recs = code => coverage[code] || [];
-  function allClasses(){
-    const s = new Set();
-    Object.values(coverage).forEach(a => a.forEach(r => { if (r.cls) s.add(r.cls); }));
-    return [...s].sort();
-  }
+  function visibleLevels(){ return ui.level ? [ui.level] : LEVELS; }
   function matches(it){
-    if (ui.level && it.level !== ui.level) return false;
     if (ui.strand && it.strand !== ui.strand) return false;
-    const rs = recs(it.code);
-    const inClass = ui.cls ? rs.filter(r => r.cls === ui.cls) : rs;
-    if (ui.status === "covered" && !inClass.length) return false;
-    if (ui.status === "uncovered" && inClass.length) return false;
+    if (ui.status === "covered" && !isDone(it.code)) return false;
+    if (ui.status === "uncovered" && isDone(it.code)) return false;
     if (ui.q){
       const hay = (it.code+" "+it.description+" "+it.strand+" "+it.substrand+" "+
-        rs.map(r => [r.assessment,r.cls,r.notes].join(" ")).join(" ")).toLowerCase();
+        recs(it.code).map(r=>[r.assessment,r.cls,r.notes].join(" ")).join(" ")).toLowerCase();
       if (!hay.includes(ui.q.toLowerCase())) return false;
     }
     return true;
   }
-  function coveredCount(list){
-    return list.filter(it => (ui.cls ? recs(it.code).some(r => r.cls === ui.cls) : recs(it.code).length)).length;
-  }
+  const doneIn = list => list.filter(it=>isDone(it.code)).length;
 
-  /* ---------- render ---------- */
-  function renderStats(){
-    const scope = ITEMS.filter(it => (!ui.level || it.level===ui.level) && (!ui.strand || it.strand===ui.strand));
-    const cards = [];
-    const tot = scope.length, cov = coveredCount(scope);
-    cards.push(statCard(ui.level ? "Level "+ui.level : "All levels", cov, tot));
-    const groupBy = ui.level ? "strand" : "level";
-    const keys = groupBy === "strand" ? ["Language","Literature","Literacy"] : LEVELS;
-    keys.forEach(k => {
-      const list = scope.filter(it => (groupBy==="strand" ? it.strand : it.level) === k);
+  /* ---- progress ---- */
+  function renderProgress(){
+    const scope = ITEMS.filter(it => visibleLevels().includes(it.level) && (!ui.strand || it.strand===ui.strand));
+    const tot = scope.length, done = doneIn(scope), pct = tot ? Math.round(done/tot*100) : 0;
+    const groupKeys = ui.level ? STRANDS : LEVELS;
+    const label = k => ui.level ? k : "Level "+k;
+    const keyOf = it => ui.level ? it.strand : it.level;
+    let h = '<div class="progress"><div class="ring" style="--pct:'+pct+'%"><i>'+pct+'%</i></div>'+
+      '<div class="ring-label"><b>'+done+' of '+tot+'</b>'+
+      (ui.level ? "Level "+ui.level : "all levels")+(ui.strand ? " · "+ui.strand : "")+
+      (ui.cls ? " · "+esc(ui.cls) : "")+'</div>';
+    groupKeys.forEach(k => {
+      const list = scope.filter(it => keyOf(it) === k);
       if (!list.length) return;
-      cards.push(statCard(groupBy==="strand" ? k : "Level "+k, coveredCount(list), list.length));
+      const d = doneIn(list), p = Math.round(d/list.length*100);
+      h += '<div class="mini"><div class="top"><b>'+esc(label(k))+'</b><span>'+d+"/"+list.length+'</span></div>'+
+           '<div class="bar"><i style="width:'+p+'%"></i></div></div>';
     });
-    const nRec = Object.values(coverage).reduce((n,a)=>n+a.length,0);
-    const nAss = new Set(); Object.values(coverage).forEach(a=>a.forEach(r=>nAss.add(r.assessment)));
-    cards.push('<div class="stat"><span>Records</span><b>'+nRec+'</b><span>'+nAss.size+' assessment'+(nAss.size===1?"":"s")+'</span></div>');
-    document.getElementById("stats").innerHTML = cards.join("");
-  }
-  function statCard(label, cov, tot){
-    const pct = tot ? Math.round(cov/tot*100) : 0;
-    return '<div class="stat"><span>'+esc(label)+'</span><b>'+cov+"/"+tot+'</b>'+
-           '<div class="bar"><i style="width:'+pct+'%"></i></div></div>';
+    h += '</div>';
+    $("progress").innerHTML = h;
   }
 
-  function renderCurriculum(){
-    const list = ITEMS.filter(matches);
-    if (!list.length) return '<p class="empty">No content descriptions match these filters.</p>';
-    let html = "", lastStrand = null, lastSub = null;
-    ["Language","Literature","Literacy"].forEach(strand => {
-      const inStrand = list.filter(it => it.strand === strand);
-      if (!inStrand.length) return;
-      html += '<h2 class="strand">'+strand+' <span class="pill">'+coveredCount(inStrand)+"/"+inStrand.length+' assessed</span></h2>';
-      const subs = [...new Set(inStrand.map(it => it.substrand))];
+  /* ---- curriculum matrix (mirrors the VCAA document layout) ---- */
+  function renderMatrix(){
+    const lv = visibleLevels();
+    let html = "", any = false;
+    STRANDS.forEach(strand => {
+      if (ui.strand && ui.strand !== strand) return;
+      const inStrand = ITEMS.filter(it => it.strand===strand && lv.includes(it.level));
+      const shown = inStrand.filter(matches);
+      if (!shown.length) return;
+      any = true;
+      html += '<section class="strand"><div class="strand-head"><h2>'+strand+'</h2>'+
+              '<span class="of">'+doneIn(inStrand)+" of "+inStrand.length+' assessed</span></div>'+
+              '<div class="grid" style="grid-template-columns:repeat('+lv.length+',minmax(0,1fr))">';
+      lv.forEach(l => { html += '<div class="colhead">Level '+l+'</div>'; });
+      const subs = [...new Set(inStrand.map(it=>it.substrand))];
       subs.forEach(sub => {
-        html += '<h3 class="substrand">'+esc(sub)+'</h3>';
-        inStrand.filter(it => it.substrand === sub)
-          .sort((a,b) => (LEVELS.indexOf(a.level)-LEVELS.indexOf(b.level)) || a.code.localeCompare(b.code))
-          .forEach(it => { html += cdCard(it); });
+        const inSub = inStrand.filter(it=>it.substrand===sub);
+        const shownSub = inSub.filter(matches);
+        if (!shownSub.length) return;
+        html += '<div class="band"><h3>'+esc(sub)+'</h3><span class="rule"></span>'+
+                '<span class="of">'+doneIn(inSub)+"/"+inSub.length+'</span></div>';
+        const seqs = [...new Set(inSub.map(it=>seqOf(it.code)))].sort((a,b)=>a-b);
+        seqs.forEach(n => {
+          const row = inSub.filter(it=>seqOf(it.code)===n);
+          if (!row.some(matches)) return;
+          lv.forEach(l => {
+            const it = row.find(x=>x.level===l);
+            html += (it && matches(it)) ? cell(it) : '<div class="cell blank" aria-hidden="true"></div>';
+          });
+        });
       });
+      html += '</div></section>';
     });
-    return html;
+    return any ? html : '<div class="empty-state">No content descriptions match these filters.</div>';
   }
 
-  function cdCard(it){
-    const rs = recs(it.code);
-    const shown = ui.cls ? rs.filter(r => r.cls === ui.cls) : rs;
-    const open = !!ui.open[it.code];
-    let h = '<div class="cd '+(shown.length?"covered":"uncovered")+(open?" open":"")+'" data-code="'+it.code+'">';
-    h += '<div class="cd-head" data-toggle="'+it.code+'">';
-    h += '<span class="code">'+it.code+'</span>';
-    h += '<span class="lvl">Lv '+it.level+'</span>';
-    h += '<span class="desc">'+esc(it.description)+'</span>';
-    h += '<span class="pill '+(shown.length?"on":"")+'">'+(shown.length ? shown.length+"×" : "not assessed")+'</span>';
-    h += '</div><div class="cd-body">';
-    if (rs.length){
-      h += '<table class="rec"><thead><tr><th>Assessment</th><th>Date</th><th>Class</th><th>Notes</th><th></th></tr></thead><tbody>';
-      rs.slice().sort((a,b)=>(b.date||"").localeCompare(a.date||"")).forEach(r => {
-        h += '<tr><td><b>'+esc(r.assessment)+'</b></td><td>'+esc(r.date||"—")+'</td><td>'+esc(r.cls||"—")+
-             '</td><td>'+esc(r.notes||"")+'</td>'+
-             '<td><button class="btn danger" data-del="'+r.id+'" data-code="'+it.code+'">Remove</button></td></tr>';
-      });
-      h += '</tbody></table>';
-    } else {
-      h += '<p class="empty">Not yet assessed. Add the assessment that covered this.</p>';
-    }
-    h += '<form class="form" data-add="'+it.code+'">'+
-         '<input type="text" name="assessment" placeholder="Assessment name *" required>'+
-         '<input type="date" name="date" value="'+new Date().toISOString().slice(0,10)+'">'+
-         '<input type="text" name="cls" placeholder="Class / cohort" list="classList">'+
-         '<textarea name="notes" placeholder="Notes / evidence"></textarea>'+
-         '<button class="btn primary" type="submit">Mark assessed</button></form>';
-    h += '</div></div>';
-    return h;
+  function cell(it){
+    const rs = inScopeRecs(it.code);
+    const done = rs.length > 0;
+    const names = [...new Set(rs.map(r=>r.assessment))];
+    let h = '<button class="cell'+(done?" done":"")+'" data-code="'+it.code+'" data-level="Level '+it.level+'">';
+    h += '<span class="row1"><span class="code">'+it.code+'</span><span class="tick">';
+    h += done
+      ? '<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="m5 13 4.5 4.5L19 7"/></svg>'+
+        (rs.length>1 ? rs.length+" records" : "assessed")
+      : 'not assessed';
+    h += '</span></span>';
+    h += '<span class="cd-text">'+esc(it.description)+'</span>';
+    if (names.length) h += '<span class="tags">'+names.slice(0,3).map(n=>'<span class="tag">'+esc(n)+'</span>').join("")+
+      (names.length>3 ? '<span class="tag">+'+(names.length-3)+'</span>' : '')+'</span>';
+    return h + '</button>';
   }
 
+  /* ---- by assessment ---- */
   function renderAssessments(){
     const by = {};
     ITEMS.forEach(it => {
+      if (ui.level && it.level!==ui.level) return;
+      if (ui.strand && it.strand!==ui.strand) return;
       recs(it.code).forEach(r => {
-        if (ui.level && it.level !== ui.level) return;
-        if (ui.strand && it.strand !== ui.strand) return;
-        if (ui.cls && r.cls !== ui.cls) return;
+        if (ui.cls && r.cls!==ui.cls) return;
         if (ui.q){
           const hay = (r.assessment+" "+(r.cls||"")+" "+(r.notes||"")+" "+it.code+" "+it.description).toLowerCase();
           if (!hay.includes(ui.q.toLowerCase())) return;
         }
-        const key = r.assessment+"||"+(r.cls||"")+"||"+(r.date||"");
-        (by[key] = by[key] || {assessment:r.assessment, cls:r.cls, date:r.date, notes:[], items:[]});
-        by[key].items.push(it);
-        if (r.notes) by[key].notes.push(it.code+": "+r.notes);
+        const k = r.assessment+"||"+(r.cls||"")+"||"+(r.date||"");
+        (by[k] = by[k] || {assessment:r.assessment, cls:r.cls, date:r.date, notes:[], items:[]});
+        by[k].items.push(it);
+        if (r.notes) by[k].notes.push(it.code+" — "+r.notes);
       });
     });
     const groups = Object.values(by).sort((a,b)=>(b.date||"").localeCompare(a.date||""));
-    if (!groups.length) return '<p class="empty">No assessment records yet.</p>';
-    let h = '<div class="assessment-list"><ul>';
-    groups.forEach(g => {
-      h += '<li><h4>'+esc(g.assessment)+'</h4><div class="sub" style="color:var(--muted);font-size:13px">'+
-           [g.date||"no date", g.cls||"no class", g.items.length+" content description"+(g.items.length===1?"":"s")].map(esc).join(" · ")+
-           '</div><div class="codes">'+
-           g.items.sort((a,b)=>a.code.localeCompare(b.code))
-             .map(it => '<span class="code" title="'+esc(it.description)+'">'+it.code+'</span>').join("")+
-           '</div>'+(g.notes.length?'<div class="empty" style="margin-top:6px">'+esc(g.notes.join(" | "))+'</div>':'')+'</li>';
-    });
-    return h + '</ul></div>';
+    if (!groups.length) return '<div class="empty-state">No assessment records yet. Open a content description in the Curriculum view to add one.</div>';
+    return '<div class="alist">'+groups.map(g => {
+      const lvls = [...new Set(g.items.map(i=>"Lv "+i.level))].join(", ");
+      return '<div class="acard"><h4>'+esc(g.assessment)+'</h4><div class="meta">'+
+        [fmtDate(g.date), g.cls||"no class", lvls,
+         g.items.length+" content description"+(g.items.length===1?"":"s")].filter(Boolean).map(esc).join(" · ")+
+        '</div><div class="codes">'+
+        g.items.sort((a,b)=>a.code.localeCompare(b.code))
+          .map(i=>'<span class="code" title="'+esc(i.description)+'">'+i.code+'</span>').join("")+
+        '</div>'+(g.notes.length?'<div class="note">'+esc(g.notes.join(" · "))+'</div>':'')+'</div>';
+    }).join("")+'</div>';
+  }
+  function fmtDate(d){
+    if (!d) return "";
+    const p = d.split("-"); if (p.length!==3) return d;
+    const m = ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"];
+    return +p[2]+" "+m[+p[1]-1]+" "+p[0];
   }
 
-  function render(){
-    renderStats();
-    document.getElementById("content").innerHTML =
-      ui.view === "assessments" ? renderAssessments() : renderCurriculum();
-    // class datalist + filter
-    const cls = allClasses();
-    let dl = document.getElementById("classList");
-    if (!dl){ dl = document.createElement("datalist"); dl.id = "classList"; document.body.appendChild(dl); }
-    dl.innerHTML = cls.map(c => '<option value="'+esc(c)+'">').join("");
-    const sel = document.getElementById("classSel");
-    const cur = sel.value;
-    sel.innerHTML = '<option value="">All classes</option>' + cls.map(c=>'<option'+(c===cur?" selected":"")+'>'+esc(c)+'</option>').join("");
-    const covTot = coveredCount(ITEMS);
-    document.getElementById("foot").textContent =
-      covTot+" of "+ITEMS.length+" content descriptions assessed · "+DATA.source;
-  }
-
-  /* ---------- events ---------- */
-  document.addEventListener("click", e => {
-    const t = e.target.closest("[data-toggle]");
-    if (t){ const c = t.getAttribute("data-toggle"); ui.open[c] = !ui.open[c];
-            t.parentElement.classList.toggle("open", ui.open[c]); return; }
-    const d = e.target.closest("[data-del]");
-    if (d){
-      const code = d.getAttribute("data-code"), id = d.getAttribute("data-del");
-      coverage[code] = recs(code).filter(r => r.id !== id);
-      if (!coverage[code].length) delete coverage[code];
-      save(); render(); return;
+  /* ---- drawer ---- */
+  function openDrawer(code){
+    ui.code = code;
+    const it = byCode[code]; if (!it) return;
+    const rs = recs(code).slice().sort((a,b)=>(b.date||"").localeCompare(a.date||""));
+    let h = '<div class="drawer-top"><div class="crumb">Level '+it.level+' · '+esc(it.strand)+' · '+esc(it.substrand)+'</div>'+
+      '<div class="row1"><span class="code">'+code+'</span>'+
+      '<span class="tick" style="margin-left:0;color:'+(rs.length?"var(--done)":"var(--muted)")+'">'+
+      (rs.length ? rs.length+" record"+(rs.length===1?"":"s") : "not yet assessed")+'</span>'+
+      '<button class="close" id="closeDrawer" aria-label="Close">&times;</button></div>'+
+      '<p>'+esc(it.description)+'</p></div><div class="drawer-body">';
+    h += '<h5>Assessment records</h5>';
+    if (rs.length){
+      rs.forEach(r => {
+        h += '<div class="rec"><div class="r1"><b>'+esc(r.assessment)+'</b>'+
+          '<button class="x" data-del="'+r.id+'">Remove</button></div>'+
+          '<div class="m">'+[fmtDate(r.date)||"no date", r.cls||"no class"].map(esc).join(" · ")+'</div>'+
+          (r.notes?'<div class="n">'+esc(r.notes)+'</div>':'')+'</div>';
+      });
+    } else {
+      h += '<p class="none">Nothing recorded against this content description yet.</p>';
     }
+    h += '<hr class="divider"><h5>Add a record</h5><form class="add" id="addForm">'+
+      '<div><label for="f-a">Assessment name</label>'+
+      '<input id="f-a" name="assessment" type="text" list="assessList" placeholder="e.g. Persuasive essay — Unit 2" required></div>'+
+      '<div class="two"><div><label for="f-d">Date</label><input id="f-d" name="date" type="date" value="'+
+        new Date().toISOString().slice(0,10)+'"></div>'+
+      '<div><label for="f-c">Class / cohort</label><input id="f-c" name="cls" type="text" list="classList" placeholder="e.g. 9C" value="'+esc(ui.cls)+'"></div></div>'+
+      '<div><label for="f-n">Notes / evidence</label><textarea id="f-n" name="notes" placeholder="How was this assessed? What did students produce?"></textarea></div>'+
+      '<button class="btn primary" type="submit" style="justify-self:start">Mark as assessed</button></form></div>';
+    const d = $("drawer");
+    d.innerHTML = h; d.classList.add("on"); d.setAttribute("aria-hidden","false");
+    $("veil").classList.add("on");
+    setTimeout(()=>{ const el = $("f-a"); if (el) el.focus(); }, 220);
+  }
+  function closeDrawer(){
+    ui.code = null;
+    $("drawer").classList.remove("on"); $("drawer").setAttribute("aria-hidden","true");
+    $("veil").classList.remove("on");
+  }
+
+  /* ---- render ---- */
+  function render(){
+    renderProgress();
+    $("content").innerHTML = ui.view === "assessments" ? renderAssessments() : renderMatrix();
+    const cls = new Set(), ass = new Set();
+    Object.values(coverage).forEach(a => a.forEach(r => { if (r.cls) cls.add(r.cls); ass.add(r.assessment); }));
+    $("classList").innerHTML = [...cls].sort().map(c=>'<option value="'+esc(c)+'">').join("");
+    $("assessList").innerHTML = [...ass].sort().map(c=>'<option value="'+esc(c)+'">').join("");
+    const sel = $("classSel");
+    sel.innerHTML = '<option value="">All classes</option>' +
+      [...cls].sort().map(c=>'<option'+(c===ui.cls?" selected":"")+'>'+esc(c)+'</option>').join("");
+    const n = ITEMS.filter(it=>isDone(it.code)).length;
+    $("foot").textContent = n+" of "+ITEMS.length+" content descriptions assessed · "+DATA.source;
+    if (ui.code) openDrawer(ui.code);
+  }
+
+  /* ---- events ---- */
+  document.addEventListener("click", e => {
+    const c = e.target.closest(".cell[data-code]");
+    if (c){ openDrawer(c.getAttribute("data-code")); return; }
+    if (e.target.closest("#closeDrawer")){ closeDrawer(); return; }
+    const del = e.target.closest("[data-del]");
+    if (del && ui.code){
+      const code = ui.code, id = del.getAttribute("data-del");
+      coverage[code] = recs(code).filter(r=>r.id!==id);
+      if (!coverage[code].length) delete coverage[code];
+      save(); render(); toast("Record removed."); return;
+    }
+    if (!e.target.closest(".menu-host")) $("dataMenu").classList.remove("open");
+  });
+  $("veil").addEventListener("click", closeDrawer);
+  document.addEventListener("keydown", e => {
+    if (e.key === "Escape"){ closeDrawer(); $("dataMenu").classList.remove("open"); }
   });
   document.addEventListener("submit", e => {
-    const f = e.target.closest("[data-add]");
-    if (!f) return;
+    if (!e.target.closest("#addForm")) return;
     e.preventDefault();
-    const code = f.getAttribute("data-add");
-    const fd = new FormData(f);
-    const name = (fd.get("assessment")||"").toString().trim();
-    if (!name) return;
-    (coverage[code] = coverage[code] || []).push({
-      id: uid(), assessment: name,
-      date: (fd.get("date")||"").toString(),
-      cls: (fd.get("cls")||"").toString().trim(),
-      notes: (fd.get("notes")||"").toString().trim()
-    });
-    ui.open[code] = true;
-    save(); render();
+    const f = e.target, code = ui.code;
+    const g = n => (f.querySelector('[name='+n+']').value||"").trim();
+    const name = g("assessment"); if (!name || !code) return;
+    (coverage[code] = coverage[code] || []).push({id:uid(), assessment:name, date:g("date"), cls:g("cls"), notes:g("notes")});
+    save(); render(); toast("Marked "+code+" as assessed.");
+  });
+  $("dataBtn").addEventListener("click", e => {
+    e.stopPropagation();
+    const m = $("dataMenu"); const open = m.classList.toggle("open");
+    $("dataBtn").setAttribute("aria-expanded", open ? "true" : "false");
   });
 
   function bindSeg(id, key){
-    document.getElementById(id).addEventListener("click", e => {
+    $(id).addEventListener("click", e => {
       const b = e.target.closest("button"); if (!b) return;
-      [...b.parentElement.children].forEach(x => x.classList.remove("on"));
+      [...b.parentElement.children].forEach(x=>x.classList.remove("on"));
       b.classList.add("on");
       ui[key] = b.dataset[key] !== undefined ? b.dataset[key] : b.dataset.val;
       render();
     });
   }
-
-  function init(){
-    // level segmented control
-    document.getElementById("levelSeg").innerHTML =
-      '<button data-val="" class="on">All levels</button>' + LEVELS.map(l=>'<button data-val="'+l+'">Level '+l+'</button>').join("");
-    bindSeg("levelSeg","level");
-    bindSeg("viewSeg","view");
-    document.getElementById("strandSel").innerHTML =
-      '<option value="">All strands</option>' + ["Language","Literature","Literacy"].map(s=>'<option>'+s+'</option>').join("");
-    document.getElementById("strandSel").onchange = e => { ui.strand = e.target.value; render(); };
-    document.getElementById("statusSel").onchange = e => { ui.status = e.target.value; render(); };
-    document.getElementById("classSel").onchange = e => { ui.cls = e.target.value; render(); };
-    let tm; document.getElementById("q").oninput = e => {
-      clearTimeout(tm); tm = setTimeout(() => { ui.q = e.target.value.trim(); render(); }, 180);
-    };
-
-    document.getElementById("exportBtn").onclick = () => {
-      download("coverage.json", JSON.stringify({version:1, updated:new Date().toISOString(), coverage:coverage}, null, 1), "application/json");
-    };
-    document.getElementById("csvBtn").onclick = () => {
-      const rows = [["code","level","strand","substrand","description","assessment","date","class","notes"]];
-      ITEMS.forEach(it => {
-        const rs = recs(it.code);
-        if (!rs.length) rows.push([it.code,it.level,it.strand,it.substrand,it.description,"","","",""]);
-        else rs.forEach(r => rows.push([it.code,it.level,it.strand,it.substrand,it.description,r.assessment,r.date,r.cls,r.notes]));
-      });
-      const csv = rows.map(r => r.map(c => '"'+String(c==null?"":c).replace(/"/g,'""')+'"').join(",")).join("\r\n");
-      download("english-7-10-coverage.csv", csv, "text/csv");
-    };
-    document.getElementById("importBtn").onclick = () => document.getElementById("fileIn").click();
-    document.getElementById("fileIn").onchange = e => {
-      const f = e.target.files[0]; if (!f) return;
-      const fr = new FileReader();
-      fr.onload = () => {
-        try{
-          const j = JSON.parse(fr.result);
-          const c = j.coverage || j;
-          if (typeof c !== "object") throw new Error("unexpected format");
-          coverage = c; save(); render(); showNote("Imported "+f.name+".");
-        }catch(err){ showNote("Could not import that file: "+err.message); }
-      };
-      fr.readAsText(f);
-      e.target.value = "";
-    };
-    document.getElementById("repoBtn").onclick = () => {
-      fetchBaseline().then(b => {
-        if (!b){ showNote("Couldn't read data/coverage.json (this needs to be served over http — GitHub Pages or a local server)."); return; }
-        if (!confirm("Replace what's in this browser with the committed data/coverage.json?")) return;
-        coverage = b.coverage || {}; save(); render(); showNote("Loaded committed data/coverage.json.");
-      });
-    };
-    document.getElementById("clearBtn").onclick = () => {
-      if (!confirm("Delete all assessment records stored in this browser? Export first if you want a backup.")) return;
-      coverage = {}; save(); render();
-    };
-
-    const hadLocal = load();
-    render();
-    fetchBaseline().then(b => {
-      baseline = b;
-      if (b && !hadLocal && b.coverage && Object.keys(b.coverage).length){
-        coverage = b.coverage; save(); render();
-        showNote("Loaded committed coverage from data/coverage.json.");
-      }
-    });
-  }
-
   function download(name, text, type){
-    const blob = new Blob([text], {type:type+";charset=utf-8"});
+    const blob = new Blob([text],{type:type+";charset=utf-8"});
     const a = document.createElement("a");
     a.href = URL.createObjectURL(blob); a.download = name;
     document.body.appendChild(a); a.click(); a.remove();
-    setTimeout(()=>URL.revokeObjectURL(a.href), 2000);
+    setTimeout(()=>{ try{ URL.revokeObjectURL(a.href); }catch(e){} }, 2000);
+  }
+  function syncHdr(){
+    const h = document.querySelector("header").offsetHeight;
+    document.documentElement.style.setProperty("--hdr", h+"px");
   }
 
+  function init(){
+    $("levelSeg").innerHTML = '<button data-val="" class="on">All levels</button>' +
+      LEVELS.map(l=>'<button data-val="'+l+'">Level '+l+'</button>').join("");
+    $("strandSel").innerHTML = '<option value="">All strands</option>' + STRANDS.map(s=>'<option>'+s+'</option>').join("");
+    bindSeg("levelSeg","level"); bindSeg("viewSeg","view");
+    $("strandSel").onchange = e => { ui.strand = e.target.value; render(); };
+    $("statusSel").onchange = e => { ui.status = e.target.value; render(); };
+    $("classSel").onchange = e => { ui.cls = e.target.value; render(); };
+    let tm; $("q").oninput = e => { clearTimeout(tm); const v = e.target.value.trim();
+      tm = setTimeout(()=>{ ui.q = v; render(); }, 180); };
+
+    $("exportBtn").onclick = () => { $("dataMenu").classList.remove("open");
+      download("coverage.json", JSON.stringify({version:1,updated:new Date().toISOString(),coverage},null,1), "application/json");
+      toast("Exported — commit this as data/coverage.json."); };
+    $("csvBtn").onclick = () => { $("dataMenu").classList.remove("open");
+      const rows = [["code","level","strand","substrand","description","assessment","date","class","notes"]];
+      ITEMS.forEach(it => { const rs = recs(it.code);
+        if (!rs.length) rows.push([it.code,it.level,it.strand,it.substrand,it.description,"","","",""]);
+        else rs.forEach(r=>rows.push([it.code,it.level,it.strand,it.substrand,it.description,r.assessment,r.date,r.cls,r.notes]));
+      });
+      download("english-7-10-coverage.csv",
+        rows.map(r=>r.map(c=>'"'+String(c==null?"":c).replace(/"/g,'""')+'"').join(",")).join("\r\n"), "text/csv");
+    };
+    $("importBtn").onclick = () => { $("dataMenu").classList.remove("open"); $("fileIn").click(); };
+    $("fileIn").onchange = e => {
+      const f = e.target.files[0]; if (!f) return;
+      const fr = new FileReader();
+      fr.onload = () => { try{
+          const j = JSON.parse(fr.result), c = j.coverage || j;
+          if (typeof c !== "object" || Array.isArray(c)) throw new Error("unexpected format");
+          coverage = c; save(); render(); toast("Imported "+f.name+".");
+        }catch(err){ toast("Couldn't import that file: "+err.message); } };
+      fr.readAsText(f); e.target.value = "";
+    };
+    $("repoBtn").onclick = () => { $("dataMenu").classList.remove("open");
+      fetchBaseline().then(b => {
+        if (!b){ toast("Couldn't read data/coverage.json — needs to be served over http."); return; }
+        if (!confirm("Replace the records in this browser with the committed data/coverage.json?")) return;
+        coverage = b.coverage || {}; save(); render(); toast("Loaded committed coverage.");
+      }); };
+    $("clearBtn").onclick = () => { $("dataMenu").classList.remove("open");
+      if (!confirm("Delete every assessment record stored in this browser? Export first if you want a backup.")) return;
+      coverage = {}; save(); render(); toast("All records cleared."); };
+
+    const hadLocal = load();
+    render(); syncHdr();
+    window.addEventListener("resize", syncHdr);
+    fetchBaseline().then(b => {
+      if (b && !hadLocal && b.coverage && Object.keys(b.coverage).length){
+        coverage = b.coverage; save(); render(); toast("Loaded committed coverage from the repo.");
+      }
+    });
+  }
   init();
 })();
 </script>

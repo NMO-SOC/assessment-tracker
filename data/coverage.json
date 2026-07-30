@@ -1,6 +1,6 @@
 {
  "version": 1,
- "updated": "2026-07-30T03:23:32.287Z",
+ "updated": "2026-07-30T03:23:47.278Z",
  "coverage": {
   "VC2E7LY01": [
    {
@@ -310,6 +310,15 @@
     "id": "ebbh5v1u",
     "assessment": "S2_10EN_CAT1: Creative Writing",
     "date": "2026-02-27",
+    "cls": "10",
+    "notes": ""
+   }
+  ],
+  "VC2E10LY05": [
+   {
+    "id": "856pa2dv",
+    "assessment": "S2_10EN_CAT2: Analytical Text Response Essay",
+    "date": "2026-05-06",
     "cls": "10",
     "notes": ""
    }

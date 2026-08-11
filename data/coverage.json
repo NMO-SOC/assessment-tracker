@@ -511,7 +511,15 @@
     "assessment": "S2_09EN_CAT1: Runner Essay",
     "date": "2026-07-24",
     "cls": "9",
-    "notes": "Organisation and development of ideas."
+    "notes": "Organisation and development of ideas.",
+    "dist": {
+     "Requires Support": 20,
+     "Developing": 31,
+     "Established": 48,
+     "Highly Developed": 24,
+     "Exceeding": 3,
+     "(Excluded)": 5
+    }
    },
    {
     "id": "bak0nlh4",
@@ -578,7 +586,15 @@
     "assessment": "S2_09EN_CAT1: Runner Essay",
     "date": "2026-07-24",
     "cls": "9",
-    "notes": "Analysis of characters"
+    "notes": "Analysis of characters",
+    "dist": {
+     "Requires Support": 19,
+     "Developing": 31,
+     "Established": 45,
+     "Highly Developed": 22,
+     "Exceeding": 9,
+     "(Excluded)": 5
+    }
    }
   ],
   "VC2E9LE04": [
@@ -587,7 +603,15 @@
     "assessment": "S2_09EN_CAT1: Runner Essay",
     "date": "2026-07-24",
     "cls": "9",
-    "notes": "Analysis of themes and ideas."
+    "notes": "Analysis of themes and ideas.",
+    "dist": {
+     "Requires Support": 19,
+     "Developing": 31,
+     "Established": 45,
+     "Highly Developed": 22,
+     "Exceeding": 9,
+     "(Excluded)": 5
+    }
    }
   ],
   "VC2E9LE02": [
@@ -596,7 +620,15 @@
     "assessment": "S2_09EN_CAT1: Runner Essay",
     "date": "2026-07-24",
     "cls": "9",
-    "notes": "Interpretation and use of evidence."
+    "notes": "Interpretation and use of evidence.",
+    "dist": {
+     "Requires Support": 20,
+     "Developing": 35,
+     "Established": 43,
+     "Highly Developed": 24,
+     "Exceeding": 4,
+     "(Excluded)": 5
+    }
    },
    {
     "id": "0s7dyc5j",
@@ -1113,7 +1145,15 @@
     "assessment": "S2_09EN_CAT1: Runner Essay",
     "date": "2026-07-24",
     "cls": "9",
-    "notes": "Vocabulary and written expression."
+    "notes": "Vocabulary and written expression.",
+    "dist": {
+     "Requires Support": 13,
+     "Developing": 35,
+     "Established": 51,
+     "Highly Developed": 26,
+     "Exceeding": 1,
+     "(Excluded)": 5
+    }
    }
   ],
   "VC2E9LY05": [

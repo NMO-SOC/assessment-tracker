@@ -68,6 +68,10 @@
     "Effectiveness of Sentence Structures": "VC2E10LA05"
   },
 
+  "S2_09EN_CAT1: Runner Essay": {
+    "Analysis of characters, themes, and ideas.": ["VC2E9LE01", "VC2E9LE04"]
+  },
+
   "S1_10ADVEN_CAT1: Love Framework of Ideas": {
     "_note": "This rubric names its own codes in the column headings, so they win. The records were re-pointed to match: LA02 -> LE06 and LE04 -> LY07, with LA01 and LA07 added.",
     "Analyses representations of love VC2E10LY07 &  VC2E10LA01": ["VC2E10LY07", "VC2E10LA01"],

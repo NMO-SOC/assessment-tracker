@@ -731,7 +731,14 @@
     "assessment": "S2_10ADVEN_CAT1: Analysing Argument",
     "date": "2026-08-04",
     "cls": "10ADV",
-    "notes": "Expression of Analytical Essay"
+    "notes": "Expression of Analytical Essay",
+    "dist": {
+     "Developing": 3,
+     "Established": 4,
+     "Highly Developed": 10,
+     "Exceeding": 1,
+     "(Excluded)": 1
+    }
    }
   ],
   "VC2E10LA09": [
@@ -804,7 +811,14 @@
     "assessment": "S2_10ADVEN_CAT1: Analysing Argument",
     "date": "2026-08-04",
     "cls": "10ADV",
-    "notes": "Analysis of Argument and Persuasive Language"
+    "notes": "Analysis of Argument and Persuasive Language",
+    "dist": {
+     "Developing": 2,
+     "Established": 8,
+     "Highly Developed": 7,
+     "Exceeding": 1,
+     "(Excluded)": 1
+    }
    }
   ],
   "VC2E10LE04": [
@@ -849,7 +863,14 @@
     "assessment": "S2_10ADVEN_CAT1: Analysing Argument",
     "date": "2026-08-04",
     "cls": "10ADV",
-    "notes": "Construction of Essay"
+    "notes": "Construction of Essay",
+    "dist": {
+     "Developing": 3,
+     "Established": 4,
+     "Highly Developed": 10,
+     "Exceeding": 1,
+     "(Excluded)": 1
+    }
    }
   ],
   "VC2E7LA03": [
@@ -1332,7 +1353,12 @@
     "assessment": "S2_10ADVEN_CAT1: Analysing Argument",
     "date": "2026-08-04",
     "cls": "10ADV",
-    "notes": "Analysis of Structure"
+    "notes": "Analysis of Structure",
+    "dist": {
+     "Established": 6,
+     "Highly Developed": 12,
+     "(Excluded)": 1
+    }
    }
   ],
   "VC2E10LY06": [
@@ -1341,7 +1367,12 @@
     "assessment": "S2_10ADVEN_CAT1: Analysing Argument",
     "date": "2026-08-04",
     "cls": "10ADV",
-    "notes": "Analysis of Organisaition of Ideas"
+    "notes": "Analysis of Organisaition of Ideas",
+    "dist": {
+     "Established": 6,
+     "Highly Developed": 12,
+     "(Excluded)": 1
+    }
    }
   ],
   "VC2E7LA01": [

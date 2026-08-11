@@ -76,6 +76,11 @@
     "Analysis of characters, themes, and ideas.": ["VC2E9LE01", "VC2E9LE04"]
   },
 
+  "S2_10ADVEN_CAT1: Analysing Argument": {
+    "Analysis of text structure and organisation of ideas": ["VC2E10LA03", "VC2E10LY06"],
+    "Construction and expression of the analytical essay": ["VC2E10LA04", "VC2E10LA08"]
+  },
+
   "S1_10ADVEN_CAT1: Love Framework of Ideas": {
     "_note": "This rubric names its own codes in the column headings, so they win. The records were re-pointed to match: LA02 -> LE06 and LE04 -> LY07, with LA01 and LA07 added.",
     "Analyses representations of love VC2E10LY07 &  VC2E10LA01": ["VC2E10LY07", "VC2E10LA01"],

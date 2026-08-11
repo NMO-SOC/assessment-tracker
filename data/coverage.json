@@ -1,6 +1,6 @@
 {
  "version": 1,
- "updated": "2026-08-02T06:46:42.901Z",
+ "updated": "2026-08-11T06:04:32.408Z",
  "coverage": {
   "VC2E7LY01": [
    {
@@ -393,10 +393,14 @@
    },
    {
     "id": "3rpwn7gy",
-    "assessment": "S1_09ADVEN_CAT1: Analysing Argument",
+    "assessment": "S2_09ADVEN_CAT1: Analysing Argument",
     "date": "2026-08-03",
     "cls": "9ADV",
-    "notes": "Analysis of Persuasive Language and Techniques"
+    "notes": "Analysis of Persuasive Language and Techniques",
+    "dist": {
+     "Established": 5,
+     "Highly Developed": 18
+    }
    }
   ],
   "VC2E9LE06": [
@@ -1115,19 +1119,27 @@
   "VC2E9LY05": [
    {
     "id": "p80udoi5",
-    "assessment": "S1_09ADVEN_CAT1: Analysing Argument",
+    "assessment": "S2_09ADVEN_CAT1: Analysing Argument",
     "date": "2026-08-03",
     "cls": "9ADV",
-    "notes": "Understanding and Interpreting Argument"
+    "notes": "Understanding and Interpreting Argument",
+    "dist": {
+     "Established": 2,
+     "Highly Developed": 21
+    }
    }
   ],
   "VC2E9LY06": [
    {
     "id": "vv2i6xyl",
-    "assessment": "S1_09ADVEN_CAT1: Analysing Argument",
+    "assessment": "S2_09ADVEN_CAT1: Analysing Argument",
     "date": "2026-08-03",
     "cls": "9ADV",
-    "notes": "Structure and Written Expression"
+    "notes": "Structure and Written Expression",
+    "dist": {
+     "Established": 11,
+     "Highly Developed": 12
+    }
    }
   ],
   "VC2E10LE02": [

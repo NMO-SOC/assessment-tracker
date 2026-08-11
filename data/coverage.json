@@ -1,6 +1,6 @@
 {
  "version": 1,
- "updated": "2026-08-11T06:15:42.681Z",
+ "updated": "2026-08-11T06:20:12.766Z",
  "coverage": {
   "VC2E7LY01": [
    {
@@ -63,6 +63,13 @@
      "Exceeding": 14,
      "(Excluded)": 1
     }
+   },
+   {
+    "id": "ip44197u",
+    "assessment": "S2_07ADVEN_CAT1: Visual Persuasion",
+    "date": "2026-08-11",
+    "cls": "7ADV",
+    "notes": "Oral Presentation and Communication"
    }
   ],
   "VC2E7LY07": [
@@ -1335,6 +1342,42 @@
     "date": "2026-08-04",
     "cls": "10ADV",
     "notes": "Analysis of Organisaition of Ideas"
+   }
+  ],
+  "VC2E7LA01": [
+   {
+    "id": "zwno58dr",
+    "assessment": "S2_07ADVEN_CAT1: Visual Persuasion",
+    "date": "2026-08-11",
+    "cls": "7ADV",
+    "notes": "Audience Awareness and Creativity"
+   }
+  ],
+  "VC2E7LA07": [
+   {
+    "id": "tj4s1egg",
+    "assessment": "S2_07ADVEN_CAT1: Visual Persuasion",
+    "date": "2026-08-11",
+    "cls": "7ADV",
+    "notes": "Visual Persuasive Techniques"
+   }
+  ],
+  "VC2E7LY05": [
+   {
+    "id": "ilqs5lhd",
+    "assessment": "S2_07ADVEN_CAT1: Visual Persuasion",
+    "date": "2026-08-11",
+    "cls": "7ADV",
+    "notes": "Written Analysis, persuasive devices and TEEL Paragraph"
+   }
+  ],
+  "VC2E7LA04": [
+   {
+    "id": "fmx9c4v0",
+    "assessment": "S2_07ADVEN_CAT1: Visual Persuasion",
+    "date": "2026-08-11",
+    "cls": "7ADV",
+    "notes": "Written Analysis, persuasive devices and TEEL Paragraph"
    }
   ]
  }

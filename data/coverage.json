@@ -1,6 +1,6 @@
 {
  "version": 1,
- "updated": "2026-08-11T06:20:12.766Z",
+ "updated": "2026-08-27T05:04:28.885Z",
  "coverage": {
   "VC2E7LY01": [
    {
@@ -436,6 +436,20 @@
      "Established": 9,
      "Highly Developed": 14
     }
+   },
+   {
+    "id": "5ncedn3r",
+    "assessment": "S2_09EN: Memoir Task",
+    "date": "2026-08-27",
+    "cls": "9",
+    "notes": "Literary text structures, language features and devices, and voice",
+    "dist": {
+     "Requires Support": 2,
+     "Developing": 19,
+     "Established": 32,
+     "Highly Developed": 26,
+     "Exceeding": 3
+    }
    }
   ],
   "VC2E9LA08": [
@@ -452,6 +466,19 @@
      "Highly Developed": 27,
      "Exceeding": 4,
      "(Excluded)": 2
+    }
+   },
+   {
+    "id": "oc72e4qm",
+    "assessment": "S2_09EN: Memoir Task",
+    "date": "2026-08-27",
+    "cls": "9",
+    "notes": "Analysing style, mood and tone",
+    "dist": {
+     "Requires Support": 5,
+     "Developing": 17,
+     "Established": 39,
+     "Highly Developed": 21
     }
    }
   ],
@@ -494,6 +521,19 @@
      "Developing": 2,
      "Established": 6,
      "Highly Developed": 15
+    }
+   },
+   {
+    "id": "1z726ddl",
+    "assessment": "S2_09EN: Memoir Task",
+    "date": "2026-08-27",
+    "cls": "9",
+    "notes": "Reviewing and editing writing",
+    "dist": {
+     "Requires Support": 4,
+     "Developing": 23,
+     "Established": 38,
+     "Highly Developed": 17
     }
    }
   ],

@@ -1,6 +1,6 @@
 {
  "version": 1,
- "updated": "2026-08-27T05:04:28.885Z",
+ "updated": "2026-08-27T05:45:11.313Z",
  "coverage": {
   "VC2E7LY01": [
    {
@@ -779,6 +779,21 @@
      "Exceeding": 1,
      "(Excluded)": 1
     }
+   },
+   {
+    "id": "rt6fxati",
+    "assessment": "S2_10EN_CAT1: Reading and Exploring Texts",
+    "date": "2026-08-27",
+    "cls": "10",
+    "notes": "Expression and language",
+    "dist": {
+     "Requires Support": 12,
+     "Developing": 25,
+     "Established": 44,
+     "Highly Developed": 21,
+     "Exceeding": 1,
+     "(Excluded)": 1
+    }
    }
   ],
   "VC2E10LA09": [
@@ -880,6 +895,21 @@
      "Highly Developed": 15,
      "Exceeding": 6
     }
+   },
+   {
+    "id": "chwzjooh",
+    "assessment": "S2_10EN_CAT1: Reading and Exploring Texts",
+    "date": "2026-08-27",
+    "cls": "10",
+    "notes": "Use of evidence and metalanguage",
+    "dist": {
+     "Requires Support": 20,
+     "Developing": 37,
+     "Established": 25,
+     "Highly Developed": 17,
+     "Exceeding": 4,
+     "(Excluded)": 1
+    }
    }
   ],
   "VC2E10LA04": [
@@ -909,6 +939,21 @@
      "Established": 4,
      "Highly Developed": 10,
      "Exceeding": 1,
+     "(Excluded)": 1
+    }
+   },
+   {
+    "id": "mql8jrrd",
+    "assessment": "S2_10EN_CAT1: Reading and Exploring Texts",
+    "date": "2026-08-27",
+    "cls": "10",
+    "notes": "Structure and organisation",
+    "dist": {
+     "Requires Support": 16,
+     "Developing": 37,
+     "Established": 34,
+     "Highly Developed": 14,
+     "Exceeding": 2,
      "(Excluded)": 1
     }
    }
@@ -1261,6 +1306,18 @@
      "Established": 15,
      "Highly Developed": 9
     }
+   },
+   {
+    "id": "9d1glqo6",
+    "assessment": "S2_10EN_CAT1: Reading and Exploring Texts",
+    "date": "2026-08-27",
+    "cls": "10",
+    "notes": "Response to Topic",
+    "dist": {
+     "Requires Support": 9,
+     "Developing": 10,
+     "Established": 3
+    }
    }
   ],
   "VC2E10LE03": [
@@ -1273,6 +1330,21 @@
     "dist": {
      "Established": 4,
      "Highly Developed": 20
+    }
+   },
+   {
+    "id": "ya0bjyea",
+    "assessment": "S2_10EN_CAT1: Reading and Exploring Texts",
+    "date": "2026-08-27",
+    "cls": "10",
+    "notes": "Understanding of the text and its views and values",
+    "dist": {
+     "Requires Support": 10,
+     "Developing": 35,
+     "Established": 30,
+     "Highly Developed": 26,
+     "Exceeding": 2,
+     "(Excluded)": 1
     }
    }
   ],

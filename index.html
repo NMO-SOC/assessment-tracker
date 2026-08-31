@@ -182,6 +182,9 @@
   .acard{background:var(--card);border:1px solid var(--line);border-radius:var(--r);box-shadow:var(--shadow);padding:14px 16px}
   .acard h4{margin:0 0 3px;font-size:15px}
   .acard .meta{font-size:12.5px;color:var(--muted);margin-bottom:9px}
+  .tag[data-goto-task]{cursor:pointer} .tag[data-goto-task]:hover{border-color:var(--accent);color:var(--accent-ink)}
+  .crit-row .code[data-opencode]{cursor:pointer} .crit-row .code[data-opencode]:hover{text-decoration:underline}
+  .acard.flash{outline:2px solid var(--accent);outline-offset:2px;transition:outline-color .3s}
   .asort{font-size:13px;color:var(--muted);margin:2px 0 12px}
   .asort select{font:inherit;color:var(--ink);background:var(--card);border:1px solid var(--line);border-radius:7px;padding:3px 6px;margin-left:4px}
   .acard .codes{display:flex;flex-wrap:wrap;gap:5px}
@@ -425,6 +428,9 @@
   const sync = {state:"idle", lastAt:null, msg:"", seen:new Set(), timer:null, polling:null, dirty:false};
   const configured = () => !!SYNC_URL;
 
+  const STAMP_KEY = LS_KEY+"-adopted-stamp";
+  const getStamp = () => { try{ return localStorage.getItem(STAMP_KEY)||""; }catch(e){ return ""; } };
+  const setStamp = s => { try{ localStorage.setItem(STAMP_KEY, s); }catch(e){} };
   const getPass = () => { try{ return localStorage.getItem(PASS_KEY)||""; }catch(e){ return ""; } };
   const setPass = p => { try{ p ? localStorage.setItem(PASS_KEY,p) : localStorage.removeItem(PASS_KEY); }catch(e){} };
   const canWrite = () => configured() && !!getPass();
@@ -457,13 +463,22 @@
   /* Read: the worker gives the live copy straight from the repo. The committed
      file is the fallback, a Pages rebuild behind but always there.            */
   function readRepo(){
-    const fromFile = () => fetch("data/coverage.json?t="+Date.now(), {cache:"no-store"})
-      .then(r => r.ok ? r.json() : null).catch(() => null);
-    if (!configured()) return fromFile();
-    return fetch(SYNC_URL, {cache:"no-store"})
-      .then(r => r.ok ? r.json() : null)
-      .catch(() => null)
-      .then(j => j || fromFile());
+    const attempt = mk => fetch(mk(), {cache:"no-store"}).then(r => r.ok ? r.json() : null).catch(() => null);
+    const twice = mk => attempt(mk).then(j => j || attempt(mk));   /* one quiet retry */
+    const fileUrl = () => "data/coverage.json?t="+Date.now();
+    sync.readNote = "";
+    if (!configured()) return twice(fileUrl).then(j => {
+      if (!j) sync.readNote = "the published data file didn't respond";
+      return j;
+    });
+    return twice(() => SYNC_URL).then(j => {
+      if (j) return j;
+      return twice(fileUrl).then(f => {
+        sync.readNote = f ? "the live copy (worker) didn't respond — read the published file instead"
+                          : "neither the worker nor the published file responded";
+        return f;
+      });
+    });
   }
 
   function setSync(state, msg){
@@ -502,10 +517,16 @@
       }
       const rc = remote.coverage || {};
       const before = JSON.stringify(coverage);
-      coverage = opts.replace ? rc : mergeRemote(rc, coverage);
+      /* With nothing unsaved here, the repo copy is the truth — adopt it whole
+         (so edits to existing records made elsewhere come through), guarded by
+         the updated stamp so a stale Pages copy can't roll us back.           */
+      const stamp = remote.updated || "";
+      const adopt = opts.replace || (!sync.dirty && stamp && stamp >= (getStamp()||""));
+      coverage = adopt ? rc : mergeRemote(rc, coverage);
+      if (adopt && stamp) setStamp(stamp);
       const changed = JSON.stringify(coverage) !== before;
       if (changed || opts.replace){ save(); render(); }
-      if (opts.replace || !sync.dirty) markSeen(coverage);
+      if (adopt || !sync.dirty) markSeen(coverage);
       sync.lastAt = Date.now();
       setSync(canWrite() ? "ok" : "idle", canWrite() ? agoText() : (configured() ? "Read-only" : "This browser only"));
       return changed;
@@ -665,7 +686,7 @@
     }
     h += '</span></span>';
     h += '<span class="cd-text">'+esc(it.description)+'</span>';
-    if (names.length) h += '<span class="tags">'+names.slice(0,3).map(n=>'<span class="tag">'+esc(n)+'</span>').join("")+
+    if (names.length) h += '<span class="tags">'+names.slice(0,3).map(n=>'<span class="tag" data-goto-task="'+esc(n)+'" title="Show this task in the By-assessment view">'+esc(n)+'</span>').join("")+
       (names.length>3 ? '<span class="tag">+'+(names.length-3)+'</span>' : '')+'</span>';
     const agg = mergeDists(rs.map(r=>r.dist));
     if (agg && distTotal(agg)) h += distBar(agg)+distNums(agg);
@@ -766,10 +787,10 @@
         [...g.levels].sort((a,b)=>LEVELS.indexOf(a)-LEVELS.indexOf(b)).map(l=>"Lv "+l).join(", "),
         n+" content description"+(n===1?"":"s")
       ].filter(Boolean);
-      return '<div class="acard"><h4>'+esc(g.title)+'</h4>'+
+      return '<div class="acard" data-norm="'+esc(normName(g.title))+'"><h4>'+esc(g.title)+'</h4>'+
         '<div class="meta">'+meta.map(esc).join(" · ")+'</div>'+
         '<div class="crit">'+g.rows.map(x => { const ag = mergeDists(x.dists);
-          return '<div class="crit-row"><span class="code" title="'+esc(x.it.description)+'">'+x.it.code+'</span>'+
+          return '<div class="crit-row"><span class="code" data-opencode="'+x.it.code+'" title="'+esc(x.it.description)+' — click to open">'+x.it.code+'</span>'+
           '<span>'+(x.notes.length ? esc(x.notes.join(" · ")) : '<em>no note — '+esc(x.it.description)+'</em>')+
           (x.n>1 ? ' <span class="times">assessed '+x.n+'×</span>' : '')+
           (ag && distTotal(ag) ? distNums(ag)+distBar(ag) : '')+'</span></div>'; }
@@ -1064,6 +1085,20 @@
     if (e.target && e.target.id === "asortSel"){ ui.asort = e.target.value; render(); }
   });
   document.addEventListener("click", e => {
+    const pill = e.target.closest("[data-goto-task]");
+    if (pill){
+      e.stopPropagation();
+      const norm = normName(pill.getAttribute("data-goto-task"));
+      ui.view = "assessments";
+      [...$("viewSeg").children].forEach(b => b.classList.toggle("on", b.dataset.view === "assessments"));
+      render();
+      const card = document.querySelector('.acard[data-norm="'+CSS.escape(norm)+'"]');
+      if (card){ card.scrollIntoView({behavior:"smooth", block:"center"}); card.classList.add("flash");
+        setTimeout(()=>card.classList.remove("flash"), 1600); }
+      return;
+    }
+    const oc = e.target.closest("[data-opencode]");
+    if (oc){ openDrawer(oc.getAttribute("data-opencode")); return; }
     const act = e.target.closest("[data-act]");
     if (act){
       ui.status = act.getAttribute("data-act"); ui.view = "curriculum";
@@ -1091,6 +1126,13 @@
   });
   $("veil").addEventListener("click", closeDrawer);
   document.addEventListener("keydown", e => {
+    if (e.key === "/" && !e.ctrlKey && !e.metaKey && !e.altKey &&
+        !/^(INPUT|TEXTAREA|SELECT)$/.test((document.activeElement||{}).tagName||"")){
+      e.preventDefault(); $("q").focus(); $("q").select(); return;
+    }
+    if (e.key === "Escape" && document.activeElement === $("q") && $("q").value){
+      $("q").value = ""; ui.q = ""; render(); return;
+    }
     if (e.key === "Escape"){ closeDrawer(); $("dataMenu").classList.remove("open");
       $("tokenVeil").classList.remove("on"); }
   });
@@ -1205,7 +1247,8 @@
     $("tidyBtn").onclick = () => { $("dataMenu").classList.remove("open"); tidyDates(); };
     $("repoBtn").onclick = () => { $("dataMenu").classList.remove("open");
       if (!confirm("Discard the records in this browser and load the repo copy instead?")) return;
-      pull({replace:true}).then(ok => toast(ok===false ? "Couldn't read the shared copy." : "Loaded the shared copy."));
+      pull({replace:true}).then(ok => toast(ok===false ? "Couldn't read the shared copy — "+(sync.readNote||"network error")+"." :
+        "Loaded the shared copy."+(sync.readNote ? " ("+sync.readNote+")" : "")));
     };
     $("syncNowBtn").onclick = () => { $("dataMenu").classList.remove("open");
       (sync.dirty && canWrite() ? push() : pull({})).then(() => toast(canWrite() ? "Synced." : "Refreshed the shared records (read-only on this device)."));

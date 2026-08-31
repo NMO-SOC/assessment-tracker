@@ -1,12 +1,13 @@
 {
  "version": 1,
- "updated": "2026-08-27T05:45:11.313Z",
+ "updated": "2026-08-31T02:10:26.737Z",
  "coverage": {
   "VC2E7LY01": [
    {
     "id": "sogxqn0q",
     "assessment": "S1_07EN_CAT1: Persuasive Pitch",
     "date": "2026-04-24",
+    "added": "2026-07-30",
     "cls": "7",
     "notes": "Persuasive Language Features",
     "dist": {
@@ -24,6 +25,7 @@
     "id": "qshsbh67",
     "assessment": "S1_07EN_CAT1: Persuasive Pitch",
     "date": "2026-04-24",
+    "added": "2026-07-30",
     "cls": "7",
     "notes": "Visual Persuasion",
     "dist": {
@@ -39,6 +41,7 @@
     "id": "y59a02j7",
     "assessment": "S1_07ADVEN_26_CAT1: Creative Writing - Newspaper Report",
     "date": "2026-02-25",
+    "added": "2026-07-30",
     "cls": "7ADV",
     "notes": "Voice, Audience & Journalistic Style",
     "dist": {
@@ -53,6 +56,7 @@
     "id": "ludthrxq",
     "assessment": "S1_07EN_CAT1: Persuasive Pitch",
     "date": "2026-04-24",
+    "added": "2026-07-30",
     "cls": "7",
     "notes": "Voice qualities",
     "dist": {
@@ -68,6 +72,7 @@
     "id": "ip44197u",
     "assessment": "S2_07ADVEN_CAT1: Visual Persuasion",
     "date": "2026-08-11",
+    "added": "2026-08-11",
     "cls": "7ADV",
     "notes": "Oral Presentation and Communication"
    }
@@ -77,6 +82,7 @@
     "id": "ix6bg22i",
     "assessment": "S1_07EN_CAT2: Coraline Comprehension Questions",
     "date": "2026-06-06",
+    "added": "2026-07-30",
     "cls": "7",
     "notes": "Literal Questions",
     "dist": {
@@ -92,6 +98,7 @@
     "id": "qmgpxjvz",
     "assessment": "S1_07EN_CAT2: Coraline Comprehension Questions",
     "date": "2026-06-06",
+    "added": "2026-07-30",
     "cls": "7",
     "notes": "Inferential Questions",
     "dist": {
@@ -107,6 +114,7 @@
     "id": "g2tfs4d1",
     "assessment": "S1_07ADVEN_CAT3: Trash Passage Analysis",
     "date": "2026-05-27",
+    "added": "2026-07-30",
     "cls": "7ADV",
     "notes": "Themes and Ideas"
    }
@@ -116,6 +124,7 @@
     "id": "wyugdhgf",
     "assessment": "S1_07EN_CAT2: Coraline Comprehension Questions",
     "date": "2026-06-06",
+    "added": "2026-07-30",
     "cls": "7",
     "notes": "Evaluative Questions",
     "dist": {
@@ -131,6 +140,7 @@
     "id": "icy7h5ry",
     "assessment": "S1_07ADVEN_CAT3: Trash Passage Analysis",
     "date": "2026-05-27",
+    "added": "2026-07-30",
     "cls": "7ADV",
     "notes": "Characters and Events"
    }
@@ -140,6 +150,7 @@
     "id": "srfunkwy",
     "assessment": "S1_08ENG_CAT1: Where does language come from? Oral Presentation",
     "date": "2026-03-06",
+    "added": "2026-07-30",
     "cls": "8",
     "notes": "Presentation Skills (Voice, tone, volume)",
     "dist": {
@@ -157,6 +168,7 @@
     "id": "ae7sh4ct",
     "assessment": "S1_08ENG_CAT1: Where does language come from? Oral Presentation",
     "date": "2026-03-06",
+    "added": "2026-07-30",
     "cls": "8",
     "notes": "Presentation Skills (Multimodal)",
     "dist": {
@@ -172,6 +184,7 @@
     "id": "h56iuvzo",
     "assessment": "S1_08ENG_CAT2: Holes Creative Writing",
     "date": "2026-05-25",
+    "added": "2026-07-30",
     "cls": "8",
     "notes": "Creativity of Ideas",
     "dist": {
@@ -187,6 +200,7 @@
     "id": "py0pbegc",
     "assessment": "S1_08ADVEN_26_CAT2: Neurodivergence Research Report",
     "date": "2026-05-04",
+    "added": "2026-07-30",
     "cls": "8ADV",
     "notes": "Structure and Organisation",
     "dist": {
@@ -201,6 +215,7 @@
     "id": "2a0e6zct",
     "assessment": "S1_08ENG_CAT1: Where does language come from? Oral Presentation",
     "date": "2026-03-06",
+    "added": "2026-07-30",
     "cls": "8",
     "notes": "Understanding the history of language",
     "dist": {
@@ -218,6 +233,7 @@
     "id": "jbw2s2e7",
     "assessment": "S1_08ENG_CAT1: Where does language come from? Oral Presentation",
     "date": "2026-03-06",
+    "added": "2026-07-30",
     "cls": "8",
     "notes": "Language features (slang, in-group and out-group)",
     "dist": {
@@ -235,6 +251,7 @@
     "id": "vz4f6hag",
     "assessment": "S1_08ENG_CAT2: Holes Creative Writing",
     "date": "2026-05-25",
+    "added": "2026-07-30",
     "cls": "8",
     "notes": "Grammar",
     "dist": {
@@ -250,6 +267,7 @@
     "id": "8c7os1ek",
     "assessment": "S1_07ADVEN_26_CAT1: Creative Writing - Newspaper Report",
     "date": "2026-02-25",
+    "added": "2026-07-30",
     "cls": "7ADV",
     "notes": "Technical Control",
     "dist": {
@@ -263,6 +281,7 @@
     "id": "vmnhs1uy",
     "assessment": "S1_08ENG_CAT2: Holes Creative Writing",
     "date": "2026-05-25",
+    "added": "2026-07-30",
     "cls": "8",
     "notes": "Grammar",
     "dist": {
@@ -278,6 +297,7 @@
     "id": "nhp9gqpf",
     "assessment": "S1_08ADVEN_26_CAT2: Neurodivergence Research Report",
     "date": "2026-05-04",
+    "added": "2026-07-30",
     "cls": "8ADV",
     "notes": "Grammar, Sentence Structure, and Punctuation",
     "dist": {
@@ -291,6 +311,7 @@
     "id": "vasodlrl",
     "assessment": "S1_08ENG_CAT2: Holes Creative Writing",
     "date": "2026-05-25",
+    "added": "2026-07-30",
     "cls": "8",
     "notes": "Narrative Structure",
     "dist": {
@@ -308,6 +329,7 @@
     "id": "upz4v4op",
     "assessment": "S1_08ENG_CAT2: Holes Creative Writing",
     "date": "2026-05-25",
+    "added": "2026-07-30",
     "cls": "8",
     "notes": "Language features and literary devices",
     "dist": {
@@ -325,6 +347,7 @@
     "id": "7mw57loe",
     "assessment": "S1_09EN_CAT1: Presenting Argument",
     "date": "2026-02-20",
+    "added": "2026-07-30",
     "cls": "9",
     "notes": "Create and Deliver Structured Spoken Texts",
     "dist": {
@@ -342,6 +365,7 @@
     "id": "gx0ddbie",
     "assessment": "S1_09EN_CAT1: Presenting Argument",
     "date": "2026-02-20",
+    "added": "2026-07-30",
     "cls": "9",
     "notes": "Language Choices",
     "dist": {
@@ -357,6 +381,7 @@
     "id": "mjcny8l9",
     "assessment": "S1_09EN_CAT3: Runner Language Test",
     "date": "2026-05-28",
+    "added": "2026-07-30",
     "cls": "9",
     "notes": "Language & Relationships",
     "dist": {
@@ -374,6 +399,7 @@
     "id": "68ihbf8x",
     "assessment": "S1_09EN_CAT1: Presenting Argument",
     "date": "2026-02-20",
+    "added": "2026-07-30",
     "cls": "9",
     "notes": "Evaluative Language",
     "dist": {
@@ -389,6 +415,7 @@
     "id": "6qlob8ef",
     "assessment": "S1_09ADVEN1_CAT3: Story Telling",
     "date": "2026-05-18",
+    "added": "2026-07-30",
     "cls": "9ADV",
     "notes": "Oral Presentation Skills",
     "dist": {
@@ -402,6 +429,7 @@
     "id": "3rpwn7gy",
     "assessment": "S2_09ADVEN_CAT1: Analysing Argument",
     "date": "2026-08-03",
+    "added": "2026-07-30",
     "cls": "9ADV",
     "notes": "Analysis of Persuasive Language and Techniques",
     "dist": {
@@ -415,6 +443,7 @@
     "id": "eh73mkb2",
     "assessment": "S1_09EN_CAT2: Creative Writing",
     "date": "2026-03-20",
+    "added": "2026-07-30",
     "cls": "9",
     "notes": "Text structure and literary features",
     "dist": {
@@ -430,6 +459,7 @@
     "id": "qnluydb9",
     "assessment": "S1_09ADVEN_CAT2: Personal Text Response",
     "date": "2026-03-30",
+    "added": "2026-07-30",
     "cls": "9ADV",
     "notes": "Creation of Text",
     "dist": {
@@ -441,6 +471,7 @@
     "id": "5ncedn3r",
     "assessment": "S2_09EN: Memoir Task",
     "date": "2026-08-27",
+    "added": "2026-08-27",
     "cls": "9",
     "notes": "Literary text structures, language features and devices, and voice",
     "dist": {
@@ -457,6 +488,7 @@
     "id": "nn2vw3bw",
     "assessment": "S1_09EN_CAT2: Creative Writing",
     "date": "2026-03-20",
+    "added": "2026-07-30",
     "cls": "9",
     "notes": "Vocabulary, mood and tone",
     "dist": {
@@ -472,6 +504,7 @@
     "id": "oc72e4qm",
     "assessment": "S2_09EN: Memoir Task",
     "date": "2026-08-27",
+    "added": "2026-08-27",
     "cls": "9",
     "notes": "Analysing style, mood and tone",
     "dist": {
@@ -487,6 +520,7 @@
     "id": "42k9y5xr",
     "assessment": "S1_09EN_CAT2: Creative Writing",
     "date": "2026-03-20",
+    "added": "2026-07-30",
     "cls": "9",
     "notes": "Reviewing and editing writing",
     "dist": {
@@ -502,6 +536,7 @@
     "id": "4kptnlwg",
     "assessment": "S1_09ADVEN_CAT1: NAPLAN Practice",
     "date": "2026-02-27",
+    "added": "2026-07-30",
     "cls": "9ADV",
     "notes": "Writing",
     "dist": {
@@ -515,6 +550,7 @@
     "id": "fbxg1q8v",
     "assessment": "S1_09ADVEN_CAT2: Personal Text Response",
     "date": "2026-03-30",
+    "added": "2026-07-30",
     "cls": "9ADV",
     "notes": "Editing",
     "dist": {
@@ -527,6 +563,7 @@
     "id": "1z726ddl",
     "assessment": "S2_09EN: Memoir Task",
     "date": "2026-08-27",
+    "added": "2026-08-27",
     "cls": "9",
     "notes": "Reviewing and editing writing",
     "dist": {
@@ -542,6 +579,7 @@
     "id": "qmwbkai4",
     "assessment": "S1_09EN_CAT2: Creative Writing",
     "date": "2026-03-20",
+    "added": "2026-07-30",
     "cls": "9",
     "notes": "Creating ideas and voice from stimulus material",
     "dist": {
@@ -557,6 +595,7 @@
     "id": "ajlower8",
     "assessment": "S2_09EN_CAT1: Runner Essay",
     "date": "2026-07-24",
+    "added": "2026-07-30",
     "cls": "9",
     "notes": "Organisation and development of ideas.",
     "dist": {
@@ -572,6 +611,7 @@
     "id": "bak0nlh4",
     "assessment": "S1_09ADVEN1_CAT3: Story Telling",
     "date": "2026-05-18",
+    "added": "2026-07-30",
     "cls": "9ADV",
     "notes": "Development of Idea and Purpose",
     "dist": {
@@ -586,6 +626,7 @@
     "id": "2h0j87v2",
     "assessment": "S1_09EN_CAT3: Runner Language Test",
     "date": "2026-05-28",
+    "added": "2026-07-30",
     "cls": "9",
     "notes": "Spelling for Effect",
     "dist": {
@@ -601,6 +642,7 @@
     "id": "1kzz2vev",
     "assessment": "S1_09ADVEN_CAT1: NAPLAN Practice",
     "date": "2026-02-27",
+    "added": "2026-07-30",
     "cls": "9ADV",
     "notes": "Language Conventions",
     "dist": {
@@ -615,6 +657,7 @@
     "id": "8rdy5xtc",
     "assessment": "S1_09EN_CAT3: Runner Language Test",
     "date": "2026-05-28",
+    "added": "2026-07-30",
     "cls": "9",
     "notes": "Sentence Structures",
     "dist": {
@@ -632,6 +675,7 @@
     "id": "8qkkmx5z",
     "assessment": "S2_09EN_CAT1: Runner Essay",
     "date": "2026-07-24",
+    "added": "2026-07-30",
     "cls": "9",
     "notes": "Analysis of characters",
     "dist": {
@@ -649,6 +693,7 @@
     "id": "q7p730pv",
     "assessment": "S2_09EN_CAT1: Runner Essay",
     "date": "2026-07-24",
+    "added": "2026-07-30",
     "cls": "9",
     "notes": "Analysis of themes and ideas.",
     "dist": {
@@ -666,6 +711,7 @@
     "id": "w40l9r5c",
     "assessment": "S2_09EN_CAT1: Runner Essay",
     "date": "2026-07-24",
+    "added": "2026-07-30",
     "cls": "9",
     "notes": "Interpretation and use of evidence.",
     "dist": {
@@ -681,6 +727,7 @@
     "id": "0s7dyc5j",
     "assessment": "S1_09ADVEN_CAT2: Personal Text Response",
     "date": "2026-03-30",
+    "added": "2026-07-30",
     "cls": "9ADV",
     "notes": "Interpretation",
     "dist": {
@@ -695,6 +742,7 @@
     "id": "ht376vxt",
     "assessment": "S1_10EN_CAT1: Creative Writing",
     "date": "2026-02-27",
+    "added": "2026-07-30",
     "cls": "10",
     "notes": "Creating a written text that reflects on complex ideas or issues explored in mentor texts",
     "dist": {
@@ -710,6 +758,7 @@
     "id": "7vyn7i7l",
     "assessment": "S2_10EN_CAT2: Analytical Text Response Essay",
     "date": "2026-05-06",
+    "added": "2026-07-30",
     "cls": "10",
     "notes": "Arguments",
     "dist": {
@@ -727,6 +776,7 @@
     "id": "51fj8154",
     "assessment": "S1_10EN_CAT1: Creative Writing",
     "date": "2026-02-27",
+    "added": "2026-07-30",
     "cls": "10",
     "notes": "Creating a sustained voice and adapting literary text structures, devices and language from mentor texts",
     "dist": {
@@ -742,6 +792,7 @@
     "id": "mvo0npcq",
     "assessment": "S1_10ADVEN1_CAT1: Personal Text Response",
     "date": "2026-02-26",
+    "added": "2026-07-30",
     "cls": "10ADV",
     "notes": "Voice",
     "dist": {
@@ -755,6 +806,7 @@
     "id": "6emlmofh",
     "assessment": "S1_10EN_CAT1: Creative Writing",
     "date": "2026-02-27",
+    "added": "2026-07-30",
     "cls": "10",
     "notes": "Experiment with vocabulary, text structures and language features for effective and cohesive writing",
     "dist": {
@@ -770,6 +822,7 @@
     "id": "muq4b047",
     "assessment": "S2_10ADVEN_CAT1: Analysing Argument",
     "date": "2026-08-04",
+    "added": "2026-07-30",
     "cls": "10ADV",
     "notes": "Expression of Analytical Essay",
     "dist": {
@@ -784,6 +837,7 @@
     "id": "rt6fxati",
     "assessment": "S2_10EN_CAT1: Reading and Exploring Texts",
     "date": "2026-08-27",
+    "added": "2026-08-27",
     "cls": "10",
     "notes": "Expression and language",
     "dist": {
@@ -801,6 +855,7 @@
     "id": "4rx04wue",
     "assessment": "S1_10EN_CAT1: Creative Writing",
     "date": "2026-02-27",
+    "added": "2026-07-30",
     "cls": "10",
     "notes": "Experiment with vocabulary, text structures and language features for effective and cohesive writing"
    },
@@ -808,6 +863,7 @@
     "id": "4lra9mi8",
     "assessment": "S1_10ADVEN_CAT2: English Conventions",
     "date": "2026-03-30",
+    "added": "2026-07-30",
     "cls": "10ADV",
     "notes": "Punctuation",
     "dist": {
@@ -822,6 +878,7 @@
     "id": "ebbh5v1u",
     "assessment": "S1_10EN_CAT1: Creative Writing",
     "date": "2026-02-27",
+    "added": "2026-07-30",
     "cls": "10",
     "notes": "Experiment with vocabulary, text structures and language features for effective and cohesive writing",
     "dist": {
@@ -837,6 +894,7 @@
     "id": "xpsutq8i",
     "assessment": "S1_10ADVEN1_CAT1: Personal Text Response",
     "date": "2026-02-26",
+    "added": "2026-07-30",
     "cls": "10ADV",
     "notes": "Editing",
     "dist": {
@@ -850,6 +908,7 @@
     "id": "856pa2dv",
     "assessment": "S2_10EN_CAT2: Analytical Text Response Essay",
     "date": "2026-05-06",
+    "added": "2026-07-30",
     "cls": "10",
     "notes": "Analysis of Ideas",
     "dist": {
@@ -865,6 +924,7 @@
     "id": "e78wd9on",
     "assessment": "S2_10ADVEN_CAT1: Analysing Argument",
     "date": "2026-08-04",
+    "added": "2026-07-30",
     "cls": "10ADV",
     "notes": "Analysis of Argument and Persuasive Language",
     "dist": {
@@ -881,6 +941,7 @@
     "id": "a2177qg8",
     "assessment": "S2_10EN_CAT2: Analytical Text Response Essay",
     "date": "2026-05-06",
+    "added": "2026-07-30",
     "cls": "10",
     "notes": "Analysis and Evaluation"
    },
@@ -888,6 +949,7 @@
     "id": "7ubekd3x",
     "assessment": "S1_10ADVEN_CAT1: Love Framework of Ideas",
     "date": "2026-05-19",
+    "added": "2026-07-30",
     "cls": "10ADV",
     "notes": "Uses evidence and techniques to support interpretation",
     "dist": {
@@ -900,6 +962,7 @@
     "id": "chwzjooh",
     "assessment": "S2_10EN_CAT1: Reading and Exploring Texts",
     "date": "2026-08-27",
+    "added": "2026-08-27",
     "cls": "10",
     "notes": "Use of evidence and metalanguage",
     "dist": {
@@ -917,6 +980,7 @@
     "id": "npqphdb4",
     "assessment": "S2_10EN_CAT2: Analytical Text Response Essay",
     "date": "2026-05-06",
+    "added": "2026-07-30",
     "cls": "10",
     "notes": "Structure",
     "dist": {
@@ -932,6 +996,7 @@
     "id": "3lmk73ku",
     "assessment": "S2_10ADVEN_CAT1: Analysing Argument",
     "date": "2026-08-04",
+    "added": "2026-07-30",
     "cls": "10ADV",
     "notes": "Construction of Essay",
     "dist": {
@@ -946,6 +1011,7 @@
     "id": "mql8jrrd",
     "assessment": "S2_10EN_CAT1: Reading and Exploring Texts",
     "date": "2026-08-27",
+    "added": "2026-08-27",
     "cls": "10",
     "notes": "Structure and organisation",
     "dist": {
@@ -963,6 +1029,7 @@
     "id": "m26ek3k9",
     "assessment": "S1_07ADVEN_26_CAT1: Creative Writing - Newspaper Report",
     "date": "2026-02-25",
+    "added": "2026-07-30",
     "cls": "7ADV",
     "notes": "Structure and Genre",
     "dist": {
@@ -975,6 +1042,7 @@
     "id": "dm3rhg6i",
     "assessment": "S1_07ADVEN_26_CAT2: Trash Chapter Expert Task",
     "date": "2026-05-13",
+    "added": "2026-07-30",
     "cls": "7ADV",
     "notes": "Contention and Interpretation",
     "dist": {
@@ -988,6 +1056,7 @@
     "id": "dt9jv0ip",
     "assessment": "S1_07ADVEN_26_CAT2: Trash Chapter Expert Task",
     "date": "2026-05-13",
+    "added": "2026-07-30",
     "cls": "7ADV",
     "notes": "Analysis of Language and Authorial Choices",
     "dist": {
@@ -1001,6 +1070,7 @@
     "id": "fhjq0qoz",
     "assessment": "S1_07ADVEN_26_CAT2: Trash Chapter Expert Task",
     "date": "2026-05-13",
+    "added": "2026-07-30",
     "cls": "7ADV",
     "notes": "Use of Evidence and Analytical Writing",
     "dist": {
@@ -1014,6 +1084,7 @@
     "id": "y3f2eglx",
     "assessment": "S1_07ADVEN_26_CAT2: Trash Chapter Expert Task",
     "date": "2026-05-13",
+    "added": "2026-07-30",
     "cls": "7ADV",
     "notes": "Connections, Evaluation and Critical Thinking",
     "dist": {
@@ -1027,6 +1098,7 @@
     "id": "7b9gea8o",
     "assessment": "S1_07ADVEN_26_CAT1: Creative Writing - Newspaper Report",
     "date": "2026-02-25",
+    "added": "2026-07-30",
     "cls": "7ADV",
     "notes": "Language Features and Literary Adaption",
     "dist": {
@@ -1041,6 +1113,7 @@
     "id": "8gr0zjpr",
     "assessment": "S1_07ADVEN_CAT3: Trash Passage Analysis",
     "date": "2026-05-27",
+    "added": "2026-07-30",
     "cls": "7ADV",
     "notes": "TEEL Paragraph Structure"
    }
@@ -1050,6 +1123,7 @@
     "id": "wsi6m551",
     "assessment": "S1_08ADVEN_26_CAT1: Creative Writing - Sympathetic Character",
     "date": "2026-03-02",
+    "added": "2026-07-30",
     "cls": "8ADV",
     "notes": "Character Development – Characterisation / S.T.E.A.L / Voice",
     "dist": {
@@ -1065,6 +1139,7 @@
     "id": "d9snd1cg",
     "assessment": "S1_08ADVEN_26_CAT1: Creative Writing - Sympathetic Character",
     "date": "2026-03-02",
+    "added": "2026-07-30",
     "cls": "8ADV",
     "notes": "Narrative Writing Structure",
     "dist": {
@@ -1078,6 +1153,7 @@
     "id": "io331kw4",
     "assessment": "S1_08ADVEN_26_CAT1: Creative Writing - Sympathetic Character",
     "date": "2026-03-02",
+    "added": "2026-07-30",
     "cls": "8ADV",
     "notes": "Language Features",
     "dist": {
@@ -1092,6 +1168,7 @@
     "id": "fc7vymrd",
     "assessment": "S1_08ADVEN_26_CAT1: Creative Writing - Sympathetic Character",
     "date": "2026-03-02",
+    "added": "2026-07-30",
     "cls": "8ADV",
     "notes": "Control of Conventions",
     "dist": {
@@ -1106,6 +1183,7 @@
     "id": "51acu9xw",
     "assessment": "S1_08ADVEN_26_CAT2: Neurodivergence Research Report",
     "date": "2026-05-04",
+    "added": "2026-07-30",
     "cls": "8ADV",
     "notes": "Content Knowledge and Research",
     "dist": {
@@ -1121,6 +1199,7 @@
     "id": "lcvazsiz",
     "assessment": "S1_08ADVEN_26_CAT2: Neurodivergence Research Report",
     "date": "2026-05-04",
+    "added": "2026-07-30",
     "cls": "8ADV",
     "notes": "Use of Language and Vocabulary",
     "dist": {
@@ -1135,6 +1214,7 @@
     "id": "hc6ab2if",
     "assessment": "S1_08ADVEN_26_CAT3: Curious Incident Passage Analysis",
     "date": "2026-05-29",
+    "added": "2026-07-30",
     "cls": "8ADV",
     "notes": "Understanding of characters",
     "dist": {
@@ -1148,6 +1228,7 @@
     "id": "h1d8qb4y",
     "assessment": "S1_08ADVEN_26_CAT3: Curious Incident Passage Analysis",
     "date": "2026-05-29",
+    "added": "2026-07-30",
     "cls": "8ADV",
     "notes": "Understanding of events and structure",
     "dist": {
@@ -1161,6 +1242,7 @@
     "id": "e6pleun4",
     "assessment": "S1_08ADVEN_26_CAT3: Curious Incident Passage Analysis",
     "date": "2026-05-29",
+    "added": "2026-07-30",
     "cls": "8ADV",
     "notes": "Understanding of themes and ideas",
     "dist": {
@@ -1175,6 +1257,7 @@
     "id": "4oub132c",
     "assessment": "S1_08ADVEN_26_CAT3: Curious Incident Passage Analysis",
     "date": "2026-05-29",
+    "added": "2026-07-30",
     "cls": "8ADV",
     "notes": "Paragraph construction",
     "dist": {
@@ -1190,6 +1273,7 @@
     "id": "9ug217mp",
     "assessment": "S1_09ADVEN_CAT1: NAPLAN Practice",
     "date": "2026-02-27",
+    "added": "2026-07-30",
     "cls": "9ADV",
     "notes": "Reading Comprehension",
     "dist": {
@@ -1204,6 +1288,7 @@
     "id": "fuupm1kq",
     "assessment": "S1_09ADVEN_CAT2: Personal Text Response",
     "date": "2026-03-30",
+    "added": "2026-07-30",
     "cls": "9ADV",
     "notes": "Positioning",
     "dist": {
@@ -1218,6 +1303,7 @@
     "id": "1mpj6374",
     "assessment": "S1_09ADVEN_CAT2: Personal Text Response",
     "date": "2026-03-30",
+    "added": "2026-07-30",
     "cls": "9ADV",
     "notes": "Analysis",
     "dist": {
@@ -1231,6 +1317,7 @@
     "id": "rvj2wql4",
     "assessment": "S1_09ADVEN1_CAT3: Story Telling",
     "date": "2026-05-18",
+    "added": "2026-07-30",
     "cls": "9ADV",
     "notes": "Voice, Structure and Literary Features",
     "dist": {
@@ -1245,6 +1332,7 @@
     "id": "44pswoqn",
     "assessment": "S1_09ADVEN1_CAT3: Story Telling",
     "date": "2026-05-18",
+    "added": "2026-07-30",
     "cls": "9ADV",
     "notes": "Editing and Refinement",
     "dist": {
@@ -1257,6 +1345,7 @@
     "id": "6ikab583",
     "assessment": "S2_09EN_CAT1: Runner Essay",
     "date": "2026-07-24",
+    "added": "2026-07-30",
     "cls": "9",
     "notes": "Vocabulary and written expression.",
     "dist": {
@@ -1274,6 +1363,7 @@
     "id": "p80udoi5",
     "assessment": "S2_09ADVEN_CAT1: Analysing Argument",
     "date": "2026-08-03",
+    "added": "2026-07-30",
     "cls": "9ADV",
     "notes": "Understanding and Interpreting Argument",
     "dist": {
@@ -1287,6 +1377,7 @@
     "id": "vv2i6xyl",
     "assessment": "S2_09ADVEN_CAT1: Analysing Argument",
     "date": "2026-08-03",
+    "added": "2026-07-30",
     "cls": "9ADV",
     "notes": "Structure and Written Expression",
     "dist": {
@@ -1300,6 +1391,7 @@
     "id": "yac54cco",
     "assessment": "S1_10ADVEN1_CAT1: Personal Text Response",
     "date": "2026-02-26",
+    "added": "2026-07-30",
     "cls": "10ADV",
     "notes": "Interpretation",
     "dist": {
@@ -1311,6 +1403,7 @@
     "id": "9d1glqo6",
     "assessment": "S2_10EN_CAT1: Reading and Exploring Texts",
     "date": "2026-08-27",
+    "added": "2026-08-27",
     "cls": "10",
     "notes": "Response to Topic",
     "dist": {
@@ -1325,6 +1418,7 @@
     "id": "qtlkd39f",
     "assessment": "S1_10ADVEN1_CAT1: Personal Text Response",
     "date": "2026-02-26",
+    "added": "2026-07-30",
     "cls": "10ADV",
     "notes": "Positioning",
     "dist": {
@@ -1336,6 +1430,7 @@
     "id": "ya0bjyea",
     "assessment": "S2_10EN_CAT1: Reading and Exploring Texts",
     "date": "2026-08-27",
+    "added": "2026-08-27",
     "cls": "10",
     "notes": "Understanding of the text and its views and values",
     "dist": {
@@ -1353,6 +1448,7 @@
     "id": "18i7c23y",
     "assessment": "S1_10ADVEN1_CAT1: Personal Text Response",
     "date": "2026-02-26",
+    "added": "2026-07-30",
     "cls": "10ADV",
     "notes": "Evaluation",
     "dist": {
@@ -1366,6 +1462,7 @@
     "id": "w8auiyfp",
     "assessment": "S1_10ADVEN_CAT2: English Conventions",
     "date": "2026-03-30",
+    "added": "2026-07-30",
     "cls": "10ADV",
     "notes": "Sentence Structures",
     "dist": {
@@ -1378,6 +1475,7 @@
     "id": "f261f2f7",
     "assessment": "S2_10EN_CAT2: Analytical Text Response Essay",
     "date": "2026-05-06",
+    "added": "2026-07-30",
     "cls": "10",
     "notes": "Effectiveness of Sentence Structures",
     "dist": {
@@ -1395,6 +1493,7 @@
     "id": "kqe5wlrg",
     "assessment": "S1_10ADVEN_CAT2: English Conventions",
     "date": "2026-03-30",
+    "added": "2026-07-30",
     "cls": "10ADV",
     "notes": "Syntax and Meaning",
     "dist": {
@@ -1409,6 +1508,7 @@
     "id": "hcdnqy8r",
     "assessment": "S1_10ADVEN_CAT2: English Conventions",
     "date": "2026-03-30",
+    "added": "2026-07-30",
     "cls": "10ADV",
     "notes": "Representation and Context",
     "dist": {
@@ -1423,6 +1523,7 @@
     "id": "k8vdirui",
     "assessment": "S1_10ADVEN_CAT1: Love Framework of Ideas",
     "date": "2026-05-19",
+    "added": "2026-07-30",
     "cls": "10ADV",
     "notes": "Analyses representations of love",
     "dist": {
@@ -1436,6 +1537,7 @@
     "id": "gaqjjbv8",
     "assessment": "S1_10ADVEN_CAT1: Love Framework of Ideas",
     "date": "2026-05-19",
+    "added": "2026-07-30",
     "cls": "10ADV",
     "notes": "Interprets creator's purpose and viewpoint",
     "dist": {
@@ -1450,6 +1552,7 @@
     "id": "737jrf6b",
     "assessment": "S1_10ADVEN_CAT1: Love Framework of Ideas",
     "date": "2026-05-19",
+    "added": "2026-07-30",
     "cls": "10ADV",
     "notes": "Presents ideas fluently for a specific audience",
     "dist": {
@@ -1464,6 +1567,7 @@
     "id": "iuqw32nw",
     "assessment": "S2_10ADVEN_CAT1: Analysing Argument",
     "date": "2026-08-04",
+    "added": "2026-07-30",
     "cls": "10ADV",
     "notes": "Analysis of Structure",
     "dist": {
@@ -1478,6 +1582,7 @@
     "id": "g647weqf",
     "assessment": "S2_10ADVEN_CAT1: Analysing Argument",
     "date": "2026-08-04",
+    "added": "2026-07-30",
     "cls": "10ADV",
     "notes": "Analysis of Organisaition of Ideas",
     "dist": {
@@ -1492,6 +1597,7 @@
     "id": "zwno58dr",
     "assessment": "S2_07ADVEN_CAT1: Visual Persuasion",
     "date": "2026-08-11",
+    "added": "2026-08-11",
     "cls": "7ADV",
     "notes": "Audience Awareness and Creativity"
    }
@@ -1501,6 +1607,7 @@
     "id": "tj4s1egg",
     "assessment": "S2_07ADVEN_CAT1: Visual Persuasion",
     "date": "2026-08-11",
+    "added": "2026-08-11",
     "cls": "7ADV",
     "notes": "Visual Persuasive Techniques"
    }
@@ -1510,6 +1617,7 @@
     "id": "ilqs5lhd",
     "assessment": "S2_07ADVEN_CAT1: Visual Persuasion",
     "date": "2026-08-11",
+    "added": "2026-08-11",
     "cls": "7ADV",
     "notes": "Written Analysis, persuasive devices and TEEL Paragraph"
    }
@@ -1519,6 +1627,7 @@
     "id": "fmx9c4v0",
     "assessment": "S2_07ADVEN_CAT1: Visual Persuasion",
     "date": "2026-08-11",
+    "added": "2026-08-11",
     "cls": "7ADV",
     "notes": "Written Analysis, persuasive devices and TEEL Paragraph"
    }

@@ -22,6 +22,7 @@ Usage:
 
 import argparse
 import csv
+import datetime as _dt
 import glob
 import io
 import json
@@ -204,6 +205,7 @@ def main():
                         new = {"id": "%08x" % (abs(hash(tc + t_code + crit)) & 0xffffffff),
                                "assessment": tname,
                                "date": (sibling or {}).get("date", ""),
+                               "added": _dt.date.today().isoformat(),
                                "cls": (sibling or {}).get("cls", ""),
                                "notes": crit.strip()}
                         coverage.setdefault(t_code, []).append(new)

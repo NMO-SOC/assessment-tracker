@@ -1,6 +1,6 @@
 {
  "version": 1,
- "updated": "2026-08-31T02:42:03.023Z",
+ "updated": "2026-08-31T03:07:50.675Z",
  "coverage": {
   "VC2E7LY01": [
    {
@@ -769,7 +769,7 @@
    },
    {
     "id": "7vyn7i7l",
-    "assessment": "S2_10EN_CAT2: Analytical Text Response Essay",
+    "assessment": "S1_10EN_CAT2: Analytical Text Response Essay",
     "date": "2026-05-06",
     "added": "2026-07-30",
     "cls": "10",
@@ -927,7 +927,7 @@
   "VC2E10LY05": [
    {
     "id": "856pa2dv",
-    "assessment": "S2_10EN_CAT2: Analytical Text Response Essay",
+    "assessment": "S1_10EN_CAT2: Analytical Text Response Essay",
     "date": "2026-05-06",
     "added": "2026-07-30",
     "cls": "10",
@@ -960,11 +960,19 @@
   "VC2E10LE04": [
    {
     "id": "a2177qg8",
-    "assessment": "S2_10EN_CAT2: Analytical Text Response Essay",
+    "assessment": "S1_10EN_CAT2: Analytical Text Response Essay",
     "date": "2026-05-06",
     "added": "2026-07-30",
     "cls": "10",
-    "notes": "Analysis and Evaluation"
+    "notes": "Analysis and Evaluation",
+    "dist": {
+     "Requires Support": 33,
+     "Developing": 60,
+     "Established": 29,
+     "Highly Developed": 6,
+     "Exceeding": 3,
+     "(Excluded)": 1
+    }
    },
    {
     "id": "7ubekd3x",
@@ -999,7 +1007,7 @@
   "VC2E10LA04": [
    {
     "id": "npqphdb4",
-    "assessment": "S2_10EN_CAT2: Analytical Text Response Essay",
+    "assessment": "S1_10EN_CAT2: Analytical Text Response Essay",
     "date": "2026-05-06",
     "added": "2026-07-30",
     "cls": "10",
@@ -1500,7 +1508,7 @@
    },
    {
     "id": "f261f2f7",
-    "assessment": "S2_10EN_CAT2: Analytical Text Response Essay",
+    "assessment": "S1_10EN_CAT2: Analytical Text Response Essay",
     "date": "2026-05-06",
     "added": "2026-07-30",
     "cls": "10",

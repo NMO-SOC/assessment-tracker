@@ -62,10 +62,11 @@
     "Refinement of Text":   ["VC2E10LY09", "VC2E10LA09"]
   },
 
-  "S2_10EN_CAT2: Analytical Text Response Essay": {
+  "S1_10EN_CAT2: Analytical Text Response Essay": {
+    "_note": "Rubric criterion 3 names both LA05 and LE04.",
     "Creation of Arguments":              "VC2E10LY08",
     "Structure and Coherence":            "VC2E10LA04",
-    "Effectiveness of Sentence Structures": "VC2E10LA05"
+    "Effectiveness of Sentence Structures": ["VC2E10LA05", "VC2E10LE04"]
   },
 
   "S2_07ADVEN_CAT1: Visual Persuasion": {

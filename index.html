@@ -4,6 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>English 7–10 Assessment Coverage</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Crect width='24' height='24' rx='5' fill='%233f51b5'/%3E%3Cpath d='m6 12.5 4 4.5L18 7.5' fill='none' stroke='white' stroke-width='2.6' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E">
 <style>
   :root{
     color-scheme:light;
@@ -17,7 +18,7 @@
     --toast-bg:#1b2430; --toast-ink:#fff; --veil:rgba(16,24,40,.34); --veil-strong:rgba(16,24,40,.4);
     --shadow:0 1px 2px rgba(16,24,40,.06); --shadow-lg:0 12px 32px rgba(16,24,40,.14);
     --lift:0 4px 14px rgba(16,24,40,.09);
-    --b1:#dfe4ea; --b2:#b7d8c6; --b3:#84c4a5; --b4:#4faa82; --b5:#0f8a5f; --bx:#cfd6de;
+    --b1:#e8b04b; --b2:#c3d08b; --b3:#8cc59a; --b4:#4faa82; --b5:#0b6e4f; --bx:#cfd6de;
     --r:12px; --hdr:170px;
   }
   :root[data-theme="dark"]{
@@ -32,7 +33,7 @@
     --toast-bg:#e7ebf1; --toast-ink:#12161c; --veil:rgba(0,0,0,.6); --veil-strong:rgba(0,0,0,.66);
     --shadow:0 1px 2px rgba(0,0,0,.4); --shadow-lg:0 14px 36px rgba(0,0,0,.6);
     --lift:0 4px 14px rgba(0,0,0,.45);
-    --b1:#3a424c; --b2:#2f5e4b; --b3:#3c7d61; --b4:#49a67d; --b5:#6fd6a6; --bx:#4a5361;
+    --b1:#d2a44a; --b2:#8fa05a; --b3:#3c8d68; --b4:#52b98a; --b5:#8ce8bd; --bx:#4a5361;
   }
   *{box-sizing:border-box}
   html{-webkit-text-size-adjust:100%}
@@ -667,7 +668,7 @@
     if (names.length) h += '<span class="tags">'+names.slice(0,3).map(n=>'<span class="tag">'+esc(n)+'</span>').join("")+
       (names.length>3 ? '<span class="tag">+'+(names.length-3)+'</span>' : '')+'</span>';
     const agg = mergeDists(rs.map(r=>r.dist));
-    if (agg && distTotal(agg)) h += distBar(agg);
+    if (agg && distTotal(agg)) h += distBar(agg)+distNums(agg);
     return h + '</button>';
   }
 
@@ -755,7 +756,8 @@
       '<option value="added"'+(ui.asort==="added"?' selected':'')+'>date added to tracker</option>'+
       '</select></div>';
 
-    return sortBar+'<div class="alist">'+groups.map(g => {
+    const anyLegend = groups.some(g=>g.rows.some(x=>mergeDists(x.dists)));
+    return sortBar+(anyLegend ? distLegend() : '')+'<div class="alist">'+groups.map(g => {
       const n = g.rows.length;
       const meta = [
         dateSpan(g.dates),
@@ -772,7 +774,7 @@
           (x.n>1 ? ' <span class="times">assessed '+x.n+'×</span>' : '')+
           (ag && distTotal(ag) ? distNums(ag)+distBar(ag) : '')+'</span></div>'; }
         ).join("")+'</div>'+
-        (g.rows.some(x=>mergeDists(x.dists)) ? distLegend() : '')+'</div>';
+        '</div>';
     }).join("")+'</div>';
   }
   /* ---- tidying ----

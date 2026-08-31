@@ -49,7 +49,8 @@
   h1{margin:0;font-size:20px;letter-spacing:-.01em;font-weight:650}
   .sub{color:var(--muted);font-size:12.5px;margin-top:2px}
   .spacer{flex:1}
-  .filters{display:flex;flex-wrap:wrap;gap:8px;align-items:center;padding:12px 0 14px}
+  .filters{display:flex;flex-wrap:wrap;gap:8px;align-items:center;padding:12px 0 14px;
+    position:sticky;top:0;z-index:40;background:var(--header-bg);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px)}
 
   .seg{display:inline-flex;background:var(--line-soft);border:1px solid var(--line);border-radius:9px;padding:2px}
   .seg button{border:0;background:transparent;padding:5px 12px;border-radius:7px;cursor:pointer;
@@ -161,6 +162,7 @@
   .tags{display:flex;flex-wrap:wrap;gap:4px;margin-top:1px}
   .tag{font-size:11px;background:var(--done-soft);color:var(--done);border:1px solid var(--done-line);
     padding:1px 7px;border-radius:99px;max-width:100%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+  .tag.adv{background:var(--accent-soft);color:var(--accent-ink);border-color:var(--line-hover)}
   /* achievement distributions */
   .dbar{display:flex;height:6px;border-radius:99px;overflow:hidden;background:var(--line);margin-top:1px}
   .dbar i{display:block;height:100%}
@@ -278,7 +280,13 @@
       --bg:#fff; --card:#fff; --card-alt:#fff; --ink:#000; --ink-soft:#222; --muted:#555;
       --line:#bbb; --line-soft:#ddd; --accent-soft:#fff; --accent-ink:#000; --shadow:none;
       color-scheme:light}
-    header,#progress,.repbar,.veil,.drawer,.toast,.modal-veil,footer{display:none !important}
+    header,#progress,.repbar,.veil,.drawer,.toast,.modal-veil,footer,.filters,.asort{display:none !important}
+    .pd-card{border:1px solid #bbb;border-radius:0;break-after:page;page-break-after:always;break-inside:avoid}
+    .pd-card:last-child{break-after:auto;page-break-after:auto}
+    .pd-row{break-inside:avoid;page-break-inside:avoid}
+    .pd-adv{background:#fff;border:1px solid #ddd}
+    .pd-mark.plus{background:#fff;color:#000;border:1.5px solid #000}
+    .pd-mark.delta{background:#fff;color:#000;border:1.5px solid #000}
     body{background:#fff}
     main{padding:0 !important;max-width:none}
     .wrap{padding:0;max-width:none}
@@ -636,8 +644,8 @@
       (act?' role="button" tabindex="0" data-act="'+act+'" title="Show these"':'')+
       '><b>'+n+'</b><span>'+l+'</span></div>';
     let h = '<div class="summary"><div class="tiles">';
-    h += tile(doneIn(scope), "content descriptions assessed");
-    h += tile(tasks.size, "assessment task"+(tasks.size===1?"":"s"));
+    h += tile(doneIn(scope), "content descriptions assessed", "covered");
+    h += '<div class="tile clickable" role="button" tabindex="0" data-goview="assessments" title="Open the By-assessment view"><b>'+tasks.size+'</b><span>assessment task'+(tasks.size===1?"":"s")+'</span></div>';
     h += tile(rows.length, "record"+(rows.length===1?"":"s"));
     h += tile(withNotes, "with evidence notes");
     if (noNotes) h += tile(noNotes, "missing a note", "nonotes");
@@ -702,7 +710,8 @@
     }
     h += '</span></span>';
     h += '<span class="cd-text">'+esc(it.description)+'</span>';
-    if (names.length) h += '<span class="tags">'+names.slice(0,3).map(n=>'<span class="tag" data-goto-task="'+esc(n)+'" title="Show this task in the By-assessment view">'+esc(n)+'</span>').join("")+
+    const clsOf = {}; rs.forEach(r => { if (!(r.assessment in clsOf)) clsOf[r.assessment] = r.cls || ""; });
+    if (names.length) h += '<span class="tags">'+names.slice(0,3).map(n=>'<span class="tag'+(/ADV/i.test(clsOf[n])?' adv':'')+'" data-goto-task="'+esc(n)+'" title="'+esc(clsOf[n])+' — show this task in the By-assessment view">'+esc(n)+'</span>').join("")+
       (names.length>3 ? '<span class="tag">+'+(names.length-3)+'</span>' : '')+'</span>';
     const agg = mergeDists(rs.map(r=>r.dist));
     if (agg && distTotal(agg)) h += distBar(agg)+distNums(agg);
@@ -798,8 +807,8 @@
       const n = g.rows.length;
       const meta = [
         dateSpan(g.dates),
-        g.added ? "added "+fmtDate(g.added) : "",
-        [...g.classes].sort().join(", ") || "no class",
+        g.added && !g.dates.includes(g.added) ? "added "+fmtDate(g.added) : "",
+        [...g.classes].sort().join(", "),
         [...g.levels].sort((a,b)=>LEVELS.indexOf(a)-LEVELS.indexOf(b)).map(l=>"Lv "+l).join(", "),
         n+" content description"+(n===1?"":"s")
       ].filter(Boolean);
@@ -1219,6 +1228,12 @@
     }
     const oc = e.target.closest("[data-opencode]");
     if (oc){ openDrawer(oc.getAttribute("data-opencode")); return; }
+    const gv = e.target.closest("[data-goview]");
+    if (gv){
+      ui.view = gv.getAttribute("data-goview");
+      [...$("viewSeg").children].forEach(b => b.classList.toggle("on", b.dataset.view === ui.view));
+      render(); return;
+    }
     const act = e.target.closest("[data-act]");
     if (act){
       ui.status = act.getAttribute("data-act"); ui.view = "curriculum";

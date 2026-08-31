@@ -1165,18 +1165,18 @@
         '<div class="pd-row"><span class="pd-mark '+kind+'">'+(kind==="plus"?"+":"Δ")+'</span><div>'+
         '<div class="pd-skill"><span class="code" data-opencode="'+x.code+'">'+x.code+'</span> '+esc(x.it.description)+'</div>'+
         '<div class="pd-ev">'+(kind==="plus"
-          ? x.high+" of "+x.n+" results at Highly Developed or above"
-          : (relDelta ? (x.n-x.high)+" of "+x.n+" results at Established or below"
-                      : x.low+" of "+x.n+" results at Developing or below"))+' · '+esc(x.tasks)+'</div>'+
-        '<div class="pd-adv'+(kind==="plus"?" ext":"")+'">'+esc(
-          (kind==="plus" ? EXTEND[x.it.substrand] : ADVICE[x.it.substrand]) || GENERIC[kind])+'</div>'+
+          ? x.high+" of "+x.n+" results at Highly Developed or above · "
+          : (relDelta ? "" : x.low+" of "+x.n+" results at Developing or below · "))+esc(x.tasks)+'</div>'+
+        '<div class="pd-adv'+(kind==="delta" && !relDelta ? "" : " ext")+'">'+esc(
+          (kind==="delta" && !relDelta ? ADVICE[x.it.substrand] || GENERIC.delta
+                                       : EXTEND[x.it.substrand] || GENERIC.plus))+'</div>'+
         '</div></div>';
       return '<div class="pd-card"><h4>'+CLS_NAMES[cls]+'</h4>'+
         '<div class="pd-col"><h5>Pluses — going well</h5>'+
         (relPlus ? '<div class="pd-note">No skill has half the cohort at Highly Developed yet — the most secure of the assessed skills:</div>' : '')+
         (pluses.length ? pluses.map(x=>li(x,"plus")).join("") : '<div class="pd-none">No achievement figures yet.</div>')+'</div>'+
         '<div class="pd-col"><h5>Deltas — next teaching effort</h5>'+
-        (relDelta ? '<div class="pd-note">Strong cohort — nothing sits meaningfully below Established. The least secure of its assessed skills, for stretch rather than repair:</div>' : '')+
+        (relDelta ? '<div class="pd-note">Strong cohort — nothing needs repair. Something to work on next:</div>' : '')+
         (deltas.length ? deltas.map(x=>li(x,"delta")).join("") : '<div class="pd-none">No achievement figures yet.</div>')+'</div>'+
         '</div>';
     }).join("")+

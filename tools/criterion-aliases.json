@@ -63,9 +63,9 @@
   },
 
   "S1_10EN_CAT2: Analytical Text Response Essay": {
-    "_note": "Rubric criterion 3 names both LA05 and LE04.",
+    "_note": "Rubric criterion 3 names LA05 and LE04; criterion 4 quotes LA04 and the LY09 review-and-edit description.",
     "Creation of Arguments":              "VC2E10LY08",
-    "Structure and Coherence":            "VC2E10LA04",
+    "Structure and Coherence":            ["VC2E10LA04", "VC2E10LY09"],
     "Effectiveness of Sentence Structures": ["VC2E10LA05", "VC2E10LE04"]
   },
 

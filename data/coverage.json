@@ -1,6 +1,6 @@
 {
  "version": 1,
- "updated": "2026-08-31T03:07:50.675Z",
+ "updated": "2026-08-31T03:12:00.736Z",
  "coverage": {
   "VC2E7LY01": [
    {
@@ -921,6 +921,22 @@
     "dist": {
      "Established": 10,
      "Highly Developed": 14
+    }
+   },
+   {
+    "id": "drj6qqky",
+    "assessment": "S1_10EN_CAT2: Analytical Text Response Essay",
+    "date": "2026-05-06",
+    "added": "2026-08-31",
+    "cls": "10",
+    "notes": "Structure",
+    "dist": {
+     "Requires Support": 32,
+     "Developing": 29,
+     "Established": 54,
+     "Highly Developed": 14,
+     "Exceeding": 2,
+     "(Excluded)": 1
     }
    }
   ],

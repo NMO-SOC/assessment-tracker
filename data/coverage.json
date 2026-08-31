@@ -613,8 +613,8 @@
     "notes": "Organisation and development of ideas.",
     "dist": {
      "Requires Support": 20,
-     "Developing": 31,
-     "Established": 48,
+     "Developing": 35,
+     "Established": 51,
      "Highly Developed": 24,
      "Exceeding": 3,
      "(Excluded)": 5
@@ -693,8 +693,8 @@
     "notes": "Analysis of characters",
     "dist": {
      "Requires Support": 19,
-     "Developing": 31,
-     "Established": 45,
+     "Developing": 37,
+     "Established": 46,
      "Highly Developed": 22,
      "Exceeding": 9,
      "(Excluded)": 5
@@ -711,8 +711,8 @@
     "notes": "Analysis of themes and ideas.",
     "dist": {
      "Requires Support": 19,
-     "Developing": 31,
-     "Established": 45,
+     "Developing": 37,
+     "Established": 46,
      "Highly Developed": 22,
      "Exceeding": 9,
      "(Excluded)": 5
@@ -729,8 +729,8 @@
     "notes": "Interpretation and use of evidence.",
     "dist": {
      "Requires Support": 20,
-     "Developing": 35,
-     "Established": 43,
+     "Developing": 38,
+     "Established": 47,
      "Highly Developed": 24,
      "Exceeding": 4,
      "(Excluded)": 5
@@ -854,9 +854,9 @@
     "cls": "10",
     "notes": "Expression and language",
     "dist": {
-     "Requires Support": 12,
+     "Requires Support": 11,
      "Developing": 25,
-     "Established": 44,
+     "Established": 46,
      "Highly Developed": 21,
      "Exceeding": 1,
      "(Excluded)": 1
@@ -870,7 +870,15 @@
     "date": "2026-02-27",
     "added": "2026-07-30",
     "cls": "10",
-    "notes": "Experiment with vocabulary, text structures and language features for effective and cohesive writing"
+    "notes": "Experiment with vocabulary, text structures and language features for effective and cohesive writing",
+    "dist": {
+     "Requires Support": 16,
+     "Developing": 27,
+     "Established": 75,
+     "Highly Developed": 15,
+     "Exceeding": 2,
+     "(Excluded)": 1
+    }
    },
    {
     "id": "4lra9mi8",
@@ -980,7 +988,7 @@
     "notes": "Use of evidence and metalanguage",
     "dist": {
      "Requires Support": 20,
-     "Developing": 37,
+     "Developing": 38,
      "Established": 25,
      "Highly Developed": 17,
      "Exceeding": 4,
@@ -1028,9 +1036,9 @@
     "cls": "10",
     "notes": "Structure and organisation",
     "dist": {
-     "Requires Support": 16,
+     "Requires Support": 15,
      "Developing": 37,
-     "Established": 34,
+     "Established": 36,
      "Highly Developed": 14,
      "Exceeding": 2,
      "(Excluded)": 1
@@ -1367,9 +1375,9 @@
     "cls": "9",
     "notes": "Vocabulary and written expression.",
     "dist": {
-     "Requires Support": 13,
-     "Developing": 35,
-     "Established": 51,
+     "Requires Support": 14,
+     "Developing": 37,
+     "Established": 55,
      "Highly Developed": 26,
      "Exceeding": 1,
      "(Excluded)": 5
@@ -1426,8 +1434,9 @@
     "notes": "Response to Topic",
     "dist": {
      "Requires Support": 9,
-     "Developing": 10,
-     "Established": 3
+     "Developing": 12,
+     "Established": 5,
+     "Highly Developed": 1
     }
    }
   ],
@@ -1452,9 +1461,9 @@
     "cls": "10",
     "notes": "Understanding of the text and its views and values",
     "dist": {
-     "Requires Support": 10,
-     "Developing": 35,
-     "Established": 30,
+     "Requires Support": 9,
+     "Developing": 34,
+     "Established": 33,
      "Highly Developed": 26,
      "Exceeding": 2,
      "(Excluded)": 1

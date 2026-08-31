@@ -59,7 +59,7 @@
     "Complexity of Ideas":  "VC2E10LY08",
     "Voice":                "VC2E10LE06",
     "Vocabulary":           "VC2E10LA08",
-    "Refinement of Text":   "VC2E10LY09"
+    "Refinement of Text":   ["VC2E10LY09", "VC2E10LA09"]
   },
 
   "S2_10EN_CAT2: Analytical Text Response Essay": {

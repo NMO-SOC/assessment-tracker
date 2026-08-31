@@ -1,6 +1,6 @@
 {
  "version": 1,
- "updated": "2026-08-31T02:19:04.214Z",
+ "updated": "2026-08-31T02:42:03.023Z",
  "coverage": {
   "VC2E7LY01": [
    {
@@ -116,7 +116,11 @@
     "date": "2026-05-27",
     "added": "2026-07-30",
     "cls": "7ADV",
-    "notes": "Themes and Ideas"
+    "notes": "Understanding of themes and ideas",
+    "dist": {
+     "Established": 12,
+     "Highly Developed": 6
+    }
    }
   ],
   "VC2E7LE04": [
@@ -142,7 +146,11 @@
     "date": "2026-05-27",
     "added": "2026-07-30",
     "cls": "7ADV",
-    "notes": "Characters and Events"
+    "notes": "Understanding of characters",
+    "dist": {
+     "Established": 8,
+     "Highly Developed": 10
+    }
    }
   ],
   "VC2E8LY02": [
@@ -1115,7 +1123,12 @@
     "date": "2026-05-27",
     "added": "2026-07-30",
     "cls": "7ADV",
-    "notes": "TEEL Paragraph Structure"
+    "notes": "TEEL paragraph construction",
+    "dist": {
+     "Developing": 1,
+     "Established": 13,
+     "Highly Developed": 4
+    }
    }
   ],
   "VC2E8LE06": [
@@ -1674,6 +1687,20 @@
      "Established": 4,
      "Highly Developed": 12,
      "Exceeding": 3
+    }
+   }
+  ],
+  "VC2E7LY06": [
+   {
+    "id": "krvozi6g",
+    "assessment": "S1_07ADVEN_CAT3: Trash Passage Analysis",
+    "date": "2026-05-27",
+    "added": "2026-08-31",
+    "cls": "7ADV",
+    "notes": "Understanding of events and structures",
+    "dist": {
+     "Established": 12,
+     "Highly Developed": 6
     }
    }
   ]

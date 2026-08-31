@@ -1,6 +1,6 @@
 {
  "version": 1,
- "updated": "2026-08-31T02:10:26.737Z",
+ "updated": "2026-08-31T02:19:04.214Z",
  "coverage": {
   "VC2E7LY01": [
    {
@@ -1630,6 +1630,51 @@
     "added": "2026-08-11",
     "cls": "7ADV",
     "notes": "Written Analysis, persuasive devices and TEEL Paragraph"
+   }
+  ],
+  "VC2E10LY01": [
+   {
+    "id": "n14054aq",
+    "assessment": "S2_10ADVEN_CAT2: Speaking Early Modern English",
+    "date": "2026-08-31",
+    "added": "2026-08-31",
+    "cls": "10ADV",
+    "notes": "Interacts spontaneously and discusses language in conversation",
+    "dist": {
+     "Established": 4,
+     "Highly Developed": 10,
+     "Exceeding": 5
+    }
+   }
+  ],
+  "VC2E10LE05": [
+   {
+    "id": "e6xoxvnk",
+    "assessment": "S2_10ADVEN_CAT2: Speaking Early Modern English",
+    "date": "2026-08-31",
+    "added": "2026-08-31",
+    "cls": "10ADV",
+    "notes": "Sustains an authentic Early Modern English voice",
+    "dist": {
+     "Established": 4,
+     "Highly Developed": 9,
+     "Exceeding": 6
+    }
+   }
+  ],
+  "VC2E10LA01": [
+   {
+    "id": "3z5m98bx",
+    "assessment": "S2_10ADVEN_CAT2: Speaking Early Modern English",
+    "date": "2026-08-31",
+    "added": "2026-08-31",
+    "cls": "10ADV",
+    "notes": "Uses Early Modern English forms of address and social register",
+    "dist": {
+     "Established": 4,
+     "Highly Developed": 12,
+     "Exceeding": 3
+    }
    }
   ]
  }

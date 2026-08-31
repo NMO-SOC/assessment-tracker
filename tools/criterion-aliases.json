@@ -87,6 +87,11 @@
     "Construction and expression of the analytical essay": ["VC2E10LA04", "VC2E10LA08"]
   },
 
+  "S2_10ADVEN_CAT2: Speaking Early Modern English": {
+    "_note": "Compass truncates this column heading ('registe').",
+    "Uses Early Modern English forms of address and social registe": "VC2E10LA01"
+  },
+
   "S1_10ADVEN_CAT1: Love Framework of Ideas": {
     "_note": "This rubric names its own codes in the column headings, so they win. The records were re-pointed to match: LA02 -> LE06 and LE04 -> LY07, with LA01 and LA07 added.",
     "Analyses representations of love VC2E10LY07 &  VC2E10LA01": ["VC2E10LY07", "VC2E10LA01"],

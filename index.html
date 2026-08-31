@@ -1113,21 +1113,21 @@
     "Word knowledge":"Short daily morphology and spelling-pattern routines using words from the current text, not isolated lists."
   };
   const EXTEND = {
-    "Language for interacting with others":"Extend: give them the register wheel to spin — same argument delivered to a peer, a principal, a parliament. Chairing and rebuttal roles in structured debate.",
-    "Text structure and organisation":"Extend: write the same content in two different structures and justify which serves the purpose better; deliberately subvert a convention for effect.",
-    "Language for expressing and developing ideas":"Extend: close imitation of sophisticated stylists — match an author's syntax for a paragraph, then break it deliberately for rhetorical effect.",
-    "Literature and contexts":"Extend: independent pairing — find a text from another era or culture treating the same idea, and account for the differences in context.",
-    "Engaging with and responding to literature":"Extend: put a published review or critical reading in front of them and have them stake and defend a position against it.",
-    "Examining literature":"Extend: synthesis paragraphs tracking one device across a whole text, or comparing how two texts deploy the same device to different ends.",
-    "Creating literature":"Extend: sustained pieces in hybrid or unfamiliar forms, external audiences — competitions, school publications — and self-set formal constraints.",
-    "Interacting with others":"Extend: hand over the room — student-led Socratic seminars, chairing discussions, presenting to authentic audiences beyond the class.",
-    "Texts in context":"Extend: create their own media text for a chosen audience and platform, then defend every representational choice in a maker's statement.",
-    "Analysing, interpreting and evaluating":"Extend: weigh two competing interpretations of the same text and argue which the evidence better supports — analysis as adjudication.",
-    "Creating texts":"Extend: real publication for real audiences; unfamiliar multimodal forms; self-imposed constraints (word limits, banned words, structural rules).",
-    "Word knowledge":"Extend: etymology as a lens — trace word families across texts, and precision-editing challenges where every word must earn its place."
+    "Language for interacting with others":"give them the register wheel to spin — same argument delivered to a peer, a principal, a parliament. Chairing and rebuttal roles in structured debate.",
+    "Text structure and organisation":"write the same content in two different structures and justify which serves the purpose better; deliberately subvert a convention for effect.",
+    "Language for expressing and developing ideas":"close imitation of sophisticated stylists — match an author's syntax for a paragraph, then break it deliberately for rhetorical effect.",
+    "Literature and contexts":"independent pairing — find a text from another era or culture treating the same idea, and account for the differences in context.",
+    "Engaging with and responding to literature":"put a published review or critical reading in front of them and have them stake and defend a position against it.",
+    "Examining literature":"synthesis paragraphs tracking one device across a whole text, or comparing how two texts deploy the same device to different ends.",
+    "Creating literature":"sustained pieces in hybrid or unfamiliar forms, external audiences — competitions, school publications — and self-set formal constraints.",
+    "Interacting with others":"hand over the room — student-led Socratic seminars, chairing discussions, presenting to authentic audiences beyond the class.",
+    "Texts in context":"create their own media text for a chosen audience and platform, then defend every representational choice in a maker's statement.",
+    "Analysing, interpreting and evaluating":"weigh two competing interpretations of the same text and argue which the evidence better supports — analysis as adjudication.",
+    "Creating texts":"real publication for real audiences; unfamiliar multimodal forms; self-imposed constraints (word limits, banned words, structural rules).",
+    "Word knowledge":"etymology as a lens — trace word families across texts, and precision-editing challenges where every word must earn its place."
   };
   const GENERIC = {
-    plus: "Extend: raise the ceiling — authentic audiences, self-set constraints, and tasks that ask them to justify their choices, not just make them.",
+    plus: "Raise the ceiling — authentic audiences, self-set constraints, and tasks that ask them to justify their choices, not just make them.",
     delta:"Model the skill explicitly, practise it in short focused bursts inside current work, and give feedback against one criterion at a time."
   };
   function renderPlusDelta(){
@@ -1176,7 +1176,8 @@
         '<div class="pd-ev">'+(kind==="plus"
           ? x.high+" of "+x.n+" results at Highly Developed or above · "
           : (relDelta ? "" : x.low+" of "+x.n+" results at Developing or below · "))+esc(x.tasks)+'</div>'+
-        '<div class="pd-adv'+(kind==="delta" && !relDelta ? "" : " ext")+'">'+esc(
+        '<div class="pd-adv'+(kind==="delta" && !relDelta ? "" : " ext")+'"><b>'+
+          (kind==="delta" && !relDelta ? "Support:" : "Extend:")+'</b> '+esc(
           (kind==="delta" && !relDelta ? ADVICE[x.it.substrand] || GENERIC.delta
                                        : EXTEND[x.it.substrand] || GENERIC.plus))+'</div>'+
         '</div></div>';

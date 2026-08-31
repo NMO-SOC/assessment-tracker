@@ -185,6 +185,19 @@
   .tag[data-goto-task]{cursor:pointer} .tag[data-goto-task]:hover{border-color:var(--accent);color:var(--accent-ink)}
   .crit-row .code[data-opencode]{cursor:pointer} .crit-row .code[data-opencode]:hover{text-decoration:underline}
   .acard.flash{outline:2px solid var(--accent);outline-offset:2px;transition:outline-color .3s}
+  .pd-wrap{display:flex;flex-direction:column;gap:14px}
+  .pd-card{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:16px 18px}
+  .pd-card h4{margin:0 0 10px;font-size:15px}
+  .pd-card h5{margin:12px 0 6px;font-size:12px;text-transform:uppercase;letter-spacing:.04em;color:var(--muted)}
+  .pd-row{display:flex;gap:10px;padding:7px 0;border-top:1px solid var(--line-soft)}
+  .pd-mark{flex:0 0 22px;height:22px;border-radius:6px;display:inline-flex;align-items:center;justify-content:center;font-weight:700;font-size:14px}
+  .pd-mark.plus{background:var(--b4);color:var(--on-accent)}
+  .pd-mark.delta{background:var(--b1);color:#3a2d10}
+  .pd-skill{font-size:13.5px;color:var(--ink-soft)}
+  .pd-skill .code{margin-right:4px}
+  .pd-ev{font-size:12px;color:var(--muted);margin-top:2px}
+  .pd-adv{font-size:12.5px;color:var(--ink-soft);margin-top:4px;padding:6px 9px;background:var(--accent-soft);border-radius:7px}
+  .pd-none{font-size:12.5px;color:var(--muted);padding:6px 0}
   .asort{font-size:13px;color:var(--muted);margin:2px 0 12px}
   .asort select{font:inherit;color:var(--ink);background:var(--card);border:1px solid var(--line);border-radius:7px;padding:3px 6px;margin-left:4px}
   .acard .codes{display:flex;flex-wrap:wrap;gap:5px}
@@ -345,6 +358,7 @@
         <button data-view="curriculum" class="on">Curriculum</button>
         <button data-view="assessments">By assessment</button>
         <button data-view="report">Report</button>
+        <button data-view="plusdelta">+ / Δ</button>
       </div>
     </div>
   </div>
@@ -1064,10 +1078,78 @@
   }
 
   /* ---- render ---- */
+  /* ---- pluses and deltas ----
+     Per cohort: what the evidence says students handle well (+) and where the
+     next teaching effort belongs (Δ). Computed fresh from the records each
+     render, so new assessment figures move the lists automatically.          */
+  const CLS_NAMES = {"7":"Year 7 English","7ADV":"Year 7 Advanced English",
+    "8":"Year 8 English","8ADV":"Year 8 Advanced English",
+    "9":"Year 9 English","9ADV":"Year 9 Advanced English",
+    "10":"Year 10 English","10ADV":"Year 10 Advanced English"};
+  const CLS_ORDER = ["7","7ADV","8","8ADV","9","9ADV","10","10ADV"];
+  const ADVICE = {
+    "Language for interacting with others":"Short structured talk routines — sentence stems that force evaluative language, and explicit register-switching practice (formal vs peer).",
+    "Text structure and organisation":"Deconstruct model texts before writing; colour-code paragraph jobs (TEEL) and have students reverse-outline their own drafts to expose gaps in cohesion.",
+    "Language for expressing and developing ideas":"Sentence-level work in context: sentence combining, vocabulary upgrades inside current drafts, one grammatical focus per lesson applied immediately.",
+    "Literature and contexts":"Pair the text with one short contextual source and require a single sentence linking a textual detail to context before asking for paragraphs.",
+    "Engaging with and responding to literature":"Low-stakes response journals plus agree/build/challenge discussion so opinions get formed and defended with evidence before formal writing.",
+    "Examining literature":"Close reading of short passages: annotate one device, name its effect, write one analytical sentence. Build to paragraphs only once the sentence is reliable.",
+    "Creating literature":"Mentor sentences and imitation — borrow a structure or device from the studied text, transplant it into their own writing, then reflect on the effect.",
+    "Interacting with others":"More unscripted speaking: one-minute impromptu responses, small-group roles, explicit feedback on listening-and-responding moves rather than delivery alone.",
+    "Texts in context":"Compare how one issue is represented across two texts or platforms; quick 'who made this, for whom, why' breakdowns of media texts.",
+    "Analysing, interpreting and evaluating":"Model the what–how–why move from naming a feature to its effect on the audience, then fade the scaffold across the term.",
+    "Creating texts":"Full plan–draft–publish cycles for real audiences; keep a class checklist of language features and require deliberate use of two per draft.",
+    "Word knowledge":"Short daily morphology and spelling-pattern routines using words from the current text, not isolated lists."
+  };
+  function renderPlusDelta(){
+    const W = {"Requires Support":0,"Developing":1,"Established":2,"Highly Developed":3,"Exceeding":4};
+    const byCls = {};
+    Object.keys(coverage).forEach(code => coverage[code].forEach(r => {
+      if (!r.dist || !r.cls || !byCode[code]) return;
+      const g = (byCls[r.cls] = byCls[r.cls] || {});
+      const e = (g[code] = g[code] || {dist:{}, tasks:new Set()});
+      BANDS.forEach(b => { if (r.dist[b]) e.dist[b] = (e.dist[b]||0) + r.dist[b]; });
+      e.tasks.add(r.assessment.replace(/^S\d_\w+:\s*/,""));
+    }));
+    let classes = CLS_ORDER.filter(c => byCls[c]);
+    if (ui.cls) classes = classes.filter(c => c === ui.cls);
+    if (ui.level) classes = classes.filter(c => c.replace("ADV","") === ui.level);
+    if (!classes.length) return '<div class="empty-state">No achievement figures yet for this selection — import a Compass export to populate this view.</div>';
+
+    return '<div class="pd-wrap">'+classes.map(cls => {
+      const rows = Object.keys(byCls[cls]).map(code => {
+        const e = byCls[cls][code], it = byCode[code];
+        const n = distTotal(e.dist);
+        const high = (e.dist["Highly Developed"]||0)+(e.dist["Exceeding"]||0);
+        const low  = (e.dist["Requires Support"]||0)+(e.dist["Developing"]||0);
+        return {code, it, n, high, low, pctHigh:high/n, pctLow:low/n,
+                tasks:[...e.tasks].join(", ")};
+      }).filter(x => x.n >= 6);
+      const pluses = rows.filter(x=>x.pctHigh>=0.5).sort((a,b)=>b.pctHigh-a.pctHigh || b.n-a.n).slice(0,3);
+      const deltas = rows.filter(x=>x.pctLow>=0.25).sort((a,b)=>b.pctLow-a.pctLow || b.n-a.n).slice(0,3);
+      const li = (x, kind) =>
+        '<div class="pd-row"><span class="pd-mark '+kind+'">'+(kind==="plus"?"+":"Δ")+'</span><div>'+
+        '<div class="pd-skill"><span class="code" data-opencode="'+x.code+'">'+x.code+'</span> '+esc(x.it.description)+'</div>'+
+        '<div class="pd-ev">'+(kind==="plus"
+          ? x.high+" of "+x.n+" results at Highly Developed or above"
+          : x.low+" of "+x.n+" results at Developing or below")+' · '+esc(x.tasks)+'</div>'+
+        (kind==="delta" && ADVICE[x.it.substrand] ? '<div class="pd-adv">'+esc(ADVICE[x.it.substrand])+'</div>' : '')+
+        '</div></div>';
+      return '<div class="pd-card"><h4>'+CLS_NAMES[cls]+'</h4>'+
+        '<div class="pd-col"><h5>Pluses — going well</h5>'+
+        (pluses.length ? pluses.map(x=>li(x,"plus")).join("") : '<div class="pd-none">No skill has half the cohort at Highly Developed yet.</div>')+'</div>'+
+        '<div class="pd-col"><h5>Deltas — next teaching effort</h5>'+
+        (deltas.length ? deltas.map(x=>li(x,"delta")).join("") : '<div class="pd-none">No assessed skill has a quarter of the cohort below Established — no clear delta from the evidence so far.</div>')+'</div>'+
+        '</div>';
+    }).join("")+
+    '<div class="foot" style="margin-top:10px">Drawn from cohort figures on assessed skills only (at least 6 results). Lists move as new assessments are imported.</div></div>';
+  }
+
   function render(){
     renderSummary();
     $("progress").style.display = ui.view === "report" ? "none" : "";
     $("content").innerHTML = ui.view === "report" ? renderReport()
+      : ui.view === "plusdelta" ? renderPlusDelta()
       : ui.view === "assessments" ? renderAssessments() : renderMatrix();
     const cls = new Set(), ass = new Set();
     Object.values(coverage).forEach(a => a.forEach(r => { if (r.cls) cls.add(r.cls); ass.add(r.assessment); }));

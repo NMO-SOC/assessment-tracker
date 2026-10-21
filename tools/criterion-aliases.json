@@ -73,6 +73,12 @@
     "Written Analysis, persuasive devices and TEEL Paragraph": ["VC2E7LY05", "VC2E7LA04"]
   },
 
+  "S2_07EN_CAT1: TEEL Paragraph": {
+    "_note": "Rubric also lists LE03 under Analytical Language; recorded once (against Evidence and Analysis) to avoid double-counting students.",
+    "Evidence and Analysis": ["VC2E7LE03", "VC2E7LY04"],
+    "Writing Conventions":   ["VC2E7LA05", "VC2E7LY09"]
+  },
+
   "S2_09EN: Memoir Task": {
     "Analysing style, mood and tone - students learn to analyse how vocabulary choices contribute to style, mood and tone.": "VC2E9LA08",
     "Literary text structures, language features and devices, and voice - create texts that experiment with literary text structures, language features and devices, and voice, for purposes and audiences. Students learn to edit their own texts to improve sentence structure and vocabulary.": "VC2E9LE06",

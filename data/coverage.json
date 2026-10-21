@@ -1,6 +1,6 @@
 {
  "version": 1,
- "updated": "2026-09-08T21:54:03.419Z",
+ "updated": "2026-10-21T01:06:21.537Z",
  "coverage": {
   "VC2E7LY01": [
    {
@@ -1038,6 +1038,21 @@
      "Established": 9,
      "Highly Developed": 10
     }
+   },
+   {
+    "id": "qzancjm0",
+    "assessment": "S2_07EN_CAT1: TEEL Paragraph",
+    "date": "2026-10-21",
+    "added": "2026-10-21",
+    "cls": "7",
+    "notes": "Evidence and Analysis",
+    "dist": {
+     "Requires Support": 6,
+     "Developing": 33,
+     "Established": 39,
+     "Highly Developed": 17,
+     "(Excluded)": 1
+    }
    }
   ],
   "VC2E7LA02": [
@@ -1643,6 +1658,92 @@
     "dist": {
      "Established": 12,
      "Highly Developed": 6
+    }
+   },
+   {
+    "id": "u6k6d1jm",
+    "assessment": "S2_07EN_CAT1: TEEL Paragraph",
+    "date": "2026-10-21",
+    "added": "2026-10-21",
+    "cls": "7",
+    "notes": "TEEL Structure",
+    "dist": {
+     "Requires Support": 6,
+     "Developing": 18,
+     "Established": 51,
+     "Highly Developed": 21,
+     "(Excluded)": 1
+    }
+   }
+  ],
+  "VC2E7LY04": [
+   {
+    "id": "m9a7qx2h",
+    "assessment": "S2_07EN_CAT1: TEEL Paragraph",
+    "date": "2026-10-21",
+    "added": "2026-10-21",
+    "cls": "7",
+    "notes": "Evidence and Analysis",
+    "dist": {
+     "Requires Support": 6,
+     "Developing": 33,
+     "Established": 39,
+     "Highly Developed": 17,
+     "(Excluded)": 1
+    }
+   }
+  ],
+  "VC2E7LA08": [
+   {
+    "id": "fa93sg3g",
+    "assessment": "S2_07EN_CAT1: TEEL Paragraph",
+    "date": "2026-10-21",
+    "added": "2026-10-21",
+    "cls": "7",
+    "notes": "Analytical Language",
+    "dist": {
+     "Requires Support": 8,
+     "Developing": 29,
+     "Established": 40,
+     "Highly Developed": 17,
+     "Exceeding": 2,
+     "(Excluded)": 1
+    }
+   }
+  ],
+  "VC2E7LA05": [
+   {
+    "id": "xt60zrid",
+    "assessment": "S2_07EN_CAT1: TEEL Paragraph",
+    "date": "2026-10-21",
+    "added": "2026-10-21",
+    "cls": "7",
+    "notes": "Writing Conventions",
+    "dist": {
+     "Requires Support": 7,
+     "Developing": 32,
+     "Established": 39,
+     "Highly Developed": 16,
+     "Exceeding": 2,
+     "(Excluded)": 1
+    }
+   }
+  ],
+  "VC2E7LY09": [
+   {
+    "id": "i4dsn7o8",
+    "assessment": "S2_07EN_CAT1: TEEL Paragraph",
+    "date": "2026-10-21",
+    "added": "2026-10-21",
+    "cls": "7",
+    "notes": "Writing Conventions",
+    "dist": {
+     "Requires Support": 7,
+     "Developing": 32,
+     "Established": 39,
+     "Highly Developed": 16,
+     "Exceeding": 2,
+     "(Excluded)": 1
     }
    }
   ]

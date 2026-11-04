@@ -1,6 +1,6 @@
 {
  "version": 1,
- "updated": "2026-11-04T00:20:42.029Z",
+ "updated": "2026-11-04T00:57:45.842Z",
  "coverage": {
   "VC2E7LY01": [
    {
@@ -954,6 +954,19 @@
      "Exceeding": 4,
      "(Excluded)": 1
     }
+   },
+   {
+    "id": "rzozc3h7",
+    "assessment": "S2_10EN_CAT3: Macbeth Analytical Text Response Essay",
+    "date": "2026-11-04",
+    "added": "2026-11-04",
+    "cls": "10",
+    "notes": "Literary analysis of structure, language, and devices",
+    "dist": {
+     "Developing": 3,
+     "Established": 7,
+     "Highly Developed": 13
+    }
    }
   ],
   "VC2E10LA04": [
@@ -1508,6 +1521,19 @@
      "Highly Developed": 16,
      "Exceeding": 5
     }
+   },
+   {
+    "id": "pgy4vkdt",
+    "assessment": "S2_10EN_CAT3: Macbeth Analytical Text Response Essay",
+    "date": "2026-11-04",
+    "added": "2026-11-04",
+    "cls": "10",
+    "notes": "Evaluation and Substantiation",
+    "dist": {
+     "Established": 3,
+     "Highly Developed": 14,
+     "Exceeding": 6
+    }
    }
   ],
   "VC2E10LY02": [
@@ -1617,6 +1643,20 @@
      "Established": 4,
      "Highly Developed": 10,
      "Exceeding": 5
+    }
+   },
+   {
+    "id": "q23gy1ys",
+    "assessment": "S2_10EN_CAT3: Macbeth Analytical Text Response Essay",
+    "date": "2026-11-04",
+    "added": "2026-11-04",
+    "cls": "10",
+    "notes": "Expressing and analysing opinions about text",
+    "dist": {
+     "Developing": 1,
+     "Established": 3,
+     "Highly Developed": 15,
+     "Exceeding": 4
     }
    }
   ],

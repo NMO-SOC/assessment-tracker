@@ -1,6 +1,6 @@
 {
  "version": 1,
- "updated": "2026-10-21T01:06:21.537Z",
+ "updated": "2026-11-04T00:20:42.029Z",
  "coverage": {
   "VC2E7LY01": [
    {
@@ -1744,6 +1744,49 @@
      "Highly Developed": 16,
      "Exceeding": 2,
      "(Excluded)": 1
+    }
+   }
+  ],
+  "VC2E9LE05": [
+   {
+    "id": "kdzhzxej",
+    "assessment": "S2_09ADVEN_CAT3: Text Response Essay",
+    "date": "2026-11-04",
+    "added": "2026-11-04",
+    "cls": "9ADV",
+    "notes": "Analysing the ideas and concerns of the text",
+    "dist": {
+     "Established": 2,
+     "Highly Developed": 15
+    }
+   }
+  ],
+  "VC2E9LA04": [
+   {
+    "id": "6vj6ihlo",
+    "assessment": "S2_09ADVEN_CAT3: Text Response Essay",
+    "date": "2026-11-04",
+    "added": "2026-11-04",
+    "cls": "9ADV",
+    "notes": "Structure and cohesion of the essay",
+    "dist": {
+     "Established": 5,
+     "Highly Developed": 11,
+     "Exceeding": 1
+    }
+   }
+  ],
+  "VC2E9LA06": [
+   {
+    "id": "6b4xypey",
+    "assessment": "S2_09ADVEN_CAT3: Text Response Essay",
+    "date": "2026-11-04",
+    "added": "2026-11-04",
+    "cls": "9ADV",
+    "notes": "Vocabulary and abstract language",
+    "dist": {
+     "Established": 6,
+     "Highly Developed": 11
     }
    }
   ]

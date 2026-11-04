@@ -7,103 +7,133 @@
     "treats '&' as 'and', so only genuine wording differences need an entry here.",
     "Every line below is a judgement call — re-check if a rubric changes."
   ],
-
   "S1_07ADVEN_26_CAT1: Creative Writing - Newspaper Report": {
     "Evidence of voice, audience, journalsitic style": "VC2E7LY08",
-    "Language features":                               "VC2E7LE06",
-    "Understaning of newspaper structure":             "VC2E7LA03",
-    "Use of grammar, punctuation, spelling":           "VC2E7LA09"
+    "Language features": "VC2E7LE06",
+    "Understaning of newspaper structure": "VC2E7LA03",
+    "Use of grammar, punctuation, spelling": "VC2E7LA09"
   },
-
   "S1_07ADVEN_26_CAT2: Trash Chapter Expert Task": {
     "Analysis of language, perspective and authors choices": "VC2E7LE03"
   },
-
   "S1_08ADVEN_26_CAT1: Creative Writing - Sympathetic Character": {
-    "Charatcer development":          "VC2E8LE06",
+    "Charatcer development": "VC2E8LE06",
     "Control of writing conventions": "VC2E8LA05",
-    "Narrative writing style":        "VC2E8LA03"
+    "Narrative writing style": "VC2E8LA03"
   },
-
   "S1_08ADVEN_26_CAT2: Neurodivergence Research Report": {
     "Structure and organisation of the presentation": "VC2E8LY08",
     "Use of language and vocabulary - reflecting mood, style and tone": "VC2E8LA08"
   },
-
   "S1_09EN_CAT2: Creative Writing": {
-    "Literary Features":  "VC2E9LE06",
-    "Proofreading":       "VC2E9LY09",
-    "Quality of Idea":    "VC2E9LY08",
-    "Vocabulary Choice":  "VC2E9LA08"
+    "Literary Features": "VC2E9LE06",
+    "Proofreading": "VC2E9LY09",
+    "Quality of Idea": "VC2E9LY08",
+    "Vocabulary Choice": "VC2E9LA08"
   },
-
   "S1_09ADVEN_CAT2: Personal Text Response": {
     "Positioning in Text": "VC2E9LE03",
-    "Refinement":          "VC2E9LY09",
+    "Refinement": "VC2E9LY09",
     "Voice and Structure": "VC2E9LE06",
-    "Evaluation":          "VC2E9LY04"
+    "Evaluation": "VC2E9LY04"
   },
-
   "S1_10ADVEN1_CAT1: Personal Text Response": {
     "Personal Interpretation": "VC2E10LE02",
-    "Positioning in Text":     "VC2E10LE03",
-    "Refinement":              "VC2E10LY09",
-    "Voice and Structure":     "VC2E10LE06"
+    "Positioning in Text": "VC2E10LE03",
+    "Refinement": "VC2E10LY09",
+    "Voice and Structure": "VC2E10LE06"
   },
-
   "S1_10ADVEN_CAT2: English Conventions": {
-    "Sentence Structures & Punctuation": ["VC2E10LA05", "VC2E10LA09"]
+    "Sentence Structures & Punctuation": [
+      "VC2E10LA05",
+      "VC2E10LA09"
+    ]
   },
-
   "S1_10EN_CAT1: Creative Writing": {
-    "Complexity of Ideas":  "VC2E10LY08",
-    "Voice":                "VC2E10LE06",
-    "Vocabulary":           "VC2E10LA08",
-    "Refinement of Text":   ["VC2E10LY09", "VC2E10LA09"]
+    "Complexity of Ideas": "VC2E10LY08",
+    "Voice": "VC2E10LE06",
+    "Vocabulary": "VC2E10LA08",
+    "Refinement of Text": [
+      "VC2E10LY09",
+      "VC2E10LA09"
+    ]
   },
-
   "S1_10EN_CAT2: Analytical Text Response Essay": {
     "_note": "Rubric criterion 3 names LA05 and LE04; criterion 4 quotes LA04 and the LY09 review-and-edit description.",
-    "Creation of Arguments":              "VC2E10LY08",
-    "Structure and Coherence":            ["VC2E10LA04", "VC2E10LY09"],
-    "Effectiveness of Sentence Structures": ["VC2E10LA05", "VC2E10LE04"]
+    "Creation of Arguments": "VC2E10LY08",
+    "Structure and Coherence": [
+      "VC2E10LA04",
+      "VC2E10LY09"
+    ],
+    "Effectiveness of Sentence Structures": [
+      "VC2E10LA05",
+      "VC2E10LE04"
+    ]
   },
-
   "S2_07ADVEN_CAT1: Visual Persuasion": {
-    "Written Analysis, persuasive devices and TEEL Paragraph": ["VC2E7LY05", "VC2E7LA04"]
+    "Written Analysis, persuasive devices and TEEL Paragraph": [
+      "VC2E7LY05",
+      "VC2E7LA04"
+    ]
   },
-
   "S2_07EN_CAT1: TEEL Paragraph": {
     "_note": "Rubric also lists LE03 under Analytical Language; recorded once (against Evidence and Analysis) to avoid double-counting students.",
-    "Evidence and Analysis": ["VC2E7LE03", "VC2E7LY04"],
-    "Writing Conventions":   ["VC2E7LA05", "VC2E7LY09"]
+    "Evidence and Analysis": [
+      "VC2E7LE03",
+      "VC2E7LY04"
+    ],
+    "Writing Conventions": [
+      "VC2E7LA05",
+      "VC2E7LY09"
+    ]
   },
-
   "S2_09EN: Memoir Task": {
     "Analysing style, mood and tone - students learn to analyse how vocabulary choices contribute to style, mood and tone.": "VC2E9LA08",
     "Literary text structures, language features and devices, and voice - create texts that experiment with literary text structures, language features and devices, and voice, for purposes and audiences. Students learn to edit their own texts to improve sentence structure and vocabulary.": "VC2E9LE06",
     "Reviewing and editing writing - students learn to review and edit their own texts and the texts of others to improve clarity, coherence and control over content, organisation, paragraphing and sentence structure.": "VC2E9LY09"
   },
-
   "S2_09EN_CAT1: Runner Essay": {
-    "Analysis of characters, themes, and ideas.": ["VC2E9LE01", "VC2E9LE04"]
+    "Analysis of characters, themes, and ideas.": [
+      "VC2E9LE01",
+      "VC2E9LE04"
+    ]
   },
-
   "S2_10ADVEN_CAT1: Analysing Argument": {
-    "Analysis of text structure and organisation of ideas": ["VC2E10LA03", "VC2E10LY06"],
-    "Construction and expression of the analytical essay": ["VC2E10LA04", "VC2E10LA08"]
+    "Analysis of text structure and organisation of ideas": [
+      "VC2E10LA03",
+      "VC2E10LY06"
+    ],
+    "Construction and expression of the analytical essay": [
+      "VC2E10LA04",
+      "VC2E10LA08"
+    ]
   },
-
   "S2_10ADVEN_CAT2: Speaking Early Modern English": {
     "_note": "Compass truncates this column heading ('registe').",
     "Uses Early Modern English forms of address and social registe": "VC2E10LA01"
   },
-
   "S1_10ADVEN_CAT1: Love Framework of Ideas": {
     "_note": "This rubric names its own codes in the column headings, so they win. The records were re-pointed to match: LA02 -> LE06 and LE04 -> LY07, with LA01 and LA07 added.",
-    "Analyses representations of love VC2E10LY07 &  VC2E10LA01": ["VC2E10LY07", "VC2E10LA01"],
-    "Interprets creator's purpose and viewpoint VC2E10LE06 & VC2E10LA07": ["VC2E10LE06", "VC2E10LA07"],
-    "Presents ideas fluently for a specific audience  VC2E10LY02 &  VC2E10LA01": ["VC2E10LY02", "VC2E10LA01"],
-    "Uses evidence and techniques to support interpretation VC2E10LY07 & VC2E10LE06": ["VC2E10LY07", "VC2E10LE06"]
+    "Analyses representations of love VC2E10LY07 &  VC2E10LA01": [
+      "VC2E10LY07",
+      "VC2E10LA01"
+    ],
+    "Interprets creator's purpose and viewpoint VC2E10LE06 & VC2E10LA07": [
+      "VC2E10LE06",
+      "VC2E10LA07"
+    ],
+    "Presents ideas fluently for a specific audience  VC2E10LY02 &  VC2E10LA01": [
+      "VC2E10LY02",
+      "VC2E10LA01"
+    ],
+    "Uses evidence and techniques to support interpretation VC2E10LY07 & VC2E10LE06": [
+      "VC2E10LY07",
+      "VC2E10LE06"
+    ]
+  },
+  "S2_09ADVEN_CAT3: Text Response Essay": {
+    "Text Ideas": "VC2E9LE05",
+    "Essay Structure": "VC2E9LA04",
+    "Vocabulary": "VC2E9LA06"
   }
 }

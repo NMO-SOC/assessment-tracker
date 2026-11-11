@@ -1,6 +1,6 @@
 {
  "version": 1,
- "updated": "2026-11-04T00:57:45.842Z",
+ "updated": "2026-11-11T20:40:14.320Z",
  "coverage": {
   "VC2E7LY01": [
    {
@@ -1245,6 +1245,21 @@
      "Established": 16,
      "Highly Developed": 4
     }
+   },
+   {
+    "id": "8qjz1yxq",
+    "assessment": "S2_08EN_CAT1: Cinematic Techniques in Hunt for the Wilderpeople",
+    "date": "2026-11-12",
+    "added": "2026-11-12",
+    "cls": "8",
+    "notes": "Cinematic Techniques (CAMELS+D)",
+    "dist": {
+     "Requires Support": 4,
+     "Developing": 19,
+     "Established": 47,
+     "Highly Developed": 27,
+     "Exceeding": 8
+    }
    }
   ],
   "VC2E8LA04": [
@@ -1259,6 +1274,21 @@
      "Developing": 2,
      "Established": 17,
      "Highly Developed": 2
+    }
+   },
+   {
+    "id": "7wq1jlm9",
+    "assessment": "S2_08EN_CAT1: Cinematic Techniques in Hunt for the Wilderpeople",
+    "date": "2026-11-12",
+    "added": "2026-11-12",
+    "cls": "8",
+    "notes": "Writing and structuring ideas.",
+    "dist": {
+     "Requires Support": 6,
+     "Developing": 32,
+     "Established": 45,
+     "Highly Developed": 15,
+     "Exceeding": 7
     }
    }
   ],
@@ -1827,6 +1857,40 @@
     "dist": {
      "Established": 6,
      "Highly Developed": 11
+    }
+   }
+  ],
+  "VC2E8LE02": [
+   {
+    "id": "0ek6nla4",
+    "assessment": "S2_08EN_CAT1: Cinematic Techniques in Hunt for the Wilderpeople",
+    "date": "2026-11-12",
+    "added": "2026-11-12",
+    "cls": "8",
+    "notes": "Interpreting ideas and concepts.",
+    "dist": {
+     "Requires Support": 5,
+     "Developing": 25,
+     "Established": 38,
+     "Highly Developed": 28,
+     "Exceeding": 9
+    }
+   }
+  ],
+  "VC2E8LA02": [
+   {
+    "id": "p123kfvo",
+    "assessment": "S2_08EN_CAT1: Cinematic Techniques in Hunt for the Wilderpeople",
+    "date": "2026-11-12",
+    "added": "2026-11-12",
+    "cls": "8",
+    "notes": "Symbolism",
+    "dist": {
+     "Requires Support": 9,
+     "Developing": 34,
+     "Established": 44,
+     "Highly Developed": 8,
+     "Exceeding": 10
     }
    }
   ]

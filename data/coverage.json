@@ -1,6 +1,6 @@
 {
  "version": 1,
- "updated": "2026-11-11T20:40:14.320Z",
+ "updated": "2026-11-11T20:42:00.787Z",
  "coverage": {
   "VC2E7LY01": [
    {
@@ -548,6 +548,22 @@
      "Established": 38,
      "Highly Developed": 17
     }
+   },
+   {
+    "id": "npoyb15p",
+    "assessment": "S2_09EN_CAT2: Hatchet Analytical Essay",
+    "date": "2026-11-12",
+    "added": "2026-11-12",
+    "cls": "9",
+    "notes": "Text structure and written expression",
+    "dist": {
+     "Requires Support": 17,
+     "Developing": 31,
+     "Established": 39,
+     "Highly Developed": 19,
+     "Exceeding": 1,
+     "(Excluded)": 1
+    }
    }
   ],
   "VC2E9LY08": [
@@ -591,6 +607,22 @@
      "Established": 6,
      "Highly Developed": 11,
      "Exceeding": 6
+    }
+   },
+   {
+    "id": "d7xpwn3w",
+    "assessment": "S2_09EN_CAT2: Hatchet Analytical Essay",
+    "date": "2026-11-12",
+    "added": "2026-11-12",
+    "cls": "9",
+    "notes": "Creating a sustained and substantiated argument",
+    "dist": {
+     "Requires Support": 16,
+     "Developing": 34,
+     "Established": 40,
+     "Highly Developed": 16,
+     "Exceeding": 1,
+     "(Excluded)": 1
     }
    }
   ],
@@ -700,6 +732,22 @@
      "Established": 12,
      "Highly Developed": 10,
      "Exceeding": 1
+    }
+   },
+   {
+    "id": "3iatpasw",
+    "assessment": "S2_09EN_CAT2: Hatchet Analytical Essay",
+    "date": "2026-11-12",
+    "added": "2026-11-12",
+    "cls": "9",
+    "notes": "Interpretation and use of evidence",
+    "dist": {
+     "Requires Support": 18,
+     "Developing": 40,
+     "Established": 30,
+     "Highly Developed": 18,
+     "Exceeding": 1,
+     "(Excluded)": 1
     }
    }
   ],
@@ -1387,6 +1435,22 @@
      "Established": 2,
      "Highly Developed": 21
     }
+   },
+   {
+    "id": "eknv33s0",
+    "assessment": "S2_09EN_CAT2: Hatchet Analytical Essay",
+    "date": "2026-11-12",
+    "added": "2026-11-12",
+    "cls": "9",
+    "notes": "Analysing the ideas, concerns, views and/or values",
+    "dist": {
+     "Requires Support": 19,
+     "Developing": 33,
+     "Established": 39,
+     "Highly Developed": 14,
+     "Exceeding": 2,
+     "(Excluded)": 1
+    }
    }
   ],
   "VC2E9LY06": [
@@ -1843,6 +1907,22 @@
      "Established": 5,
      "Highly Developed": 11,
      "Exceeding": 1
+    }
+   },
+   {
+    "id": "6w1d874t",
+    "assessment": "S2_09EN_CAT2: Hatchet Analytical Essay",
+    "date": "2026-11-12",
+    "added": "2026-11-12",
+    "cls": "9",
+    "notes": "Text structure and written expression",
+    "dist": {
+     "Requires Support": 17,
+     "Developing": 31,
+     "Established": 39,
+     "Highly Developed": 19,
+     "Exceeding": 1,
+     "(Excluded)": 1
     }
    }
   ],

@@ -141,5 +141,15 @@
       "VC2E9LA04",
       "VC2E9LY09"
     ]
+  },
+  "S2_10EN_CAT2: Romeo and Juliet Debate or Oral Presentation": {
+    "_note": "Rubric lists LY01 under criteria 1 and 3; recorded once (criterion 1) to avoid double-counting. Delivery has no code on the rubric; LY02 chosen.",
+    "Structured spoken text and argument": [
+      "VC2E10LY01",
+      "VC2E10LA03"
+    ],
+    "Purpose and audience": "VC2E10LA02",
+    "Vocabulary and interaction": "VC2E10LA01",
+    "Delivery": "VC2E10LY02"
   }
 }

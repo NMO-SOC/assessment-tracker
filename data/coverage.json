@@ -1,6 +1,6 @@
 {
  "version": 1,
- "updated": "2026-11-11T20:42:00.787Z",
+ "updated": "2026-11-11T20:43:10.241Z",
  "coverage": {
   "VC2E7LY01": [
    {
@@ -1628,6 +1628,20 @@
      "Highly Developed": 14,
      "Exceeding": 6
     }
+   },
+   {
+    "id": "7srjorr8",
+    "assessment": "S2_10EN_CAT2: Romeo and Juliet Debate or Oral Presentation",
+    "date": "2026-11-12",
+    "added": "2026-11-12",
+    "cls": "10",
+    "notes": "Purpose and audience",
+    "dist": {
+     "Requires Support": 10,
+     "Developing": 12,
+     "Established": 8,
+     "Highly Developed": 11
+    }
    }
   ],
   "VC2E10LY02": [
@@ -1642,6 +1656,20 @@
      "Highly Developed": 11,
      "Exceeding": 5
     }
+   },
+   {
+    "id": "j4a48dwk",
+    "assessment": "S2_10EN_CAT2: Romeo and Juliet Debate or Oral Presentation",
+    "date": "2026-11-12",
+    "added": "2026-11-12",
+    "cls": "10",
+    "notes": "Delivery",
+    "dist": {
+     "Requires Support": 8,
+     "Developing": 8,
+     "Established": 18,
+     "Highly Developed": 7
+    }
    }
   ],
   "VC2E10LA03": [
@@ -1655,6 +1683,20 @@
      "Established": 6,
      "Highly Developed": 12,
      "(Excluded)": 1
+    }
+   },
+   {
+    "id": "nzuz4z44",
+    "assessment": "S2_10EN_CAT2: Romeo and Juliet Debate or Oral Presentation",
+    "date": "2026-11-12",
+    "added": "2026-11-12",
+    "cls": "10",
+    "notes": "Structured spoken text and argument",
+    "dist": {
+     "Requires Support": 8,
+     "Developing": 9,
+     "Established": 15,
+     "Highly Developed": 9
     }
    }
   ],
@@ -1752,6 +1794,20 @@
      "Highly Developed": 15,
      "Exceeding": 4
     }
+   },
+   {
+    "id": "l74s4wq1",
+    "assessment": "S2_10EN_CAT2: Romeo and Juliet Debate or Oral Presentation",
+    "date": "2026-11-12",
+    "added": "2026-11-12",
+    "cls": "10",
+    "notes": "Structured spoken text and argument",
+    "dist": {
+     "Requires Support": 8,
+     "Developing": 9,
+     "Established": 15,
+     "Highly Developed": 9
+    }
    }
   ],
   "VC2E10LE05": [
@@ -1779,6 +1835,20 @@
      "Established": 4,
      "Highly Developed": 12,
      "Exceeding": 3
+    }
+   },
+   {
+    "id": "geza1sph",
+    "assessment": "S2_10EN_CAT2: Romeo and Juliet Debate or Oral Presentation",
+    "date": "2026-11-12",
+    "added": "2026-11-12",
+    "cls": "10",
+    "notes": "Vocabulary and interaction",
+    "dist": {
+     "Requires Support": 10,
+     "Developing": 7,
+     "Established": 19,
+     "Highly Developed": 5
     }
    }
   ],
